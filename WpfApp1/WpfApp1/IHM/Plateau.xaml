@@ -1,57 +1,59 @@
-﻿<Window x:Class="Monopoly.IHM.Plateau"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Monopoly.IHM"
-        mc:Ignorable="d"
-        Title="Plateau" Height="800" Width="1200">
+﻿<Window x:Class="Monopoly.IHM.Plateau"  
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
+       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
+       xmlns:local="clr-namespace:Monopoly.IHM"  
+       mc:Ignorable="d"  
+       Title="Plateau" Height="800" Width="1200">  
 
+   <Grid>  
+       <Grid.ColumnDefinitions>  
+           <ColumnDefinition Width="0.5*" />  
+           <ColumnDefinition Width="2*" />  
+           <ColumnDefinition Width="1*" />  
+           <ColumnDefinition Width="1*" />  
+           <ColumnDefinition Width="1*" />  
+           <ColumnDefinition Width="1*" />  
+           <ColumnDefinition Width="1*" />  
+           <ColumnDefinition Width="1*" />  
+           <ColumnDefinition Width="1*" />  
+           <ColumnDefinition Width="1*" />  
+           <ColumnDefinition Width="1*" />  
+           <ColumnDefinition Width="2*" />  
+           <ColumnDefinition Width="0.5*" />  
+           <ColumnDefinition Width="8*" />  
+       </Grid.ColumnDefinitions>  
+       <Grid.RowDefinitions>  
+           <RowDefinition Height="0.5*" />  
+           <RowDefinition Height="2*"/>  
+           <RowDefinition Height="1*" />  
+           <RowDefinition Height="1*" />  
+           <RowDefinition Height="1*" />  
+           <RowDefinition Height="1*" />  
+           <RowDefinition Height="1*" />  
+           <RowDefinition Height="1*" />  
+           <RowDefinition Height="1*" />  
+           <RowDefinition Height="1*" />  
+           <RowDefinition Height="1*" />  
+           <RowDefinition Height="2*" />  
+           <RowDefinition Height="0.5*" />  
+       </Grid.RowDefinitions>  
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.5*" />
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="0.5*" />
-            <ColumnDefinition Width="8*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*" />
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="0.5*" />
-        </Grid.RowDefinitions>
+       <TextBlock Text="" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="50" Grid.Column="2" Grid.ColumnSpan="9" Grid.Row="2" Grid.RowSpan="9" Background="LightGray" />  
 
-        <TextBlock Text="" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="50" Grid.Column="2" Grid.ColumnSpan="9" Grid.Row="2" Grid.RowSpan="9" Background="LightGray" />
+       <!-- Case plateau -->  
+       
+       <Image x:Name="case_Depart" Source="../Image/case_depart.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="11" Stretch="Fill"/>  
+       <Image x:Name="case_Hongrie" Source="../Image/case_Hongrie.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="10" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
+       <Image x:Name="case_F1Radio1" Source="../Image/case_f1radio1.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="9" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
+       <Image x:Name="case_Canada" Source="../Image/case_Canada.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="8" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
+       <Image x:Name="case_LicencePilote" Source="../Image/case_licencepilote.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="7" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
+       <Image x:Name="case_FormlaE" Source="../Image/case_formlae.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="6" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
+       <Image x:Name="case_Imola" Source="../Image/case_imola.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="5" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
+       <Image x:Name="case_FIA" Source="../Image/case_fia.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="10" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+       <Image x:Name="case_Jeddah" Source="../Image/case_jeddah.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_abudhabi" Source="../Image/case_abu_dabhi.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
 
-        <!-- Case plateau -->
-        <Image x:Name="case_Depart" Source="" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
-        <Image x:Name="case_Hongrie" Source="" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
-        <Image x:Name="case_F1Radio1" Source="" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
-        <Image x:Name="case_Canada" Source="../Image/Case_Monaco.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="7" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
-        <Image x:Name="case_LicencePilote" Source="" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="7" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
-        <Image x:Name="case_FormlaE" Source="" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="8" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
-        <Image x:Name="case_Italie" Source="" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="9" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
-        <Image x:Name="case_FIA" Source="" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="10" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
-
-    </Grid>
+    </Grid>  
 </Window>
