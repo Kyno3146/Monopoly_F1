@@ -55,7 +55,9 @@ namespace WpfApp1.IHM
         /// <param name="e"></param>
         private void JouerPartie(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("La partie va commencer !", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
+            Plateau plateau = new Plateau();
+            plateau.Show();
+            this.Close();
         }
     }
 }
