@@ -7,7 +7,21 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MainWindow.xaml">
+    <Compile Update="IHM\LoginPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="IHM\Register.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="IHM\LoginPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="IHM\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="IHM\Register.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
