@@ -19,3 +19,9 @@ C:\Users\kylli\Documents\Github\Monopoly_F1\WpfApp1\WpfApp1\obj\Debug\net9.0-win
 C:\Users\kylli\Documents\Github\Monopoly_F1\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\Monopoly.pdb
 C:\Users\kylli\Documents\Github\Monopoly_F1\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\Monopoly.genruntimeconfig.cache
 C:\Users\kylli\Documents\Github\Monopoly_F1\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\ref\Monopoly.dll
+C:\Users\kylli\Documents\Github\Monopoly_F1\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\IHM\LoginPage.g.cs
+C:\Users\kylli\Documents\Github\Monopoly_F1\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\IHM\MainWindow.g.cs
+C:\Users\kylli\Documents\Github\Monopoly_F1\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\IHM\Register.g.cs
+C:\Users\kylli\Documents\Github\Monopoly_F1\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\IHM\LoginPage.baml
+C:\Users\kylli\Documents\Github\Monopoly_F1\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\IHM\MainWindow.baml
+C:\Users\kylli\Documents\Github\Monopoly_F1\WpfApp1\WpfApp1\obj\Debug\net9.0-windows\IHM\Register.baml

@@ -10,6 +10,9 @@
     <Compile Update="IHM\LoginPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="IHM\Plateau.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="IHM\Register.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,6 +22,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="IHM\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="IHM\Plateau.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="IHM\Register.xaml">
