@@ -53,6 +53,13 @@
     <None Remove="IHM\Image\dee.png" />
     <None Remove="IHM\Image\fond_middle.jpg" />
     <None Remove="IHM\Image\formula-1-logo.png" />
+    <None Remove="IHM\Image\Monoplaces\Alfa_Romeo.png" />
+    <None Remove="IHM\Image\Monoplaces\Alpine.png" />
+    <None Remove="IHM\Image\Monoplaces\Aston_Martin.png" />
+    <None Remove="IHM\Image\Monoplaces\Ferrari.png" />
+    <None Remove="IHM\Image\Monoplaces\McLaren.png" />
+    <None Remove="IHM\Image\Monoplaces\Mercedes.png" />
+    <None Remove="IHM\Image\Monoplaces\RedBull.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -110,6 +117,13 @@
     <Resource Include="IHM\Image\dee.png" />
     <Resource Include="IHM\Image\fond_middle.jpg" />
     <Resource Include="IHM\Image\formula-1-logo.png" />
+    <Resource Include="IHM\Image\Monoplaces\Alfa_Romeo.png" />
+    <Resource Include="IHM\Image\Monoplaces\Alpine.png" />
+    <Resource Include="IHM\Image\Monoplaces\Aston_Martin.png" />
+    <Resource Include="IHM\Image\Monoplaces\Ferrari.png" />
+    <Resource Include="IHM\Image\Monoplaces\McLaren.png" />
+    <Resource Include="IHM\Image\Monoplaces\Mercedes.png" />
+    <Resource Include="IHM\Image\Monoplaces\RedBull.png" />
   </ItemGroup>
 
 </Project>

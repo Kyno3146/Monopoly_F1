@@ -55,8 +55,8 @@ namespace WpfApp1.IHM
         /// <param name="e"></param>
         private void JouerPartie(object sender, RoutedEventArgs e)
         {
-            Plateau plateau = new Plateau();
-            plateau.Show();
+            SelectF1 selectF1 = new SelectF1();
+            selectF1.Show();
             this.Close();
         }
     }

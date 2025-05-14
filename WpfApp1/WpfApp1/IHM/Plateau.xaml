@@ -5,55 +5,57 @@
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
        xmlns:local="clr-namespace:Monopoly.IHM"  
        mc:Ignorable="d"  
-       Title="Plateau" Height="800" Width="1200" Background="#15161C">  
+       Title="Plateau" Height="800" Width="1200" Background="#15161C">
 
-   <Grid>  
-       <Grid.ColumnDefinitions>  
-           <ColumnDefinition Width="0.5*" />  
-           <ColumnDefinition Width="2*" />  
-           <ColumnDefinition Width="1*" />  
-           <ColumnDefinition Width="1*" />  
-           <ColumnDefinition Width="1*" />  
-           <ColumnDefinition Width="1*" />  
-           <ColumnDefinition Width="1*" />  
-           <ColumnDefinition Width="1*" />  
-           <ColumnDefinition Width="1*" />  
-           <ColumnDefinition Width="1*" />  
-           <ColumnDefinition Width="1*" />  
-           <ColumnDefinition Width="2*" />  
-           <ColumnDefinition Width="0.5*" />  
-           <ColumnDefinition Width="8*" />  
-       </Grid.ColumnDefinitions>  
-       <Grid.RowDefinitions>  
-           <RowDefinition Height="0.5*" />  
-           <RowDefinition Height="2*"/>  
-           <RowDefinition Height="1*" />  
-           <RowDefinition Height="1*" />  
-           <RowDefinition Height="1*" />  
-           <RowDefinition Height="1*" />  
-           <RowDefinition Height="1*" />  
-           <RowDefinition Height="1*" />  
-           <RowDefinition Height="1*" />  
-           <RowDefinition Height="1*" />  
-           <RowDefinition Height="1*" />  
-           <RowDefinition Height="2*" />  
-           <RowDefinition Height="0.5*" />  
-       </Grid.RowDefinitions>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="8*" />
+            <ColumnDefinition Width="0.5*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="0.5*" />
+        </Grid.RowDefinitions>
 
         <TextBlock Text="" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="50" Grid.Column="2" Grid.ColumnSpan="9" Grid.Row="2" Grid.RowSpan="9" Background="#15161C" />
         <Image x:Name="case_Logo" Source="Image/formula-1-logo.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="9" Grid.RowSpan="9" Stretch="Fill"/>
 
-        <!-- Case plateau -->  
-       
-       <Image x:Name="case_Depart" Source="Image/case_depart.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="11" Stretch="Fill"/>  
-       <Image x:Name="case_Hongrie" Source="Image/case_Hongrie.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="10" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
-       <Image x:Name="case_F1Radio1" Source="Image/case_f1_radio1.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="9" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
-       <Image x:Name="case_Canada" Source="Image/case_Canada.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="8" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
+        <!-- Case plateau -->
+        <!--<author>Barthoux Sauze Thomas <author>-->
+
+        <Image x:Name="case_Depart" Source="Image/case_depart.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="11" Stretch="Fill"/>
+        <Image x:Name="case_Hongrie" Source="Image/case_Hongrie.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="10" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_F1Radio1" Source="Image/case_f1_radio1.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="9" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Canada" Source="Image/case_Canada.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="8" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
         <Image x:Name="case_FormlaE" Source="Image/case_formula_e.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="6" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
         <Image x:Name="case_Licence" Source="Image/case_licence.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="7" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
-        <Image x:Name="case_Imola" Source="Image/case_imola.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="5" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
-       <Image x:Name="case_FIA1" Source="Image/case_fia.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
-       <Image x:Name="case_Jeddah" Source="Image/case_jeddah.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Imola" Source="Image/case_imola.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="5" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_FIA1" Source="Image/case_fia.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Jeddah" Source="Image/case_jeddah.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
         <Image x:Name="case_abudhabi" Source="Image/case_gpAbu.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="11" Stretch="Fill"/>
         <Image x:Name="case_RaceBan" Source="Image/case_raceban.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
         <Image x:Name="case_Azerbaijan" Source="Image/case_azerbaijan.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
@@ -86,6 +88,16 @@
         <Image x:Name="case_Amende" Source="Image/case_amende_FIA.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="9" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
         <Image x:Name="case_Monaco" Source="Image/case_monaco.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="10" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
 
-       
-    </Grid>  
+
+        <!-- Menu déroulant iventaire joueur 1 -->
+        <!--<author>Barthoux Sauze Thomas <author>-->
+        <Label Content="Inventaire Joueur 1" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="25" Foreground="White" Background="#15161C" Grid.Column="13" Grid.Row="1" />
+        <ComboBox x:Name="InventaireJoueur1" Grid.Column="13" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Background="White" Foreground="Black" FontSize="20" Text="Inventaire Joueur 1" Margin="0,56,0,0"/>
+        <Label Content="Inventaire Joueur 2" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="25" Foreground="White" Background="#15161C" Grid.Column="13" Grid.Row="3" />
+        <ComboBox x:Name="InventaireJoueur2" Grid.Column="13" Grid.Row="3" Grid.ColumnSpan="1" Grid.RowSpan="2" Background="White" Foreground="Black" FontSize="20" Text="Inventaire Joueur 2" Margin="0,56,0,0"/>
+
+        <!-- Zone ToString() -->
+        <Label Content="Console" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="25" Foreground="White" Background="#15161C" Grid.Column="13" Grid.Row="6" />
+        <TextBlock x:Name="Console" Grid.Column="13" Grid.Row="6" Grid.RowSpan="6" HorizontalAlignment="Center" Margin="0,56,0,0" TextWrapping="Wrap"  Text="" Background="White" Foreground="White" VerticalAlignment="Top" Height="336" Width="329"/>
+    </Grid>
 </Window>

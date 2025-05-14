@@ -16,6 +16,12 @@
     <Compile Update="IHM\Register.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="IHM\SelectF1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="IHM\SelectF1_Joueur2.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="IHM\LoginPage.xaml">
@@ -28,6 +34,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="IHM\Register.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="IHM\SelectF1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="IHM\SelectF1_Joueur2.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
