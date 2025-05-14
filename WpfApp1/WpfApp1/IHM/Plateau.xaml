@@ -44,16 +44,47 @@
 
        <!-- Case plateau -->  
        
-       <Image x:Name="case_Depart" Source="../Image/case_depart.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="11" Stretch="Fill"/>  
-       <Image x:Name="case_Hongrie" Source="../Image/case_Hongrie.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="10" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
-       <Image x:Name="case_F1Radio1" Source="../Image/case_f1radio1.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="9" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
-       <Image x:Name="case_Canada" Source="../Image/case_Canada.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="8" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
-       <Image x:Name="case_LicencePilote" Source="../Image/case_licencepilote.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="7" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
-       <Image x:Name="case_FormlaE" Source="../Image/case_formlae.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="6" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
-       <Image x:Name="case_Imola" Source="../Image/case_imola.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="5" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
-       <Image x:Name="case_FIA" Source="../Image/case_fia.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="10" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
-       <Image x:Name="case_Jeddah" Source="../Image/case_jeddah.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
-        <Image x:Name="case_abudhabi" Source="../Image/case_abu_dabhi.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+       <Image x:Name="case_Depart" Source="Image/case_depart.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="11" Stretch="Fill"/>  
+       <Image x:Name="case_Hongrie" Source="Image/case_Hongrie.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="10" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
+       <Image x:Name="case_F1Radio1" Source="Image/case_f1_radio1.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="9" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
+       <Image x:Name="case_Canada" Source="Image/case_Canada.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="8" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
+        <Image x:Name="case_FormlaE" Source="Image/case_formula_e.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="6" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Licence" Source="Image/case_licence.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="7" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Imola" Source="Image/case_imola.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="5" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>  
+       <Image x:Name="case_FIA1" Source="Image/case_fia.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+       <Image x:Name="case_Jeddah" Source="Image/case_jeddah.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_abudhabi" Source="Image/case_gpAbu.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="11" Stretch="Fill"/>
+        <Image x:Name="case_RaceBan" Source="Image/case_raceban.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="11" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Azerbaijan" Source="Image/case_azerbaijan.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Prost" Source="Image/case_prost.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Austin" Source="Image/case_austin.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Mexico" Source="Image/case_mexico.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_GTworld" Source="Image/case_gt_wold.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Pays_Bas" Source="Image/case_Pays_Bas.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_F1Radio2" Source="Image/case_radio_f1_team2.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Chine" Source="Image/case_chine.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Bahrain" Source="Image/case_bahrain.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Hivernal" Source="Image/case_trevehivernal.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_LasVegas" Source="Image/case_vegas.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_FIA2" Source="Image/case_fia.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Australie" Source="Image/case_australie.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Autriche" Source="Image/case_autriche.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_WRC" Source="Image/case_wrc.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Singapour" Source="Image/case_singapour.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Silverstone" Source="Image/case_silverstone.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Senna" Source="Image/case_Senna.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="9" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Espagne" Source="Image/case_espagne.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="10" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_BureauCommisaire" Source="Image/case_commisaire.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Japon" Source="Image/case_japon.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Bresil" Source="Image/case_bresil.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="3" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_F1Radio3" Source="Image/case_radio_f1_team3.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="4" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Belgique" Source="Image/case_belgique.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="5" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_WEC" Source="Image/case_wec.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="6" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_FIA3" Source="Image/case_fia3.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="7" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Monza" Source="Image/case_monza.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="8" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Amende" Source="Image/case_amende_FIA.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="9" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
+        <Image x:Name="case_Monaco" Source="Image/case_monaco.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="11" Grid.Row="10" Grid.ColumnSpan="1" Grid.RowSpan="1" Stretch="Fill"/>
 
+       
     </Grid>  
 </Window>

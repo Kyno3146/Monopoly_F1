@@ -9,8 +9,101 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="IHM\Image\case_abu_dahbi.png" />
+    <None Remove="IHM\Image\case_amende_FIA.png" />
+    <None Remove="IHM\Image\case_austin.png" />
+    <None Remove="IHM\Image\case_australie.png" />
+    <None Remove="IHM\Image\case_autriche.png" />
+    <None Remove="IHM\Image\case_azerbaijan.png" />
+    <None Remove="IHM\Image\case_bahrain.png" />
+    <None Remove="IHM\Image\case_belgique.png" />
+    <None Remove="IHM\Image\case_bresil.png" />
+    <None Remove="IHM\Image\case_Canada.png" />
+    <None Remove="IHM\Image\case_chine.png" />
+    <None Remove="IHM\Image\case_commisaire.png" />
+    <None Remove="IHM\Image\case_depart.png" />
+    <None Remove="IHM\Image\case_espagne.png" />
+    <None Remove="IHM\Image\case_f1_radio1.png" />
+    <None Remove="IHM\Image\case_fia.png" />
+    <None Remove="IHM\Image\case_fia3.png" />
+    <None Remove="IHM\Image\case_fia_2.png" />
+    <None Remove="IHM\Image\case_formula_e.png" />
+    <None Remove="IHM\Image\case_gpAbu.png" />
+    <None Remove="IHM\Image\case_gt_wold.png" />
+    <None Remove="IHM\Image\Case_Hongrie.png" />
+    <None Remove="IHM\Image\case_imola.png" />
+    <None Remove="IHM\Image\case_japon.png" />
+    <None Remove="IHM\Image\case_jeddah.png" />
+    <None Remove="IHM\Image\case_licence.png" />
+    <None Remove="IHM\Image\case_mexico.png" />
+    <None Remove="IHM\Image\case_monaco.png" />
+    <None Remove="IHM\Image\case_monza.png" />
+    <None Remove="IHM\Image\case_Pays_Bas.png" />
+    <None Remove="IHM\Image\case_prost.png" />
+    <None Remove="IHM\Image\case_raceban.png" />
+    <None Remove="IHM\Image\case_radio_f1_team2.png" />
+    <None Remove="IHM\Image\case_radio_f1_team3.png" />
+    <None Remove="IHM\Image\case_Senna.png" />
+    <None Remove="IHM\Image\case_silverstone.png" />
+    <None Remove="IHM\Image\case_singapour.png" />
+    <None Remove="IHM\Image\case_trevehivernal.png" />
+    <None Remove="IHM\Image\case_vegas.png" />
+    <None Remove="IHM\Image\case_wec.png" />
+    <None Remove="IHM\Image\case_wrc.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="IHM\Image\case_gpAbu.png" />
+    <Resource Include="IHM\Image\case_raceban.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="IHM\Image\case_Canada.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="BDD\" />
     <Folder Include="Metier\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="IHM\Image\case_amende_FIA.png" />
+    <Resource Include="IHM\Image\case_austin.png" />
+    <Resource Include="IHM\Image\case_australie.png" />
+    <Resource Include="IHM\Image\case_autriche.png" />
+    <Resource Include="IHM\Image\case_azerbaijan.png" />
+    <Resource Include="IHM\Image\case_bahrain.png" />
+    <Resource Include="IHM\Image\case_belgique.png" />
+    <Resource Include="IHM\Image\case_bresil.png" />
+    <Resource Include="IHM\Image\case_chine.png" />
+    <Resource Include="IHM\Image\case_commisaire.png" />
+    <Resource Include="IHM\Image\case_depart.png" />
+    <Resource Include="IHM\Image\case_espagne.png" />
+    <Resource Include="IHM\Image\case_f1_radio1.png" />
+    <Resource Include="IHM\Image\case_fia.png" />
+    <Resource Include="IHM\Image\case_fia3.png" />
+    <Resource Include="IHM\Image\case_fia_2.png" />
+    <Resource Include="IHM\Image\case_formula_e.png" />
+    <Resource Include="IHM\Image\case_gt_wold.png" />
+    <Resource Include="IHM\Image\Case_Hongrie.png" />
+    <Resource Include="IHM\Image\case_imola.png" />
+    <Resource Include="IHM\Image\case_japon.png" />
+    <Resource Include="IHM\Image\case_jeddah.png" />
+    <Resource Include="IHM\Image\case_licence.png" />
+    <Resource Include="IHM\Image\case_mexico.png" />
+    <Resource Include="IHM\Image\case_monaco.png" />
+    <Resource Include="IHM\Image\case_monza.png" />
+    <Resource Include="IHM\Image\case_Pays_Bas.png" />
+    <Resource Include="IHM\Image\case_prost.png" />
+    <Resource Include="IHM\Image\case_radio_f1_team2.png" />
+    <Resource Include="IHM\Image\case_radio_f1_team3.png" />
+    <Resource Include="IHM\Image\case_Senna.png" />
+    <Resource Include="IHM\Image\case_silverstone.png" />
+    <Resource Include="IHM\Image\case_singapour.png" />
+    <Resource Include="IHM\Image\case_trevehivernal.png" />
+    <Resource Include="IHM\Image\case_vegas.png" />
+    <Resource Include="IHM\Image\case_wec.png" />
+    <Resource Include="IHM\Image\case_wrc.png" />
   </ItemGroup>
 
 </Project>
