@@ -72,8 +72,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BDD\" />
     <Folder Include="Metier\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="9.3.0" />
   </ItemGroup>
 
   <ItemGroup>

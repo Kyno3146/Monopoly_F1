@@ -23,5 +23,6 @@
         <Button Content="Jouer" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Grid.Row="1" Grid.Column="1" Width="150" Height="50" Click="JouerPartie"  />
         <Button Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Grid.Row="2" Grid.Column="1" Width="150" Height="50" Click="LoginPage"/>
         <Button Content="Quitter" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Grid.Row="3" Grid.Column="1" Width="150" Height="50" Click="exit"/>
+        <TextBlock x:Name="state" Grid.Column="2" HorizontalAlignment="Left" Height="30" Margin="185,10,0,0" TextWrapping="Wrap" Text="Serveur Off" Foreground="Red"  VerticalAlignment="Top" Width="72"/>
     </Grid>
 </Window>

@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using Monopoly.BDD;
 using Monopoly.IHM;
 
@@ -18,9 +19,13 @@ namespace WpfApp1.IHM
     /// </summary>  
     public partial class MainWindow : Window
     {
+        private DispatcherTimer timer;
+        public static bool Connected { get; set; } = false;
+
         public MainWindow()
         {
             InitializeComponent();
+            InitTimer();
         }
 
 
@@ -43,9 +48,12 @@ namespace WpfApp1.IHM
         /// <author>Barthoux Sauze Thomas</author>
         private void LoginPage(object sender, RoutedEventArgs e)
         {
-            LoginPage loginPage = new LoginPage();
-            loginPage.Show();
-            this.Close();
+            if (Connected != false)
+            {
+                LoginPage loginPage = new LoginPage();
+                loginPage.Show();
+                this.Close();
+            }
         }
 
         /// <summary>
@@ -55,9 +63,58 @@ namespace WpfApp1.IHM
         /// <param name="e"></param>
         private void JouerPartie(object sender, RoutedEventArgs e)
         {
-            SelectF1 selectF1 = new SelectF1();
-            selectF1.Show();
-            this.Close();
+            if (Connected != false)
+            {
+                SelectF1 selectF1 = new SelectF1();
+                selectF1.Show();
+                this.Close();
+            }
         }
+
+        #region Statut Serveur
+        /// <summary>
+        /// Initialise le timer pour le test de connexion
+        /// </summary>
+        /// <author>Barthoux Sauze Thomas</author>
+        private void InitTimer()
+        {
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(10);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+
+        /// <summary>
+        /// Vérifie le statut du serveur toutes les 10 secondes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <author>Copilot-Visual</author>
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            ServeurStatut();
+        }
+
+        /// <summary>
+        /// Vérifie que le serveur est bien connecté
+        /// </summary>
+        /// <author>Barthoux Sauze Thomas</author>
+        public void ServeurStatut()
+        {
+            Connect connect = new Connect(this);
+            Connected = connect.Isconnect;
+        }
+
+        /// <summary>
+        /// Vérifie si le timer est tjr actif
+        /// </summary>
+        /// <param name="e"></param>
+        /// <author>Barthoux Sauze Thomas</author>
+        protected override void OnClosed(EventArgs e)
+        {
+            timer?.Stop();
+            base.OnClosed(e);
+        }
+        #endregion
     }
 }
