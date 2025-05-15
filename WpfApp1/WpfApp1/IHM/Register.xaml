@@ -6,6 +6,23 @@
         xmlns:local="clr-namespace:Monopoly.IHM"
         mc:Ignorable="d"
         Title="Register" Height="450" Width="450">
+    <Window.Resources>
+        <Style TargetType="Button" >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -22,12 +39,26 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Register" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Grid.ColumnSpan="3"/>
-        <TextBlock Text="Nom d'utilisateur:" HorizontalAlignment="center" VerticalAlignment="Bottom" FontSize="15" Grid.Row="1" Grid.Column="1"/>
-        <TextBox Name="usernameTextBox" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Grid.Row="2" Grid.Column="1" Width="150"/>
-        <TextBlock Text="Mot de passe:" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="15" Grid.Row="3" Grid.Column="1"/>
-        <PasswordBox Name="passwordTextBox" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Grid.Row="4" Grid.Column="1" Width="150"/>
-        <Button Content="Register" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Grid.Row="5" Grid.Column="1" Width="100" Height="25" Click="RegisterUser"/>
-        <Button Content="Back" HorizontalAlignment="Center" VerticalAlignment="top" FontSize="15" Grid.Row="6" Grid.Column="1" Width="100" Height="25" Click="Back_Login"/>
+        <Image Source="Image/Register/image_fond_register.jpg" Width="450" Height="450" Grid.RowSpan="7" Grid.ColumnSpan="3" Stretch="Fill" Opacity="1" Panel.ZIndex="0"/>
+
+        <Label Content="Register" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="50" Grid.RowSpan="2" Foreground="White" Grid.Column="1" Margin="7,10,0,0"/>
+
+        <ComboBox x:Name="ComboPlayer" Grid.Column="1" Grid.Row="2" Height="30" VerticalAlignment="Top" Opacity="0.8" SelectedIndex="0" HorizontalAlignment="Center"  Foreground="Red" Background="White">
+            <ComboBoxItem x:Name="player1" Content="Joueur 1" />
+            <ComboBoxItem x:Name="player2" Content="Joueur 2" />
+        </ComboBox>
+
+        <TextBlock Text="Nom d'utilisateur:" HorizontalAlignment="center" VerticalAlignment="Bottom" FontSize="15" Grid.Row="2" Grid.Column="1" Foreground="White"/>
+        <TextBox x:Name="usernameTextBox" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Grid.Row="3" Grid.Column="1" Width="150" Opacity="0.8"/>
+
+        <TextBlock Text="Mot de passe:" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="15" Grid.Row="3" Grid.Column="1" Foreground="White"/>
+        <PasswordBox x:Name="passwordTextBox" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Grid.Row="4" Grid.Column="1" Width="150" Opacity="0.8"/>
+
+        <Button  Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Grid.Row="5" Grid.Column="0" Width="100" Height="25" Click="LoginButton_Click" Opacity="0.8"  Foreground="Red" Background="White"/>
+
+        <Button Content="Register" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Grid.Row="5" Grid.Column="1" Width="100" Height="25" Click="Register_Click" Opacity="0.8" Foreground="Red" Background="White"/>
+
+        <Button Content="Back" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Grid.Row="5" Grid.Column="2" Width="100" Height="25" Click="Back_Click" Opacity="0.8" Foreground="Red" Background="White"/>
+
     </Grid>
 </Window>

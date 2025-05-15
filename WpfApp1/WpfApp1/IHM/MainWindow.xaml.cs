@@ -11,6 +11,9 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using Monopoly.BDD;
 using Monopoly.IHM;
+using System.Data.Common;
+using MySql.Data.MySqlClient;
+using System;
 
 namespace WpfApp1.IHM
 {
@@ -20,6 +23,8 @@ namespace WpfApp1.IHM
     public partial class MainWindow : Window
     {
         private DispatcherTimer timer;
+        private int attemptCount = 0;
+        private const int MaxAttempts = 5;
         public static bool Connected { get; set; } = false;
 
         public MainWindow()
@@ -101,8 +106,25 @@ namespace WpfApp1.IHM
         /// <author>Barthoux Sauze Thomas</author>
         public void ServeurStatut()
         {
-            Connect connect = new Connect(this);
+            if (attemptCount >= MaxAttempts)
+            {
+                Console.WriteLine("Nombre maximal de tentatives atteint. La connexion sera réessayée plus tard.");
+                return; // Ne pas faire de nouvelle tentative
+            }
+
+            Connect connect = new Connect(this); // Crée une seule instance ici
             Connected = connect.Isconnect;
+
+            if (Connected)
+            {
+                attemptCount = 0;
+                Console.WriteLine("Connexion réussie.");
+            }
+            else
+            {
+                attemptCount++;
+                Console.WriteLine($"Tentative de connexion échouée. Nombre de tentatives : {attemptCount}");
+            }
         }
 
         /// <summary>
