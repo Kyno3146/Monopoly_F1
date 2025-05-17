@@ -62,7 +62,7 @@ namespace Monopoly.IHM
 
             int userId = connect.Login(user, password);
 
-            if (userId > 0)
+            if (userId >= 0)
             {
                 MessageBox.Show("Connexion réussie !");
                 if(ComboPlayer.Text == "Joueur 1")
@@ -100,8 +100,8 @@ namespace Monopoly.IHM
         /// <param name="e"></param>
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            Register registerPage = new Register();
-            registerPage.Show();
+            Register register = new Register();
+            register.Show();
             this.Close();
         }
 

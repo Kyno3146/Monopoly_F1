@@ -92,6 +92,22 @@ namespace Monopoly.BDD
         #endregion
 
         #region requette
+
+        private bool isRegistered = false;
+
+        public bool IsRegistered
+        {
+            get { return isRegistered; }
+            set { isRegistered = value; }
+        }
+
+        /// <summary>
+        /// Login method to check if the user exists in the database
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        /// <author>Barthoux Sauze Thomas</author>
         public int Login(string user, string password)
         {
             if (connection is not null)
@@ -134,7 +150,41 @@ namespace Monopoly.BDD
             }
             return -1; // Retourne une valeur par défaut si la connexion est nulle  
         }
-    }
 
-#endregion
+        /// <summary>
+        /// Register method to add a new user to the database
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <author>Barthoux Sauze Thomas</author>
+        public void Register(string username, string password)
+        {
+            if (connection is not null)
+            {
+                try
+                {
+                    DbCommand command = connection.CreateCommand();
+                    command.CommandText = "INSERT INTO users (username, password) VALUES (@username, @password)";
+                    DbParameter param = command.CreateParameter();
+                    param.DbType = System.Data.DbType.String;
+                    param.ParameterName = "@username";
+                    param.Value = username;
+                    command.Parameters.Add(param);
+                    DbParameter param2 = command.CreateParameter();
+                    param2.DbType = System.Data.DbType.String;
+                    param2.ParameterName = "@password";
+                    param2.Value = password;
+                    command.Parameters.Add(param2);
+                    command.ExecuteNonQuery();
+                    this.isRegistered = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        #endregion
+    }
 }

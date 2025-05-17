@@ -5,7 +5,7 @@
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
        xmlns:local="clr-namespace:Monopoly.IHM"  
        mc:Ignorable="d"  
-       Title="Plateau" Height="800" Width="1200" Background="#15161C">
+       Title="Plateau" Height="820" Width="1200" Background="#15161C">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -39,6 +39,7 @@
             <RowDefinition Height="1*" />
             <RowDefinition Height="2*" />
             <RowDefinition Height="0.5*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <TextBlock Text="" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="50" Grid.Column="2" Grid.ColumnSpan="9" Grid.Row="2" Grid.RowSpan="9" Background="#15161C" />
@@ -98,6 +99,10 @@
 
         <!-- Zone ToString() -->
         <Label Content="Console" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="25" Foreground="White" Background="#15161C" Grid.Column="13" Grid.Row="6" />
-        <TextBlock x:Name="Console" Grid.Column="13" Grid.Row="6" Grid.RowSpan="6" HorizontalAlignment="Center" Margin="0,56,0,0" TextWrapping="Wrap"  Text="" Background="White" Foreground="White" VerticalAlignment="Top" Height="336" Width="329"/>
+        <TextBlock x:Name="Console" Grid.Column="13" Grid.Row="6" Grid.RowSpan="6" HorizontalAlignment="Center" Margin="0,56,0,0" TextWrapping="Wrap"  Text="" Background="White" Foreground="White" Width="329"/>
+        
+        
+        <!--Exit_Button-->
+        <Button x:Name="Exit" Grid.Column="13" Grid.Row="15" Content="Exit" Width="150" Height="30" Background="White" FontSize="20" Foreground="Red"/>
     </Grid>
 </Window>
