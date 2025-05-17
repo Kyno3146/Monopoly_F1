@@ -120,6 +120,7 @@
     <Resource Include="IHM\Image\case_wec.png" />
     <Resource Include="IHM\Image\case_wrc.png" />
     <Resource Include="IHM\Image\dee.png" />
+    <Resource Include="IHM\Image\Fond_Accueil.jpg" />
     <Resource Include="IHM\Image\fond_middle.jpg" />
     <Resource Include="IHM\Image\formula-1-logo.png" />
     <Resource Include="IHM\Image\Login\img_fond.jpeg" />
