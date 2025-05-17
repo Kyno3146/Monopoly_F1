@@ -138,5 +138,15 @@ namespace WpfApp1.IHM
             base.OnClosed(e);
         }
         #endregion
+
+        private void user1IHM(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void user2IHM(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

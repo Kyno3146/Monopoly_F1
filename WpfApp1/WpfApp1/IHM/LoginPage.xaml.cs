@@ -5,6 +5,7 @@ using WpfApp1.IHM;
 using MySql.Data.MySqlClient;
 using System.Windows.Controls;
 using System;
+using System.Drawing;
 
 
 namespace Monopoly.IHM
@@ -14,6 +15,7 @@ namespace Monopoly.IHM
     /// </summary>
     public partial class LoginPage : Window
     {
+        MainWindow mainWindow = new MainWindow();
         private int nbLogin =0;
         private int idJoueur1;
         private int idJoueur2;
@@ -68,13 +70,15 @@ namespace Monopoly.IHM
                 if(ComboPlayer.Text == "Joueur 1")
                 {
                     idJoueur1 = userId;
-                    MessageBox.Show("Bonjour " + user);
+                    mainWindow.User1.Content = user;
+                    mainWindow.User1.Content = Color.Green;
                     redirection();
                 }
                 else if (ComboPlayer.Text == "Joueur 2")
                 {
                     idJoueur2 = userId;
-                    MessageBox.Show("Bonjour " + user);
+                    mainWindow.User1.Content = user;
+                    mainWindow.User2.Content = Color.Green;
                     redirection();
                 }
 
