@@ -23,21 +23,21 @@
         <Image Source="Image/Fond_Accueil.jpg"  Stretch="Fill" Opacity="1" Panel.ZIndex="0" Grid.ColumnSpan="3" Grid.RowSpan="4"/>
 
 
-        <TextBlock Text="Monopoly F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" Grid.ColumnSpan="3"/>
+        <TextBlock Text="Monopoly F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" Grid.ColumnSpan="3" Foreground="Black"/>
         <Button Content="Jouer" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Grid.Row="1" Grid.Column="1" Width="150" Height="50" Click="JouerPartie"  />
         <Button Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Grid.Row="2" Grid.Column="1" Width="150" Height="50" Click="LoginPage"/>
         <Button Content="Quitter" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Grid.Row="3" Grid.Column="1" Width="150" Height="50" Click="exit"/>
         <TextBlock x:Name="state" Grid.Column="2" HorizontalAlignment="Left" Height="30" Margin="185,10,0,0" TextWrapping="Wrap" Text="Serveur Off" Foreground="Red"  VerticalAlignment="Top" Width="72"/>
 
         <!--Player icon-->
-        <Label x:Name="User1" Content="Invite" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" />
-        <Button Background="#00FFFFFF" Grid.Row="1" Click="user1IHM" HorizontalAlignment="Center" VerticalAlignment="center" BorderBrush="00FFFFFF">
-            <fa:ImageAwesome Icon="UserCircle" Width="50" HorizontalAlignment="Center" />
+        <Label x:Name="User1" Content="Invite" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White"/>
+        <Button Background="#00FFFFFF" Grid.Row="1" Click="user1IHM" HorizontalAlignment="Center" VerticalAlignment="center" BorderBrush="#00FFFFFF">
+            <fa:ImageAwesome Icon="UserCircle" Width="50" HorizontalAlignment="Center" Foreground="White"  />
         </Button>
 
-        <Label x:Name="User2" Content="Invite" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Label x:Name="User2" Content="Invite" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" />
         <Button Background="#00FFFFFF" Grid.Row="2" Click="user2IHM" HorizontalAlignment="Center" VerticalAlignment="center" BorderBrush="#00FFFFFF" >
-            <fa:ImageAwesome Icon="UserCircle" Width="50" HorizontalAlignment="Center" />
+            <fa:ImageAwesome Icon="UserCircle" Width="50" HorizontalAlignment="Center" Foreground="White"/>
         </Button>
     </Grid>
 </Window>
