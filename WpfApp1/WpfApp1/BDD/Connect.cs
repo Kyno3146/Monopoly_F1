@@ -164,17 +164,26 @@ namespace Monopoly.BDD
                 try
                 {
                     DbCommand command = connection.CreateCommand();
-                    command.CommandText = "INSERT INTO users (username, password) VALUES (@username, @password)";
+                    command.CommandText = "INSERT INTO users (username, password, date_inscription) VALUES (@username, @password, @date)";
+
                     DbParameter param = command.CreateParameter();
                     param.DbType = System.Data.DbType.String;
                     param.ParameterName = "@username";
                     param.Value = username;
                     command.Parameters.Add(param);
+
                     DbParameter param2 = command.CreateParameter();
                     param2.DbType = System.Data.DbType.String;
                     param2.ParameterName = "@password";
                     param2.Value = password;
                     command.Parameters.Add(param2);
+
+                    DbParameter param3 = command.CreateParameter();
+                    param3.DbType = System.Data.DbType.Date;
+                    param3.ParameterName = "@date";
+                    param3.Value = DateTime.Now;
+                    command.Parameters.Add(param3);
+
                     command.ExecuteNonQuery();
                     this.isRegistered = true;
                 }
