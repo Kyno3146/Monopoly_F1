@@ -62,5 +62,18 @@
         <Button x:Name="Redbull" Tag="RedBull" Grid.Column="2" Grid.Row="2" Background="#15161C"  Click="Play">
             <Image Source="Image/Monoplaces/RedBull.png" Width="90"/>
         </Button>
+
+        <Button x:Name="Haas" Tag="Haas" Grid.Column="3" Grid.Row="2" Background="#15161C"  Click="Play">
+            <Image Source="Image/Monoplaces/Haas.png" Width="90" />
+        </Button>
+
+        <Button x:Name="Williams" Tag="Williams" Grid.Column="4" Grid.Row="2" Background="#15161C"  Click="Play">
+            <Image Source="Image/Monoplaces/Williams.png" Width="90"/>
+        </Button>
+
+        <Button x:Name="Alpha_tauri" Tag="VCARB" Grid.Column="5" Grid.Row="2" Background="#15161C"  Click="Play">
+            <Image Source="Image/Monoplaces/VCARB.png" Width="90"/>
+        </Button>
+        
     </Grid>
 </Window>
