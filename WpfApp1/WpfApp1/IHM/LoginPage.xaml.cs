@@ -6,6 +6,7 @@ using MySql.Data.MySqlClient;
 using System.Windows.Controls;
 using System;
 using System.Drawing;
+using System.Windows.Media;
 
 
 namespace Monopoly.IHM
@@ -15,7 +16,6 @@ namespace Monopoly.IHM
     /// </summary>
     public partial class LoginPage : Window
     {
-        MainWindow mainWindow = new MainWindow();
         private int nbLogin =0;
         private int idJoueur1;
         private int idJoueur2;
@@ -52,7 +52,7 @@ namespace Monopoly.IHM
                 MessageBox.Show("Vous avez atteint le nombre maximum de tentatives de connexion.");
                 return;
             }
-
+            int comboboxselected = 0;
             string user = usernameTextBox.Text.Trim();
             string password = passwordTextBox.Password;
 
@@ -70,16 +70,14 @@ namespace Monopoly.IHM
                 if(ComboPlayer.Text == "Joueur 1")
                 {
                     idJoueur1 = userId;
-                    mainWindow.User1.Content = user;
-                    mainWindow.User1.Content = Color.Green;
-                    redirection();
+                    comboboxselected = 1;
+                    redirection(user, comboboxselected);
                 }
                 else if (ComboPlayer.Text == "Joueur 2")
                 {
                     idJoueur2 = userId;
-                    mainWindow.User1.Content = user;
-                    mainWindow.User2.Content = Color.Green;
-                    redirection();
+                    comboboxselected = 2;
+                    redirection(user, comboboxselected);
                 }
 
             }
@@ -89,10 +87,12 @@ namespace Monopoly.IHM
         /// Retours mainwindow
         /// </summary>
         /// <author>Barthoux Sauze Thomas</author>
-        private void redirection()
+        private void redirection(string user, int comboboxSelected)
         {
             MainWindow window = new MainWindow();
+            window.statutUser(user, comboboxSelected);
             window.Show();
+
             this.Close();
         }
 

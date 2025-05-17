@@ -58,9 +58,12 @@
     <None Remove="IHM\Image\Monoplaces\Alpine.png" />
     <None Remove="IHM\Image\Monoplaces\Aston_Martin.png" />
     <None Remove="IHM\Image\Monoplaces\Ferrari.png" />
+    <None Remove="IHM\Image\Monoplaces\Haas.png" />
     <None Remove="IHM\Image\Monoplaces\McLaren.png" />
     <None Remove="IHM\Image\Monoplaces\Mercedes.png" />
     <None Remove="IHM\Image\Monoplaces\RedBull.png" />
+    <None Remove="IHM\Image\Monoplaces\VCARB.png" />
+    <None Remove="IHM\Image\Monoplaces\Williams.png" />
     <None Remove="IHM\Image\Register\image_fond_register.jpg" />
   </ItemGroup>
 
@@ -129,9 +132,12 @@
     <Resource Include="IHM\Image\Monoplaces\Alpine.png" />
     <Resource Include="IHM\Image\Monoplaces\Aston_Martin.png" />
     <Resource Include="IHM\Image\Monoplaces\Ferrari.png" />
+    <Resource Include="IHM\Image\Monoplaces\Haas.png" />
     <Resource Include="IHM\Image\Monoplaces\McLaren.png" />
     <Resource Include="IHM\Image\Monoplaces\Mercedes.png" />
     <Resource Include="IHM\Image\Monoplaces\RedBull.png" />
+    <Resource Include="IHM\Image\Monoplaces\VCARB.png" />
+    <Resource Include="IHM\Image\Monoplaces\Williams.png" />
     <Resource Include="IHM\Image\Register\image_fond_register.jpg" />
   </ItemGroup>
 

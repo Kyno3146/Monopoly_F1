@@ -25,6 +25,12 @@ namespace WpfApp1.IHM
         private DispatcherTimer timer;
         private int attemptCount = 0;
         private const int MaxAttempts = 5;
+
+        private string username1;
+        private string username2;
+        private int comboboxselected;
+
+
         public static bool Connected { get; set; } = false;
 
         public MainWindow()
@@ -32,7 +38,6 @@ namespace WpfApp1.IHM
             InitializeComponent();
             InitTimer();
         }
-
 
         /// <summary>
         /// Exit the application when the exit menu item is clicked.
@@ -138,6 +143,25 @@ namespace WpfApp1.IHM
             base.OnClosed(e);
         }
         #endregion
+
+        public void statutUser(string user, int comboboxSelected)
+        {
+            if (comboboxSelected == 1)
+            {
+                this.username1 = user;
+                User1.Content = user;
+                User1.Foreground = Brushes.Red;
+                icon1.Foreground = Brushes.Red;
+            }
+            else if (comboboxSelected == 2)
+            {
+                this.username2 = user;
+                User2.Content = user;
+                User2.Foreground = Brushes.Green;
+                icon2.Foreground = Brushes.Green;
+            }
+            
+        }
 
         private void user1IHM(object sender, RoutedEventArgs e)
         {
