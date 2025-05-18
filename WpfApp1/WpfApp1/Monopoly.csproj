@@ -78,6 +78,7 @@
 
   <ItemGroup>
     <Folder Include="Metier\" />
+    <Folder Include="Model\" />
   </ItemGroup>
 
   <ItemGroup>
