@@ -34,20 +34,15 @@ namespace Monopoly.IHM
         public Plateau(string f1_j1, string f1_j2 )
         {
             InitializeComponent();
+            // Récupération des monoplaces
             this.f1_j1 = f1_j1;
             this.f1_j2 = f1_j2;
-            MessageBox.Show(f1_j1);
-            MessageBox.Show(f1_j2);
-
-            // Lancement de la console du jeux
-            lancementConsole();
 
             // Initialisation de la monoplace
             InitMonoplcace(f1_j1, f1_j2);
 
-            // Initialisation du dee
-            this.dee = true;
-            lancementDee(dee); // Lancement du dee
+            // Lancement du jeux
+            startGame(this);
 
         }
         #endregion
@@ -83,30 +78,34 @@ namespace Monopoly.IHM
             Monoplace.Children.Add(imgJ2);
         }
 
-
-        public void lancementConsole()
+        /// <summary>
+        /// Lancement de la console et du jeux
+        /// </summary>
+        /// <author>Barthoux Sauze Thomas</author>
+        public void startGame(Plateau plateau)
         {
-            ConsoleJeux.Foreground = Brushes.Black;
-            ConsoleJeux.Text = " ---- Lancement du jeux ---- \n";
+            ConsoleJeux.Text += " ---- Lancement du jeux ---- \n";
+            ConsoleJeux.Text += " ---- Joueur 1 : " + f1_j1 + " ---- \n";
+            ConsoleJeux.Text += " ---- Joueur 2 : " + f1_j2 + " ---- \n";
+            //this passe en parametre le tableau
+            //Game game = new Game(plateau);
+            //game.StartGame();
         }
 
-        public void lancementDee(bool dee)
+        /// <summary>
+        /// Affiche les informations de la carte
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void viewInfoCarte(object sender, MouseButtonEventArgs e)
         {
-            int resultDee = 0;
-            Random rand = new Random();
-            resultDee = rand.Next(1, 7);
-            if (dee)
-            {
-                ConsoleJeux.Text += "C'est à " + f1_j1 + " de jouer \n";
-                ConsoleJeux.Text += "Lancer de dé : " + resultDee + "\n";
-                dee = false;
-            }
-            else
-            {
-                ConsoleJeux.Text += "C'est à " + f1_j2 + " de jouer \n";
-                ConsoleJeux.Text += "Lancer de dé : " + resultDee + "\n";
-                dee = true;
-            }
+            List<string> Info = new List<string>();
+            var image = sender as Image;
+            var tag = image?.Tag?.ToString();
+            Card card = new Card(tag);
+            Info = card.infoCarte(tag);
+            InfoCarte infoCarte = new InfoCarte(Info);
+            infoCarte.Show();
         }
 
     }

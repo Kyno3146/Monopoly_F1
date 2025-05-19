@@ -1,0 +1,48 @@
+﻿<Window x:Class="Monopoly.IHM.InfoCarte"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Monopoly.IHM"
+        mc:Ignorable="d"
+        Title="InfoCarte" Height="450" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label x:Name="LabelCarte" Content="" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"  VerticalAlignment="Center" />
+        
+        <Label Content="Description :" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <TextBlock x:Name="description" Grid.Row="2" Grid.Column="1" Background="LightGray" Margin="0,0,10,10"/>
+
+
+        <Label Content="ValAchat :" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <TextBlock x:Name="valachat" Grid.Row="3" Grid.Column="1" VerticalAlignment="Bottom" Background="LightGray" Margin="0,0,10,0"/>
+
+        <Label Content="Hypotheque :" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <TextBlock x:Name="hypoteque" Grid.Row="4" Grid.Column="1" VerticalAlignment="Bottom" Background="LightGray" Margin="0,0,10,0"/>
+
+        <Label Content="Loyer actuelle :" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <TextBlock x:Name="loyer" Grid.Row="5" Grid.Column="1" VerticalAlignment="Bottom" Background="LightGray" Margin="0,0,10,0"/>
+
+        <Label Content="Cout amélioration :" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <ListBox x:Name="upgrade" Grid.Row="7" Grid.Column="1" Background="LightGray" Margin="0,0,10,10"/>
+
+        <Image x:Name="imgCarte"  Grid.Column="0" Grid.Row="1" Grid.RowSpan="7" Margin="10" />
+
+
+    </Grid>
+</Window>

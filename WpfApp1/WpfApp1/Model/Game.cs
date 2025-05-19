@@ -1,4 +1,5 @@
 using System;
+using Monopoly.IHM;
 
 /// <summary>
 /// A "game" Class which contains all the elements of the game
@@ -14,7 +15,7 @@ public class Game {
 	/// <summary>
 	/// Constructor
 	/// </summary>
-	public Game() {
+	public Game(Plateau plateau) {
 		throw new System.NotImplementedException("Not implemented");
 	}
 	/// <summary>

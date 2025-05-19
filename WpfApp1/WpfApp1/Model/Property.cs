@@ -38,6 +38,11 @@ public class Property : Space  {
         this.player = null;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <exception cref="System.InvalidOperationException"></exception>
+    /// <author>Riviere Kylian</author>
     public void Upgrade() {
         if (level < 5)
         {
