@@ -29,7 +29,7 @@ namespace Monopoly.BDD
         /// </summary>
         /// <param name="plateau"></param>
         /// <author>Barthoux Sauze Thomas</author>
-        public void ExitToMenu(Plateau plateau)
+        public void ExitToMenu(Plateau plateau, int idjoueurDemande, int idJoeur2)
         {
             MessageBoxResult messageBoxResult = MessageBox.Show("Vous avez quitté le jeu", "Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
@@ -38,8 +38,12 @@ namespace Monopoly.BDD
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 plateau.Close();
+
+                // Mettre à jour la base de données pour le joueur qui a quitté
+
+
             }
-            
+
         }
     }
 }

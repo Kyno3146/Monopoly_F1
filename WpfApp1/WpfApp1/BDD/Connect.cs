@@ -194,6 +194,91 @@ namespace Monopoly.BDD
             }
         }
 
+        /// <summary>
+        /// ConnectJoueur method to update the player connection status in the database
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="id"></param>
+        /// <param name="comboboxselected"></param>
+        /// <author>Barthoux Sauze Thomas</author>
+        public void ConnectJoueur(int comboboxselected, string username, int id)
+        {
+            if (connection != null)
+            {
+                try
+                {
+                    using (DbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = "UPDATE player_connected SET username = @username, idJoueur = @id WHERE idComboBox = @comboboxselected";
+
+                        var paramUsername = command.CreateParameter();
+                        paramUsername.DbType = System.Data.DbType.String;
+                        paramUsername.ParameterName = "@username";
+                        paramUsername.Value = username;
+                        command.Parameters.Add(paramUsername);
+
+                        var paramId = command.CreateParameter();
+                        paramId.DbType = System.Data.DbType.Int32;
+                        paramId.ParameterName = "@id";
+                        paramId.Value = id;
+                        command.Parameters.Add(paramId);
+
+                        var paramCombobox = command.CreateParameter();
+                        paramCombobox.DbType = System.Data.DbType.Int32;
+                        paramCombobox.ParameterName = "@comboboxselected";
+                        paramCombobox.Value = comboboxselected;
+                        command.Parameters.Add(paramCombobox);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de la mise à jour : " + ex.Message);
+                }
+            }
+        }
+
+
+
+        /// <summary>
+        /// SelectJoueur method to get the list of connected players
+        /// </summary>
+        /// <returns></returns>
+        /// <author>Barthoux Sauze Thomas</author>
+        public List<string> SelectJoueur()
+        {
+            List<string> usernames = new List<string>();
+            usernames.Clear();
+
+            if (connection != null)
+            {
+                try
+                {
+                    using (DbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = "SELECT username FROM player_connected";
+
+                        using (DbDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string username = reader.GetString(reader.GetOrdinal("username")); 
+                                usernames.Add(username);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de la lecture des joueurs connectés : " + ex.Message);
+                }
+            }
+
+            return usernames;
+        }
+
+
         #endregion
     }
 }

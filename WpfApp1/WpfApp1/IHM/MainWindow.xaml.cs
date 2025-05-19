@@ -37,6 +37,7 @@ namespace WpfApp1.IHM
         {
             InitializeComponent();
             InitTimer();
+            
         }
 
         /// <summary>
@@ -144,28 +145,45 @@ namespace WpfApp1.IHM
         }
         #endregion
 
-        public void statutUser(string user, int comboboxSelected)
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="comboboxSelected"></param>
+        public void statutUser(int comboboxSelected)
         {
-            if (comboboxSelected == 1)
+            Connect connect = new Connect(this);
+            List<string> Users = connect.SelectJoueur();
+
+            // Réinitialisation par défaut
+            User1.Content = "";
+            User2.Content = "";
+            icon1.Foreground = Brushes.Gray;
+            icon2.Foreground = Brushes.Gray;
+
+            // Affichage conditionnel
+            if (Users.Count >= 1 && !string.IsNullOrWhiteSpace(Users[0]))
             {
-                this.username1 = user;
-                User1.Content = user;
+                this.username1 = Users[0];
+                User1.Content = Users[0];
                 User1.Foreground = Brushes.Red;
                 icon1.Foreground = Brushes.Red;
+                User1.Tag = Users[0];
             }
-            else if (comboboxSelected == 2)
+
+            if (Users.Count >= 2 && !string.IsNullOrWhiteSpace(Users[1]))
             {
-                this.username2 = user;
-                User2.Content = user;
+                this.username2 = Users[1];
+                User2.Content = Users[1];
                 User2.Foreground = Brushes.Green;
                 icon2.Foreground = Brushes.Green;
+                User2.Tag = Users[1];
             }
-            
         }
+
 
         private void user1IHM(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Vous avez cliqué sur le joueur 1 : " + User1.Tag);
         }
 
         private void user2IHM(object sender, RoutedEventArgs e)

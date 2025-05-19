@@ -17,8 +17,6 @@ namespace Monopoly.IHM
     public partial class LoginPage : Window
     {
         private int nbLogin =0;
-        private int idJoueur1;
-        private int idJoueur2;
 
         public LoginPage()
         {
@@ -69,15 +67,15 @@ namespace Monopoly.IHM
                 MessageBox.Show("Connexion réussie !");
                 if(ComboPlayer.Text == "Joueur 1")
                 {
-                    idJoueur1 = userId;
-                    comboboxselected = 1;
-                    redirection(user, comboboxselected);
+                    comboboxselected = 0;
+                    connect.ConnectJoueur(comboboxselected, user, userId);
+                    redirection(comboboxselected);
                 }
                 else if (ComboPlayer.Text == "Joueur 2")
                 {
-                    idJoueur2 = userId;
-                    comboboxselected = 2;
-                    redirection(user, comboboxselected);
+                    comboboxselected = 1;
+                    connect.ConnectJoueur(comboboxselected, user, userId);
+                    redirection(comboboxselected);
                 }
 
             }
@@ -87,10 +85,10 @@ namespace Monopoly.IHM
         /// Retours mainwindow
         /// </summary>
         /// <author>Barthoux Sauze Thomas</author>
-        private void redirection(string user, int comboboxSelected)
+        private void redirection(int comboboxSelected)
         {
             MainWindow window = new MainWindow();
-            window.statutUser(user, comboboxSelected);
+            window.statutUser(comboboxSelected);
             window.Show();
 
             this.Close();

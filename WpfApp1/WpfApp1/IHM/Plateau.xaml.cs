@@ -113,7 +113,10 @@ namespace Monopoly.IHM
         private void ExitToMenu(object sender, RoutedEventArgs e)
         {
             CommandeGeneral commande = new CommandeGeneral();
-            commande.ExitToMenu(this);
+            //a redefinir
+            int idjoueurDemande = 1;
+            int idJoueur2 = 0;
+            commande.ExitToMenu(this, idjoueurDemande, idJoueur2);
         }
     }
 }
