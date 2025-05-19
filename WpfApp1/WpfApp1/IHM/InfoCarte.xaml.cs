@@ -32,6 +32,7 @@ namespace Monopoly.IHM
         /// Affiche les informations de la carte
         /// </summary>
         /// <param name="info"></param>
+        /// <author>Barthoux Sauze Thomas</author>
         private void infoLoad(List<string> info)
         {
             this.LabelCarte.Content = info[1];

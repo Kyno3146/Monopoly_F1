@@ -35,6 +35,7 @@ public class Card {
     {
         List<string> info = new List<string>();
 
+        // Gestion des différentes case 
         switch (nom)
         {
             case "case_depart":

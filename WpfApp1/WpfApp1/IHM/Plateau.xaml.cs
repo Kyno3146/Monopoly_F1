@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Monopoly.BDD;
 
 namespace Monopoly.IHM
 {
@@ -22,6 +23,7 @@ namespace Monopoly.IHM
         #region attribut
         private string f1_j1;
         private string f1_j2;
+
         private bool dee; // dee en true veut dire joueur 1
         #endregion
 
@@ -108,5 +110,10 @@ namespace Monopoly.IHM
             infoCarte.Show();
         }
 
+        private void ExitToMenu(object sender, RoutedEventArgs e)
+        {
+            CommandeGeneral commande = new CommandeGeneral();
+            commande.ExitToMenu(this);
+        }
     }
 }
