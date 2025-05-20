@@ -4,7 +4,7 @@ public class Property : Space  {
 	/// <summary>
 	/// The price of the property
 	/// </summary>
-	private int price;
+	public int price;
 	/// <summary>
 	/// the rent if a player pass
 	/// </summary>
@@ -26,13 +26,13 @@ public class Property : Space  {
     /// <summary>
     /// The constructor
     /// </summary>
-    public Property(int price, int rent, int upgradeValue, int mortageValue, int baseRent, int position) : base(position)
+    public Property(int price, int rent, int upgradeValue, int position) : base(position)
     {
 		this.price = price;
         this.rent = rent;
 		this.level = 0;
         this.upgradeValue = upgradeValue;
-        this.mortgageValue = mortageValue;
+        this.mortgageValue = price / 2;
         this.isMortgaged = false;
         this.position = position;
         this.player = null;
@@ -44,7 +44,7 @@ public class Property : Space  {
     /// <exception cref="System.InvalidOperationException"></exception>
     /// <author>Riviere Kylian</author>
     public void Upgrade() {
-        if (level < 5)
+        if (level < 5 && upgradeValue>0)
         {
             if (price == 60000)
             {
@@ -467,6 +467,7 @@ public class Property : Space  {
                     this.level = 5;
                     this.rent = 2000000;
                 }
+                this.player.Pay(ref upgradeValue);
             }
         }
         else
@@ -487,8 +488,16 @@ public class Property : Space  {
     /// A function wich mortgege the property
     /// </summary>
     public void Mortgage() {
-		throw new System.NotImplementedException("Not implemented");
-	}
+        if (!isMortgaged && player != null)
+        {
+            isMortgaged = true;
+            player.account += mortgageValue;
+        }
+        else
+        {
+            throw new System.InvalidOperationException("La propriété est déja hypothéquée !");
+        }
+    }
 
 
 }

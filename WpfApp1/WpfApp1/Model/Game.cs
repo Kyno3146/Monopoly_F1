@@ -16,8 +16,11 @@ public class Game {
 	/// Constructor
 	/// </summary>
 	public Game(Plateau plateau) {
-		throw new System.NotImplementedException("Not implemented");
-	}
+		this.players = new Player[2];
+        this.players[0] = new Player("Player 1");
+        this.players[1] = new Player("Player 2");
+		this.bank = new Bank();
+    }
 	/// <summary>
 	/// Starts the game
 	/// </summary>
