@@ -125,10 +125,18 @@ namespace Monopoly.IHM
             List<string> Info = new List<string>();
             var image = sender as Image;
             var tag = image?.Tag?.ToString();
-            Card card = new Card(tag);
-            Info = card.infoCarte(tag);
-            InfoCarte infoCarte = new InfoCarte(Info);
-            infoCarte.Show();
+
+            if (!string.IsNullOrEmpty(tag)) // Ensure 'tag' is not null or empty
+            {
+                Card card = new Card(tag);
+                Info = card.infoCarte(tag);
+                InfoCarte infoCarte = new InfoCarte(Info);
+                infoCarte.Show();
+            }
+            else
+            {
+                MessageBox.Show("Tag de l'image est invalide ou manquant.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void ExitToMenu(object sender, RoutedEventArgs e)
