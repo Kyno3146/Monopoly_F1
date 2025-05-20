@@ -64,10 +64,20 @@ namespace Monopoly.IHM
             imgJ1.Source = new BitmapImage(new Uri(path, UriKind.Relative));
             imgJ1.Width = 50;
             imgJ1.Height = 50;
-            // Position sur le plateau (exemple)
-            Canvas.SetLeft(imgJ1, 400);
-            Canvas.SetTop(imgJ1, 300);
+
+            // Position sur le plateau
+            int row = 12;
+            int col = 12;
+            int cellSize = 50;
+            Canvas.SetLeft(imgJ1, col * cellSize + 70);
+            Canvas.SetTop(imgJ1, row * cellSize + 20);
+
+            //Rotation
+            RotateTransform rotateTransform = new RotateTransform(90);
+            imgJ1.RenderTransform = rotateTransform;
+
             Monoplace.Children.Add(imgJ1);
+
 
             // Exemple d'ajout pour le joueur 2
             Image imgJ2 = new Image();
@@ -75,8 +85,19 @@ namespace Monopoly.IHM
             imgJ2.Source = new BitmapImage(new Uri(path2, UriKind.Relative));
             imgJ2.Width = 50;
             imgJ2.Height = 50;
-            Canvas.SetLeft(imgJ2, 450);
-            Canvas.SetTop(imgJ2, 400);
+
+            // Position sur le plateau
+            int row2 = 12;
+            int col2 = 12;
+            int cellSize2 = 50;
+            Canvas.SetLeft(imgJ2, col2 * cellSize2 + 70);
+            Canvas.SetTop(imgJ2, row2 * cellSize2 + 50);
+
+            //Rotation
+            RotateTransform rotateTransform2 = new RotateTransform(90);
+            imgJ2.RenderTransform = rotateTransform2;
+
+            // Ajout de l'image au Canvas
             Monoplace.Children.Add(imgJ2);
         }
 

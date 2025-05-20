@@ -99,11 +99,11 @@
         <!-- Zone ToString() -->
         <Label Content="Console" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="25" Foreground="White" Background="#15161C" Grid.Column="13" Grid.Row="6" />
         <TextBlock x:Name="ConsoleJeux" Grid.Column="13" Grid.Row="6" Grid.RowSpan="6" HorizontalAlignment="Center" Margin="0,56,0,0" TextWrapping="Wrap"  Text="" Background="White" Foreground="White" Width="329"/>
-        
-        
+
+
         <!--Exit_Button-->
         <Button x:Name="Exit" Grid.Column="13" Grid.Row="15" Content="Exit" Width="150" Height="30" Background="White" FontSize="20" Foreground="Red" Click="ExitToMenu"/>
-        
+
         <!--Monoplace-->
         <Canvas x:Name="Monoplace" Width="800" Height="800">
             <!-- Les images seront ajoutées ici -->
