@@ -24,6 +24,7 @@ public class Player
 
     private Dice dice; // Fixed ambiguity by ensuring only one 'dice' field exists  
 
+<<<<<<< Updated upstream
     public int nb_championships;
     public int nb_museums;
 
@@ -51,6 +52,29 @@ public class Player
         this.position += dice.Roll();
     }
 
+=======
+    /// <summary>  
+    /// Player's constructor  
+    /// </summary>  
+    /// <param name="n">the name of the player</param>  
+    public Player(string n)
+    {
+        this.name = n;
+        this.account = 1500; // Starting money  
+        this.position = 0; // Starting position  
+        this.properties = new Property[0]; // Initialize an empty array of properties  
+        this.dice = new Dice(); // Initialize the dice field  
+    }
+
+    /// <summary>  
+    /// Rolls the dice  
+    /// </summary>  
+    public void RollDice()
+    {
+        this.position += dice.Roll();
+    }
+
+>>>>>>> Stashed changes
     /// <summary>  
     /// Buys a property  
     /// </summary>  
@@ -59,6 +83,7 @@ public class Player
         this.account -= p.price; // Deduct the price from the account  
         Array.Resize(ref this.properties, this.properties.Length + 1); // Resize the properties array  
         this.properties[this.properties.Length - 1] = p; // Add the property to the properties array
+<<<<<<< Updated upstream
         if (p.position == 5 || p.position == 15 || p.position ==25 || p.position == 35)
         {
             this.nb_championships++; // Increment the number of championships if the property is a championship
@@ -67,6 +92,8 @@ public class Player
         {
             this.nb_museums++; // Increment the number of museums if the property is a museum
         }
+=======
+>>>>>>> Stashed changes
     }
 
     /// <summary>  
