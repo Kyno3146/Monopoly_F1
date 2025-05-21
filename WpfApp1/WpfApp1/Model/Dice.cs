@@ -7,7 +7,7 @@ public class Dice {
 	/// <summary>
 	/// Last rolled value
 	/// </summary>
-	private int value;
+	public int value;
 
 	/// <summary>
 	/// The constructor of the dice

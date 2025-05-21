@@ -19,7 +19,7 @@ public class Property : Space  {
 	private int upgradeValue;
 	private int mortgageValue;
 	private bool isMortgaged;
-    private int position;
+    public int position;
     private Player? player;
 
 
@@ -482,7 +482,45 @@ public class Property : Space  {
     /// </summary>
     public override void Action(ref Player p)
     {
-        throw new NotImplementedException();
+        int rent = 0;
+        if (p.position == 5 ||  p.position == 15 || p.position == 25 || p.position == 35 )
+        {
+            if (player.nb_championships == 1)
+            {
+                rent = 50000;
+                p.Pay(ref rent);
+            }
+            else if (player.nb_championships == 2)
+            {
+                rent = 100000;
+                p.Pay(ref rent);
+            }
+            else if (player.nb_championships == 3)
+            {
+                rent = 150000;
+                p.Pay(ref rent);
+            }
+            else if (player.nb_championships == 4)
+            {
+                rent = 200000;
+                p.Pay(ref rent);
+            }
+        }
+        else if (p.position == 12 || p.position == 28)
+        {
+            Dice d = new Dice();
+            d.Roll();
+            if (player.nb_museums == 1)
+            {
+                rent = d.value *4 ;
+                p.Pay(ref rent);
+            }
+            else if (player.nb_museums == 2)
+            {
+                rent = d.value * 10;
+                p.Pay(ref rent);
+            }
+        }
     }
     /// <summary>
     /// A function wich mortgege the property
