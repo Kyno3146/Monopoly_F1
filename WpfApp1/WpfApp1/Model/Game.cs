@@ -40,7 +40,15 @@ public class Game {
         this.players[0] = new Player(this.playerNames[0]);
         this.players[1] = new Player(this.playerNames[1]);
     }
-
+	/// <summary>
+	/// Constructor
+	/// </summary>
+	public Game(Plateau plateau) {
+		this.players = new Player[2];
+        this.players[0] = new Player("Player 1");
+        this.players[1] = new Player("Player 2");
+		this.bank = new Bank();
+    }
 	/// <summary>
 	/// Starts the game
 	/// </summary>
