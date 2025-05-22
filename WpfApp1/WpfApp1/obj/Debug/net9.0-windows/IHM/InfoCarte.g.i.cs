@@ -109,7 +109,7 @@ namespace Monopoly.IHM {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Monopoly;component/ihm/infocarte.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Monopoly;V1.0.0.0;component/ihm/infocarte.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\IHM\InfoCarte.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
