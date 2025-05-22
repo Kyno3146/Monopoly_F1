@@ -57,8 +57,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.102\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.WinFX.targets",
               "ViewState": "AgIAAEQBAAAAAAAAAAAIwNIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-05-22T11:58:08.494Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T11:58:08.494Z"
             },
             {
               "$type": "Document",
@@ -70,8 +69,7 @@
               "RelativeToolTip": "WpfApp1\\Model\\Player.cs",
               "ViewState": "AgIAADsAAAAAAAAAAAAgwEgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T08:50:34.955Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T08:50:34.955Z"
             },
             {
               "$type": "Document",
@@ -83,8 +81,7 @@
               "RelativeToolTip": "WpfApp1\\Model\\Board.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAQwBEAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T08:50:12.272Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T08:50:12.272Z"
             },
             {
               "$type": "Document",
@@ -96,8 +93,7 @@
               "RelativeToolTip": "WpfApp1\\Model\\Game.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAYwCgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T08:36:25.557Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T08:36:25.557Z"
             },
             {
               "$type": "Document",
@@ -107,7 +103,7 @@
               "RelativeDocumentMoniker": "WpfApp1\\IHM\\Plateau.xaml.cs",
               "ToolTip": "C:\\Users\\kylli\\Documents\\Github\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Plateau.xaml.cs",
               "RelativeToolTip": "WpfApp1\\IHM\\Plateau.xaml.cs",
-              "ViewState": "AgIAAOIAAAAAAAAAAAAowHIAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAQwDwAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-22T08:34:10.873Z",
               "EditorCaption": ""
