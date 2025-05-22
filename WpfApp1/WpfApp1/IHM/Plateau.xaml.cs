@@ -111,8 +111,9 @@ namespace Monopoly.IHM
             ConsoleJeux.Text += " ---- Joueur 1 : " + f1_j1 + " ---- \n";
             ConsoleJeux.Text += " ---- Joueur 2 : " + f1_j2 + " ---- \n";
             //this passe en parametre le tableau
-            //Game game = new Game(plateau);
-            //game.StartGame();
+            Board board = new Board();
+            Game game = new Game(this, board);
+            game.StartGame();
         }
 
         /// <summary>
@@ -138,6 +139,84 @@ namespace Monopoly.IHM
                 MessageBox.Show("Tag de l'image est invalide ou manquant.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+
+        public void MooveF1(bool joueur, int position)
+        {
+            // Joueur 1
+            if (joueur == false)
+            {
+                // Suppression de l'ancienne image
+                Monoplace.Children.Clear();
+                // Ajout de la nouvelle image
+                Image imgJ1 = new Image();
+                string path = "Image/Monoplaces/" + f1_j1 + ".png";
+                imgJ1.Source = new BitmapImage(new Uri(path, UriKind.Relative));
+                imgJ1.Width = 50;
+                imgJ1.Height = 50;
+                // Position sur le plateau
+                int row = position / 10;
+                int col = position % 10;
+                int cellSize = 50;
+                Canvas.SetLeft(imgJ1, col * cellSize + 70);
+                Canvas.SetTop(imgJ1, row * cellSize + 20);
+                //Rotation
+                switch (position)
+                {
+                    case < 10:
+                        imgJ1.RenderTransform = new RotateTransform(90);
+                        break;
+                    case >= 10 and < 20:
+                        imgJ1.RenderTransform = new RotateTransform(180);
+                        break;
+                    case >= 20 and < 30:
+                        imgJ1.RenderTransform = new RotateTransform(270);
+                        break;
+                    case >= 30 and < 40:
+                        imgJ1.RenderTransform = new RotateTransform(0);
+                        break;
+                }
+
+            }
+            // Joueur 2
+            else
+            {
+                // Suppression de l'ancienne image
+                Monoplace.Children.Clear();
+                // Ajout de la nouvelle image
+                Image imgJ2 = new Image();
+                string path = "Image/Monoplaces/" + f1_j2 + ".png";
+                imgJ2.Source = new BitmapImage(new Uri(path, UriKind.Relative));
+                imgJ2.Width = 50;
+                imgJ2.Height = 50;
+                // Position sur le plateau
+                int row = position / 10;
+                int col = position % 10;
+                int cellSize = 50;
+                Canvas.SetLeft(imgJ2, col * cellSize + 70);
+                Canvas.SetTop(imgJ2, row * cellSize + 20);
+                //Rotation
+                switch (position)
+                {
+                    case < 10:
+                        imgJ2.RenderTransform = new RotateTransform(90);
+                        break;
+                    case >= 10 and < 20:
+                        imgJ2.RenderTransform = new RotateTransform(180);
+                        break;
+                    case >= 20 and < 30:
+                        imgJ2.RenderTransform = new RotateTransform(270);
+                        break;
+                    case >= 30 and < 40:
+                        imgJ2.RenderTransform = new RotateTransform(0);
+                        break;
+                }
+
+
+            }
+
+        }
+
 
         private void ExitToMenu(object sender, RoutedEventArgs e)
         {
