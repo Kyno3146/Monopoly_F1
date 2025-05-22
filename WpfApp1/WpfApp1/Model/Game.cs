@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics.Eventing.Reader;
+using System.Windows;
 using Monopoly.BDD;
 using Monopoly.IHM;
 
@@ -28,10 +29,10 @@ public class Game {
         this.plateau = plateau;
         this.bank = new Bank();
 		InitPlayer();
-		StartGame();
+		StartGame(this.isPlayerTurn ,this.isGameOver);
     }
 
-	public void InitPlayer()
+    public void InitPlayer()
 	{
 		this.playerNames =connect.SelectJoueur();
 
@@ -43,11 +44,23 @@ public class Game {
 	/// <summary>
 	/// Starts the game
 	/// </summary>
-	public void StartGame() {
-		if (this.isPlayerTurn == false)
-		{
-            players[0].RollDice();
-			plateau.MooveF1(isPlayerTurn, players[0].position);
+	public void StartGame(bool joueur,bool statutGame) {
+
+        if (this.isGameOver != true)
+         {
+             if (this.isPlayerTurn == false)
+             {
+                 players[0].RollDice();
+                 plateau.ConsoleJeux.Text += " ---- " + players[0] + " a lancé le dé et a obtenu : " + players[0].position + " ---- \n";
+                plateau.MooveF1(isPlayerTurn, players[0].position);
+                 this.isPlayerTurn = true;
+             }
+             else 
+             {
+                 players[1].RollDice();
+                 plateau.MooveF1(isPlayerTurn, players[1].position);
+                 this.isPlayerTurn = false;
+            }
         }
 
     }

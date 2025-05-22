@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,8 +24,11 @@ namespace Monopoly.IHM
         #region attribut
         private string f1_j1;
         private string f1_j2;
+        private int positionJoueur1;
+        private int positionJoueur2;
+        private Image imgJ1;
+        private Image imgJ2;
 
-        private bool dee; // dee en true veut dire joueur 1
         #endregion
 
         #region Constructeur
@@ -42,15 +46,13 @@ namespace Monopoly.IHM
 
             // Initialisation de la monoplace
             InitMonoplcace(f1_j1, f1_j2);
-
-            // Lancement du jeux
+            
             startGame(this);
-
         }
         #endregion
 
         /// <summary>
-        /// Initialisation de la monoplace
+        /// Initialisation de la monoplace grace au canvas
         /// </summary>
         /// <param name="f1_j1"></param>
         /// <param name="f1_j2"></param>
@@ -59,7 +61,7 @@ namespace Monopoly.IHM
         {
 
             // Exemple d'ajout pour le joueur 1
-            Image imgJ1 = new Image();
+            imgJ1 = new Image();
             string path = "Image/Monoplaces/" + f1_j1 + ".png";
             imgJ1.Source = new BitmapImage(new Uri(path, UriKind.Relative));
             imgJ1.Width = 50;
@@ -80,7 +82,7 @@ namespace Monopoly.IHM
 
 
             // Exemple d'ajout pour le joueur 2
-            Image imgJ2 = new Image();
+            imgJ2 = new Image();
             string path2 = "Image/Monoplaces/" + f1_j2 + ".png";
             imgJ2.Source = new BitmapImage(new Uri(path2, UriKind.Relative));
             imgJ2.Width = 50;
@@ -107,13 +109,13 @@ namespace Monopoly.IHM
         /// <author>Barthoux Sauze Thomas</author>
         public void startGame(Plateau plateau)
         {
-            ConsoleJeux.Text += " ---- Lancement du jeux ---- \n";
-            ConsoleJeux.Text += " ---- Joueur 1 : " + f1_j1 + " ---- \n";
-            ConsoleJeux.Text += " ---- Joueur 2 : " + f1_j2 + " ---- \n";
+            this.Show();
+            this.ConsoleJeux.Text += " ---- Lancement du jeux ---- \n";
+            this.ConsoleJeux.Text += " ---- Joueur 1 : " + f1_j1 + " ---- \n";
+            this.ConsoleJeux.Text += " ---- Joueur 2 : " + f1_j2 + " ---- \n";
             //this passe en parametre le tableau
             Board board = new Board();
-            Game game = new Game(this, board);
-            game.StartGame();
+            Game game = new Game(plateau, board);
         }
 
         /// <summary>
@@ -143,80 +145,95 @@ namespace Monopoly.IHM
 
         public void MooveF1(bool joueur, int position)
         {
-            // Joueur 1
-            if (joueur == false)
-            {
-                // Suppression de l'ancienne image
-                Monoplace.Children.Clear();
-                // Ajout de la nouvelle image
-                Image imgJ1 = new Image();
-                string path = "Image/Monoplaces/" + f1_j1 + ".png";
-                imgJ1.Source = new BitmapImage(new Uri(path, UriKind.Relative));
-                imgJ1.Width = 50;
-                imgJ1.Height = 50;
-                // Position sur le plateau
-                int row = position / 10;
-                int col = position % 10;
-                int cellSize = 50;
-                Canvas.SetLeft(imgJ1, col * cellSize + 70);
-                Canvas.SetTop(imgJ1, row * cellSize + 20);
-                //Rotation
-                switch (position)
-                {
-                    case < 10:
-                        imgJ1.RenderTransform = new RotateTransform(90);
-                        break;
-                    case >= 10 and < 20:
-                        imgJ1.RenderTransform = new RotateTransform(180);
-                        break;
-                    case >= 20 and < 30:
-                        imgJ1.RenderTransform = new RotateTransform(270);
-                        break;
-                    case >= 30 and < 40:
-                        imgJ1.RenderTransform = new RotateTransform(0);
-                        break;
-                }
+            double cellSize = 50;
 
+            if (!joueur)
+            {
+                positionJoueur1 = position;
+                // Retirer l'image si elle est déjà présente
+                Monoplace.Children.Remove(imgJ1);
+
+                // Calculer la position
+                (double x, double y) = GetCanvasPosition(positionJoueur1, cellSize);
+
+                // Mettre à jour la position et la rotation
+                Canvas.SetLeft(imgJ1, x);
+                Canvas.SetTop(imgJ1, y);
+                imgJ1.RenderTransform = GetRotationTransform(positionJoueur1);
+
+                // Réajouter l'image si besoin
+                if (!Monoplace.Children.Contains(imgJ1))
+                    Monoplace.Children.Add(imgJ1);
             }
-            // Joueur 2
             else
             {
-                // Suppression de l'ancienne image
-                Monoplace.Children.Clear();
-                // Ajout de la nouvelle image
-                Image imgJ2 = new Image();
-                string path = "Image/Monoplaces/" + f1_j2 + ".png";
-                imgJ2.Source = new BitmapImage(new Uri(path, UriKind.Relative));
-                imgJ2.Width = 50;
-                imgJ2.Height = 50;
-                // Position sur le plateau
-                int row = position / 10;
-                int col = position % 10;
-                int cellSize = 50;
-                Canvas.SetLeft(imgJ2, col * cellSize + 70);
-                Canvas.SetTop(imgJ2, row * cellSize + 20);
-                //Rotation
-                switch (position)
-                {
-                    case < 10:
-                        imgJ2.RenderTransform = new RotateTransform(90);
-                        break;
-                    case >= 10 and < 20:
-                        imgJ2.RenderTransform = new RotateTransform(180);
-                        break;
-                    case >= 20 and < 30:
-                        imgJ2.RenderTransform = new RotateTransform(270);
-                        break;
-                    case >= 30 and < 40:
-                        imgJ2.RenderTransform = new RotateTransform(0);
-                        break;
-                }
+                positionJoueur2 = position;
+                Monoplace.Children.Remove(imgJ2);
 
+                (double x, double y) = GetCanvasPosition(positionJoueur2, cellSize);
 
+                // Décalage pour ne pas superposer avec joueur 1
+                Canvas.SetLeft(imgJ2, x + 10);
+                Canvas.SetTop(imgJ2, y + 10);
+                imgJ2.RenderTransform = GetRotationTransform(positionJoueur2);
+
+                if (!Monoplace.Children.Contains(imgJ2))
+                    Monoplace.Children.Add(imgJ2);
             }
-
         }
 
+
+        // Fonction de calcul de position et rotation autour du plateau
+        private (double x, double y) GetCanvasPosition(int position, double cellSize)
+        {
+            // Plateau 11x11, cases 0 à 10 en bas, 11 à 20 à gauche, 21 à 30 en haut, 31 à 39 à droite
+            double offsetX = 180; // Décalage horizontal pour aligner avec le plateau
+            double offsetY = 150;  // Correction : plus de décalage vertical
+            int maxIndex = 10;   // 0 à 10 inclus = 11 cases
+
+            double x = 0, y = 0;
+
+            if (position >= 0 && position <= 10)
+            {
+                // Bas (de droite à gauche)
+                x = (maxIndex - position) * cellSize + offsetX;
+                y = maxIndex * cellSize + offsetY;
+            }
+            else if (position > 10 && position <= 20)
+            {
+                // Gauche (de bas en haut)
+                x = offsetX;
+                y = (maxIndex - (position - 10)) * cellSize + offsetY;
+            }
+            else if (position > 20 && position <= 30)
+            {
+                // Haut (de gauche à droite)
+                x = (position - 20) * cellSize + offsetX;
+                y = offsetY;
+            }
+            else if (position > 30 && position < 40)
+            {
+                // Droite (de haut en bas)
+                x = maxIndex * cellSize + offsetX;
+                y = (position - 30) * cellSize + offsetY;
+            }
+            return (x, y);
+        }
+
+
+
+
+        private RotateTransform GetRotationTransform(int position)
+        {
+            if (position < 10)
+                return new RotateTransform(90);
+            else if (position < 20)
+                return new RotateTransform(180);
+            else if (position < 30)
+                return new RotateTransform(270);
+            else
+                return new RotateTransform(0);
+        }
 
         private void ExitToMenu(object sender, RoutedEventArgs e)
         {

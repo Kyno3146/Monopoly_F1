@@ -1,26 +1,22 @@
 using System;
 
-public class Board {
-	private Space[] spaces;
+public class Board
+{
+    private Space[] spaces;
 
-	/// <summary>
-	/// Constructors
-	/// </summary>
-	public Board()
-	{
-		this.spaces = new Space[40];
-		this.spaces[0] = new SpecialSpace(0);
+    /// <summary>
+    /// Constructors
+    /// </summary>
+    public Board()
+    {
+        this.spaces = new Space[40];
+        this.spaces[0] = new SpecialSpace(0);
         this.spaces[1] = new Property(60000, 2000, 50000, 1);
         this.spaces[2] = new CardSpace(2);
         this.spaces[3] = new Property(60000, 2000, 50000, 3);
         this.spaces[4] = new SpecialSpace(4);
-<<<<<<< Updated upstream
-        this.spaces[6] = new Property(200000, 25000, 0, 5);
-        this.spaces[5] = new Property(100000, 6000, 50000, 6);        
-=======
         this.spaces[5] = new Property(100000, 6000, 50000, 5);
         this.spaces[6] = new Property(200000, 25000, 0, 6);
->>>>>>> Stashed changes
         this.spaces[7] = new Property(100000, 6000, 50000, 7);
         this.spaces[8] = new CardSpace(8);
         this.spaces[9] = new Property(120000, 8000, 50000, 9);
@@ -54,8 +50,6 @@ public class Board {
         this.spaces[37] = new Property(350000, 35000, 200000, 37);
         this.spaces[38] = new SpecialSpace(38);
         this.spaces[39] = new Property(400000, 50000, 200000, 39);
-
-
     }
 
     /// <summary>
