@@ -143,6 +143,7 @@ namespace Monopoly.IHM
         }
 
 
+<<<<<<< Updated upstream
         public void MooveF1(bool joueur, int position)
         {
             double cellSize = 50;
@@ -179,10 +180,28 @@ namespace Monopoly.IHM
 
                 if (!Monoplace.Children.Contains(imgJ2))
                     Monoplace.Children.Add(imgJ2);
+=======
+        private void Enchere(object sender, RoutedEventArgs e)
+        {
+            List<string> info = new List<string>();
+            var image = sender as Image;
+            var tag = image?.Tag?.ToString();
+            if (!string.IsNullOrEmpty(tag)) // Ensure 'tag' is not null or empty
+            {
+                Card card = new Card(tag);
+                info = card.infoCarte(tag);
+                Enchere enchere = new Enchere(info, f1_j1, f1_j2);
+                enchere.Show();
+            }
+            else
+            {
+                MessageBox.Show("Tag de l'image est invalide ou manquant.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+>>>>>>> Stashed changes
             }
         }
 
 
+<<<<<<< Updated upstream
         // Fonction de calcul de position et rotation autour du plateau
         private (double x, double y) GetCanvasPosition(int position, double cellSize)
         {
@@ -234,6 +253,9 @@ namespace Monopoly.IHM
             else
                 return new RotateTransform(0);
         }
+=======
+        #region exit
+>>>>>>> Stashed changes
 
         private void ExitToMenu(object sender, RoutedEventArgs e)
         {
@@ -243,5 +265,7 @@ namespace Monopoly.IHM
             int idJoueur2 = 0;
             commande.ExitToMenu(this, idjoueurDemande, idJoueur2);
         }
+
+        #endregion
     }
 }

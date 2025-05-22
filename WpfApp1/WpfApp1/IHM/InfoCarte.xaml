@@ -22,9 +22,8 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
         <Label x:Name="LabelCarte" Content="" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"  VerticalAlignment="Center" />
-        
+
         <Label Content="Description :" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
         <TextBlock x:Name="description" Grid.Row="2" Grid.Column="1" Background="LightGray" Margin="0,0,10,10"/>
 
