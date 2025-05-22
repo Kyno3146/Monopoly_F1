@@ -521,6 +521,11 @@ public class Property : Space  {
                 p.Pay(ref rent);
             }
         }
+        else
+        {
+            rent = this.rent;
+            p.Pay(ref rent);
+        }
     }
     /// <summary>
     /// A function wich mortgege the property
