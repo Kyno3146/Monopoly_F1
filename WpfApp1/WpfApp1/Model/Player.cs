@@ -20,7 +20,7 @@ public class Player
     /// <summary>  
     /// Owned properties  
     /// </summary>  
-    private Property[] properties; // Fixed type to 'Property[]' instead of 'Player[]'
+    private Property[] properties; // Fixed type to 'Property[]' instead of 'Player[]'  
 
     private Dice dice; // Fixed ambiguity by ensuring only one 'dice' field exists  
 
@@ -37,10 +37,9 @@ public class Player
         this.account = 1500; // Starting money  
         this.position = 0; // Starting position  
         this.properties = new Property[0]; // Initialize an empty array of properties  
-        this.dice = new Dice(); // Initialize the dice field
-        this.nb_championships = 0; // Initialize the number of championships 
-        this.nb_museums = 0; // Initialize the number of museums
-
+        this.dice = new Dice(); // Initialize the dice field  
+        this.nb_championships = 0; // Initialize the number of championships  
+        this.nb_museums = 0; // Initialize the number of museums  
     }
 
     /// <summary>  
@@ -51,8 +50,6 @@ public class Player
         this.position += dice.Roll();
     }
 
-
-
     /// <summary>  
     /// Buys a property  
     /// </summary>  
@@ -60,17 +57,15 @@ public class Player
     {
         this.account -= p.price; // Deduct the price from the account  
         Array.Resize(ref this.properties, this.properties.Length + 1); // Resize the properties array  
-        this.properties[this.properties.Length - 1] = p; // Add the property to the properties array
-
-        if (p.position == 5 || p.position == 15 || p.position ==25 || p.position == 35)
+        this.properties[this.properties.Length - 1] = p; // Add the property to the properties array  
+        if (p.position == 5 || p.position == 15 || p.position == 25 || p.position == 35)
         {
-            this.nb_championships++; // Increment the number of championships if the property is a championship
+            this.nb_championships++; // Increment the number of championships if the property is a championship  
         }
         else if (p.position == 12 || p.position == 28)
         {
-            this.nb_museums++; // Increment the number of museums if the property is a museum
+            this.nb_museums++; // Increment the number of museums if the property is a museum  
         }
-
     }
 
     /// <summary>  
@@ -82,8 +77,4 @@ public class Player
         this.account -= s; // Deduct the amount from the account  
         s = 0; // Reset the amount to zero after payment  
     }
-
-    private Property[] propertys;
-
-    private Game game;
 }
