@@ -14,28 +14,28 @@ using System.Windows.Shapes;
 
 namespace Monopoly.IHM
 {
-    /// <summary>
-    /// Logique d'interaction pour Enchere.xaml
-    /// </summary>
+    /// <summary>  
+    /// Logique d'interaction pour Enchere.xaml  
+    /// </summary>  
     public partial class Enchere : Window
     {
         private List<string> info = new List<string>();
-        private string Joueur1;
-        private string Joueur2;
+        private string joueur1; // Renamed field to lowercase to avoid conflict  
+        private string joueur2;
 
-        public Enchere(List<string> info, string Joueur1, string Joueur2)
+        public Enchere(List<string> info, string joueur1, string joueur2)
         {
             InitializeComponent();
             this.info = info;
-            this.Joueur1 = Joueur1;
+            this.joueur1 = joueur1;
             infoLoad(info);
         }
 
-        /// <summary>
-        /// Load the information of the card in the auction window.
-        /// </summary>
-        /// <param name="info"></param>
-        ///<author>Barthoux Sauze Thomas</author>
+        /// <summary>  
+        /// Load the information of the card in the auction window.  
+        /// </summary>  
+        /// <param name="info"></param>  
+        ///<author>Barthoux Sauze Thomas</author>  
         private void infoLoad(List<string> info)
         {
             this.LabelCarte.Content = info[1];
@@ -43,21 +43,19 @@ namespace Monopoly.IHM
             this.imgCarte.Source = new BitmapImage(new Uri(imagePath, UriKind.Relative));
             this.description.Text = info[2];
 
-            // Par défaut, vider les champs
+            // Par défaut, vider les champs  
             this.valachat.Text = "";
 
-
-            // Si valeur d'achat présente
+            // Si valeur d'achat présente  
             if (info.Count > 3)
                 this.valachat.Text = info[3];
 
-            // Si total est présent (en dernière position)
+            // Si total est présent (en dernière position)  
             if (info.Count > 5)
-                this.valachat.Text += "\n" + info[info.Count - 1];  // Affiche le total dans valachat
+                this.valachat.Text += "\n" + info[info.Count - 1]; // Affiche le total dans valachat  
 
-            // Affichage des joueurs
-            this.Joueur1Label.Content = Joueur1;
+            // Affichage des joueurs  
+            this.Joueur1.Content = "";
         }
-
     }
 }

@@ -1,13 +1,17 @@
-﻿<Window x:Class="Monopoly.IHM.Plateau"  
-       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
-       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
-       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
-       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
-       xmlns:local="clr-namespace:Monopoly.IHM"  
-       mc:Ignorable="d"  
-       Title="Plateau" Height="820" Width="1200" Background="#15161C">
+﻿<Window x:Class="Monopoly.IHM.Plateau"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Monopoly.IHM"
+        mc:Ignorable="d"
+        Title="Plateau"
+        WindowState="Normal"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="CanResize"
+        Background="#15161C">
 
-    <Grid>
+    <Grid Width="1400" Height="1080">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*" />
             <ColumnDefinition Width="2*" />
@@ -100,14 +104,58 @@
         <Label Content="Console" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="25" Foreground="White" Background="#15161C" Grid.Column="13" Grid.Row="6" />
         <TextBlock x:Name="ConsoleJeux" Grid.Column="13" Grid.Row="6" Grid.RowSpan="6" HorizontalAlignment="Center" Margin="0,56,0,0" TextWrapping="Wrap"  Text="" Background="White" Foreground="Black" Width="329"/>
 
+        <!--Btn jouer-->
+        <Button x:Name="Jouer" Grid.Column="5" Grid.Row="9" Grid.ColumnSpan="3" Content="Joueur : " Width="150" Height="30" Background="White" FontSize="20" Foreground="Red" Click="Jouer_click"/>
+
 
         <!--Exit_Button-->
         <Button x:Name="Exit" Grid.Column="13" Grid.Row="15" Content="Exit" Width="150" Height="30" Background="White" FontSize="20" Foreground="Red" Click="ExitToMenu"/>
 
+        
         <!--Monoplace-->
-        <Canvas x:Name="Monoplace" Width="800" Height="800">
-            <!-- Les images seront ajoutées ici -->
-        </Canvas>
+        <Grid x:Name="Monoplace"
+      Grid.Row="0" Grid.Column="0"
+      Grid.RowSpan="14" Grid.ColumnSpan="15"
+      Background="Transparent"
+      Panel.ZIndex="10"
+      IsHitTestVisible="False">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="0.5*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+        </Grid>
 
     </Grid>
 </Window>

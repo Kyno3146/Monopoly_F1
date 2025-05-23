@@ -77,4 +77,12 @@ public class Player
         this.account -= s; // Deduct the amount from the account  
         s = 0; // Reset the amount to zero after payment  
     }
+
+    public void verifPosition(int position)
+    {
+        if (position > 39)
+        {
+            this.position = position - 40; // Adjust the position if it exceeds the board size  
+        }
+    }
 }
