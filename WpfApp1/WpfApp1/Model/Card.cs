@@ -25,6 +25,9 @@ public class Card {
 
 	private CardSpace cardSpace;
 
+    
+
+
     /// <summary>
     /// Returns the name of the card
     /// </summary>
@@ -39,6 +42,7 @@ public class Card {
         switch (nom)
         {
             case "case_depart":
+            case "0":
                 info.Add(nom);
                 info.Add("Case de départ");
                 this.description = "Feux aux vert vous gagner 200 000€";
@@ -48,6 +52,7 @@ public class Card {
                 break;
 
             case "case_Hongrie":
+            case "1":
                 info.Add(nom);
                 info.Add("Circuit de Hongrie");
                 this.description = "Circuit de Hongrie";
