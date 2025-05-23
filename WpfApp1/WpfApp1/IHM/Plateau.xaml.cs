@@ -48,6 +48,8 @@ namespace Monopoly.IHM
             this.WindowStyle = WindowStyle.None;
             this.ResizeMode = ResizeMode.NoResize;
 
+            Jouer.Content = "Joueur 1";
+
             startGame(this);
         }
         #endregion

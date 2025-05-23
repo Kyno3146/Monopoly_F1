@@ -102,7 +102,13 @@
 
         <!-- Zone ToString() -->
         <Label Content="Console" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="25" Foreground="White" Background="#15161C" Grid.Column="13" Grid.Row="6" />
-        <TextBlock x:Name="ConsoleJeux" Grid.Column="13" Grid.Row="6" Grid.RowSpan="6" HorizontalAlignment="Center" Margin="0,56,0,0" TextWrapping="Wrap"  Text="" Background="White" Foreground="Black" Width="329"/>
+        <ScrollViewer Grid.Column="13" Grid.Row="6" Grid.RowSpan="6" Margin="0,56,0,0" VerticalScrollBarVisibility="Auto" Background="White" Width="400">
+            <TextBlock x:Name="ConsoleJeux" 
+               TextWrapping="Wrap"
+               Text=""
+               Foreground="Black"
+               Background="White"/>
+        </ScrollViewer>
 
         <!--Btn jouer-->
         <Button x:Name="Jouer" Grid.Column="5" Grid.Row="9" Grid.ColumnSpan="3" Content="Joueur : " Width="150" Height="30" Background="White" FontSize="20" Foreground="Red" Click="Jouer_click"/>

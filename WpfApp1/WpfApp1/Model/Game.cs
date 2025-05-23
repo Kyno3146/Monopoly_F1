@@ -66,17 +66,16 @@ public class Game {
                 {
                     players[0].RollDice();
                     players[0].verifPosition(players[0].position);
-                    plateau.ConsoleJeux.Text += $" ---- {players[0]} a lancé le dé et a obtenu : {players[0].position} ---- \n";
+                    plateau.ConsoleJeux.Text += $" ---- {playerNames[0]} a lancé le dé et a obtenu : {players[0].position} ---- \n";
                     plateau.MooveF1(isPlayerTurn, players[0].position);
                     this.isPlayerTurn = true;
                 }
                 else
                 {
-                    MessageBox.Show("ahhhh je suis ou !");
                     players[1].RollDice();
                     players[1].verifPosition(players[1].position);
                     plateau.MooveF1(isPlayerTurn, players[1].position);
-                    plateau.ConsoleJeux.Text += $" ---- {players[1]} a lancé le dé et a obtenu : {players[1].position} ---- \n";
+                    plateau.ConsoleJeux.Text += $" ---- {playerNames[1]} a lancé le dé et a obtenu : {players[1].position} ---- \n";
                     this.isPlayerTurn = false;
                 }
             }
@@ -91,12 +90,11 @@ public class Game {
     {
         if (this.isPlayerTurn == false) // Joueur 1
         {
-            plateau.Jouer.Content = "1";
+            plateau.Jouer.Content = playerNames[0];
         }
         else // Joueur 2
         {
-            plateau.Jouer.Content = "2";
-            MessageBox.Show("CPT");
+            plateau.Jouer.Content = playerNames[1];
         }
     }
 
@@ -109,6 +107,10 @@ public class Game {
 
 	private Player[] player;
 
+
+    /// <summary>
+    /// A bouger plus tard
+    /// </summary>
     public bool Btn_Clicked { get; set; }
     public bool IsPlayerTurn
     {

@@ -27,6 +27,13 @@ public class Player
     public int nb_championships;
     public int nb_museums;
 
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+
+
     /// <summary>  
     /// Player's constructor  
     /// </summary>  
