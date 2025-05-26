@@ -1,4 +1,6 @@
+using Monopoly.IHM;
 using System;
+using System.Windows;
 
 public class Property : Space  {
 	/// <summary>
@@ -482,49 +484,84 @@ public class Property : Space  {
     /// </summary>
     public override void Action(ref Player p)
     {
-        int rent = 0;
-        if (p.position == 5 ||  p.position == 15 || p.position == 25 || p.position == 35 )
+        if (player != null)
         {
-            if (player.nb_championships == 1)
+            int rent = 0;
+            if (p.position == 5 || p.position == 15 || p.position == 25 || p.position == 35)
             {
-                rent = 50000;
-                p.Pay(ref rent);
+                if (player.nb_championships == 1)
+                {
+                    rent = 50000;
+                    p.Pay(ref rent);
+                }
+                else if (player.nb_championships == 2)
+                {
+                    rent = 100000;
+                    p.Pay(ref rent);
+                }
+                else if (player.nb_championships == 3)
+                {
+                    rent = 150000;
+                    p.Pay(ref rent);
+                }
+                else if (player.nb_championships == 4)
+                {
+                    rent = 200000;
+                    p.Pay(ref rent);
+                }
             }
-            else if (player.nb_championships == 2)
+            else if (p.position == 12 || p.position == 28)
             {
-                rent = 100000;
-                p.Pay(ref rent);
+                Dice d = new Dice();
+                d.Roll();
+                if (player.nb_museums == 1)
+                {
+                    rent = d.value * 4;
+                    p.Pay(ref rent);
+                }
+                else if (player.nb_museums == 2)
+                {
+                    rent = d.value * 10;
+                    p.Pay(ref rent);
+                }
             }
-            else if (player.nb_championships == 3)
+            else
             {
-                rent = 150000;
-                p.Pay(ref rent);
-            }
-            else if (player.nb_championships == 4)
-            {
-                rent = 200000;
-                p.Pay(ref rent);
-            }
-        }
-        else if (p.position == 12 || p.position == 28)
-        {
-            Dice d = new Dice();
-            d.Roll();
-            if (player.nb_museums == 1)
-            {
-                rent = d.value *4 ;
-                p.Pay(ref rent);
-            }
-            else if (player.nb_museums == 2)
-            {
-                rent = d.value * 10;
+                rent = this.rent;
                 p.Pay(ref rent);
             }
         }
         else
         {
-            rent = this.rent;
-            p.Pay(ref rent);
+            MessageBoxResult messageBoxAchat = MessageBox.Show("Voulez vous acheter cette propriété ?", "Achat", MessageBoxButton.YesNo);
+            if (messageBoxAchat == MessageBoxResult.Yes)
+            {
+                if (p.account >= price)
+                {
+                    p.Buy(this);
+                    player = p;
+                }
+                else
+                {
+                    MessageBoxResult messageBoxHypotèque = MessageBox.Show("Vous n'avez pas assez d'argent pour acheter cette propriété, voulez vous hypotéquer une de vos propriétés ?", "Hypothèque", MessageBoxButton.YesNo);
+                    if (messageBoxHypotèque == MessageBoxResult.Yes)
+                    {
+                        Card card = new Card(position.ToString());
+                        List<string> info = card.infoCarte(position.ToString());
+                        plateau.ConsoleJeux.Text += " ---- Enchère ---- \n";
+                        Enchere enchere = new Enchere(info, playerNames[0], playerNames[1]);
+                        enchere.Show();
+                    }
+                    else
+                    {
+                        // enchère 
+                    }
+                }
+            }
+            else
+            {
+                // enchère 
+            }
         }
     }
     /// <summary>

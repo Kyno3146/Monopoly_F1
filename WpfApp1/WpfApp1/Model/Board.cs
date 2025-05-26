@@ -2,7 +2,7 @@ using System;
 
 public class Board
 {
-    private Space[] spaces;
+    public Space[] spaces;
 
     /// <summary>
     /// Constructors

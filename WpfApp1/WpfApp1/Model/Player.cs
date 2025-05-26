@@ -52,9 +52,11 @@ public class Player
     /// <summary>  
     /// Rolls the dice  
     /// </summary>  
-    public void RollDice()
+    public int RollDice()
     {
-        this.position += dice.Roll();
+        int diceValue = dice.Roll(); // Roll the dice and get the value
+        this.position += diceValue;
+        return diceValue; // Return the rolled value
     }
 
     /// <summary>  
