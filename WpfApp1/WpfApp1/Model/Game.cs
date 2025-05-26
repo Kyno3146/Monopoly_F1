@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Diagnostics.Eventing.Reader;
 using System.Windows;
 using Monopoly.BDD;
@@ -29,7 +30,10 @@ public class Game {
 		this.board = board;
         this.plateau = plateau;
         this.bank = new Bank();
-		InitPlayer();
+        this.players = new Player[2];
+        this.players[0] = new Player(" 1");
+        this.players[1] = new Player(" 2");
+        InitPlayer();
     }
 
     public void InitPlayer()
@@ -39,15 +43,6 @@ public class Game {
         this.players = new Player[2];
         this.players[0] = new Player(this.playerNames[0]);
         this.players[1] = new Player(this.playerNames[1]);
-    }
-	/// <summary>
-	/// Constructor
-	/// </summary>
-	public Game(Plateau plateau) {
-		this.players = new Player[2];
-        this.players[0] = new Player(" 1");
-        this.players[1] = new Player(" 2");
-		this.bank = new Bank();
     }
     /// <summary>
     /// Starts the game
@@ -64,10 +59,11 @@ public class Game {
             {
                 if (this.isPlayerTurn == false)
                 {
-                    players[0].RollDice();
+                    int diceValue = players[0].RollDice();
                     players[0].verifPosition(players[0].position);
-                    plateau.ConsoleJeux.Text += $" ---- {playerNames[0]} a lancé le dé et a obtenu : {players[0].position} ---- \n";
+                    plateau.ConsoleJeux.Text += $" ---- {playerNames[0]} a lancé le dé et a obtenu : {diceValue} ---- \n";
                     plateau.MooveF1(isPlayerTurn, players[0].position);
+                    if (players[0]. position == )
                     this.isPlayerTurn = true;
                 }
                 else
