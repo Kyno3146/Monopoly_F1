@@ -69,7 +69,6 @@ public class Game {
                     plateau.ConsoleJeux.Text += $" ---- {playerNames[0]} a lancé le dé et a obtenu : {players[0].position} ---- \n";
                     plateau.MooveF1(isPlayerTurn, players[0].position);
                     this.isPlayerTurn = true;
-                    testEnchere(players[0].position);
                 }
                 else
                 {
@@ -78,8 +77,6 @@ public class Game {
                     plateau.MooveF1(isPlayerTurn, players[1].position);
                     plateau.ConsoleJeux.Text += $" ---- {playerNames[1]} a lancé le dé et a obtenu : {players[1].position} ---- \n";
                     this.isPlayerTurn = false;
-                    testEnchere(players[0].position);
-
                 }
             }
             this.Btn_Clicked = false;
@@ -121,21 +118,4 @@ public class Game {
         set => isPlayerTurn = value;
     }
     public bool IsGameOver { get; set; }
-
-
-    /// Section test IHM enchaire
-    private void testEnchere(int position)
-    {
-
-        if (position == 1 )
-        {
-            MessageBox.Show("CPT");
-
-            Card card = new Card(position.ToString());
-            List<string> info = card.infoCarte(position.ToString());
-            plateau.ConsoleJeux.Text += " ---- Enchère ---- \n";
-            Enchere enchere = new Enchere(info, playerNames[0], playerNames[1]);
-            enchere.Show();
-        }
-    }
 }

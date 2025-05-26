@@ -183,12 +183,14 @@ namespace WpfApp1.IHM
 
         private void user1IHM(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Vous avez cliqué sur le joueur 1 : " + User1.Tag);
+            StatJoueur statJoueur = new StatJoueur(username1);
+            statJoueur.Show();
         }
 
         private void user2IHM(object sender, RoutedEventArgs e)
         {
-
+            StatJoueur statJoueur = new StatJoueur(username2);
+            statJoueur.Show();
         }
     }
 }

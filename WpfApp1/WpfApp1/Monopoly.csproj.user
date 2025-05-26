@@ -28,6 +28,9 @@
     <Compile Update="IHM\SelectF1_Joueur2.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="IHM\StatJoueur.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="IHM\Enchere.xaml">
@@ -52,6 +55,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="IHM\SelectF1_Joueur2.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="IHM\StatJoueur.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

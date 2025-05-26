@@ -263,7 +263,7 @@ namespace Monopoly.BDD
                         {
                             while (reader.Read())
                             {
-                                string username = reader.GetString(reader.GetOrdinal("username")); 
+                                string username = reader.GetString(reader.GetOrdinal("username"));
                                 usernames.Add(username);
                             }
                         }
@@ -278,7 +278,90 @@ namespace Monopoly.BDD
             return usernames;
         }
 
+        /// <summary>
+        /// GetUser method to retrieve the user ID based on the username
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <returns></returns>
+        /// <author>Barthoux Sauze Thomas</author>
+        public int GetUser(string nom)
+        {
+            int id = -1;
+            if (connection != null)
+            {
+                try
+                {
+                    using (DbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = "SELECT id FROM users WHERE username = @username";
+                        var paramNom = command.CreateParameter();
+                        paramNom.DbType = System.Data.DbType.String;
+                        paramNom.ParameterName = "@username";
+                        paramNom.Value = nom;
+                        command.Parameters.Add(paramNom);
+                        using (DbDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                id = reader.GetInt32(reader.GetOrdinal("id"));
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de la récupération de l'utilisateur : " + ex.Message);
+                }
+            }
+            return id;
+        }
 
-        #endregion
+
+        /// <summary>
+        /// nbParties method to get the number of games played by a player
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <returns></returns>
+        /// <author>Barthoux Sauze Thomas</author>
+        public List<int> StatBasique(int id)
+        {
+            List<int> statBasique = new List<int>();
+            statBasique.Clear();
+            if (connection != null)
+            {
+                try
+                {
+                    using (DbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = "SELECT (SELECT COUNT(*) FROM historiquepartie WHERE gagnant = @id) AS nb_gagnes, (SELECT COUNT(*) FROM historiquepartie WHERE perdant = @id) AS nb_perdus, (SELECT COUNT(*) FROM historiquepartie WHERE idJoueur1 = @id OR idJoueur2 = @id) AS nb_total";
+
+                        var paramNom = command.CreateParameter();
+                        paramNom.DbType = System.Data.DbType.String;
+                        paramNom.ParameterName = "@id";
+                        paramNom.Value = id;
+                        command.Parameters.Add(paramNom);
+                        using (DbDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                int nbGagnes = reader.GetInt32(reader.GetOrdinal("nb_gagnes"));
+                                int nbPerdus = reader.GetInt32(reader.GetOrdinal("nb_perdus"));
+                                int nbTotal = reader.GetInt32(reader.GetOrdinal("nb_total"));
+                                statBasique.Add(nbGagnes);
+                                statBasique.Add(nbPerdus);
+                                statBasique.Add(nbTotal);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de la récupération des statistiques : " + ex.Message);
+                }
+            }
+            return statBasique;
+
+            #endregion
+        }
     }
 }

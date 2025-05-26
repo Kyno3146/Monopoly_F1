@@ -199,7 +199,7 @@ namespace Monopoly.IHM
         private (int row, int col) GetGridPosition(int position)
         {
             if (position >= 0 && position <= 10)
-                return (11, 11 - position+1);          // Bas (droite à gauche)
+                return (11, 11 - position + 1);          // Bas (droite à gauche)
             if (position > 10 && position <= 20)
                 return (11 - (position - 10), 1);   // Gauche (bas en haut)
             if (position > 20 && position <= 30)
@@ -245,6 +245,5 @@ namespace Monopoly.IHM
             game.Btn_Clicked = true;
             game.StartGame(game.IsPlayerTurn, game.IsGameOver);
         }
-
     }
 }
