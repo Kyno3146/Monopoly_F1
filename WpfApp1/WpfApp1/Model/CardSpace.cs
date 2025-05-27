@@ -12,7 +12,7 @@ public class CardSpace : Space  {
 	public Card DrawCard() {
 		throw new System.NotImplementedException("Not implemented");
 	}
-	public override void Action(ref Player p, Plateau plat, Game g) {
+	public override void Action(ref Player p, Plateau plat, Game g, Player p2) {
 		throw new System.NotImplementedException("Not implemented");
 	}
 

@@ -1,4 +1,5 @@
 using System;
+using System.Windows.Media.Imaging;
 using Monopoly.IHM;
 
 public abstract class Space {
@@ -11,7 +12,7 @@ public abstract class Space {
 		this.position = position;
     }
 
-	public abstract void Action(ref Player p, Plateau plat, Game g);
+	public abstract void Action(ref Player p, Plateau plat, Game g, Player p2);
 
     private Board board;
 	private Player[] player;

@@ -18,7 +18,7 @@ public class SpecialSpace : Space
     /// <summary>
     /// Executes special space logic
     /// </summary>
-    public override void Action(ref Player p, Plateau plat, Game g)
+    public override void Action(ref Player p, Plateau plat, Game g, Player p2)
     {
         if (this.position == 4)
         {

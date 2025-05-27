@@ -17,6 +17,8 @@ namespace Monopoly.IHM
         #region Attributs
         private string f1_j1;
         private string f1_j2;
+        private Player joueur1;
+        private Player joueur2;
         private Image imgJ1;
         private Image imgJ2;
         private bool isMooveF1Executing;
@@ -182,7 +184,7 @@ namespace Monopoly.IHM
             {
                 Card card = new Card(tag);
                 List<string> info = card.infoCarte(tag);
-                Enchere enchere = new Enchere(info, f1_j1, f1_j2);
+                Enchere enchere = new Enchere(info, joueur1, joueur2);
                 enchere.Show();
             }
             else
