@@ -59,6 +59,7 @@ public class Game {
             {
                 if (this.isPlayerTurn == false)
                 {
+                    plateau.ConsoleJeux.Text += $"{playerNames[0]} possède {players[0].account} € \n";
                     if (players[0].isInJail == true)
                     {
                         MessageBoxResult messageBoxResult = MessageBox.Show("Vous êtes en prison, vous devez payer 50000 pour sortir", "Prison", MessageBoxButton.YesNo);
@@ -76,11 +77,12 @@ public class Game {
                     }
                     else { 
                     int diceValue = players[0].RollDice();
+                    MessageBox.Show($"Vous avez lancé le dé et obtenu : {diceValue}", "Lancement du dé", MessageBoxButton.OK, MessageBoxImage.Information); 
                     players[0].verifPosition(players[0].position);
                     plateau.ConsoleJeux.Text += $" ---- {playerNames[0]} a lancé le dé et a obtenu : {diceValue} ---- \n";
                     plateau.MooveF1(isPlayerTurn, players[0].position);
                     board.spaces[players[0].position].Action(ref players[0], plateau, this);
-                    if (player[0].properties.Length > 0)
+                        if (players[0] != null && players[0].properties != null && players[0].properties.Length > 0)
                     {
                         MessageBoxResult messageBoxAmelioration = MessageBox.Show("Souhaitez vous améliorer vos propriétés ?", "Amelioration", MessageBoxButton.YesNo);
                         if (messageBoxAmelioration == MessageBoxResult.Yes)
@@ -113,19 +115,20 @@ public class Game {
                     }
                     else
                     {
-                        int diceValue = player[1].RollDice();
+                        int diceValue = players[1].RollDice();
                         players[1].verifPosition(players[1].position);
                         plateau.ConsoleJeux.Text += $" ---- {playerNames[1]} a lancé le dé et a obtenu : {players[1].position} ---- \n";
                         plateau.MooveF1(isPlayerTurn, players[1].position);
                         board.spaces[players[1].position].Action(ref players[1], plateau, this);
-                        if (player[1].properties.Length > 0)
+
+                        if (players[1] != null && players[1].properties != null && players[1].properties.Length > 0)
                         {
                             MessageBoxResult messageBoxAmelioration = MessageBox.Show("Souhaitez vous améliorer vos propriétés ?", "Amelioration", MessageBoxButton.YesNo);
                             if (messageBoxAmelioration == MessageBoxResult.Yes)
                             {
-                                // Afficher la fenetre Ameliorations
-                                // Amelioration amelioration = new Amelioration(player[1].properties);
-                                // amelioration.Show();
+                                // Afficher la fenetre Ameliorations  
+                                // Amelioration amelioration = new Amelioration(players[1].properties);  
+                                // amelioration.Show();  
                             }
                         }
                         this.isPlayerTurn = false;

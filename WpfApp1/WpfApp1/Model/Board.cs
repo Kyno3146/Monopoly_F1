@@ -17,9 +17,9 @@ public class Board
         this.spaces[4] = new SpecialSpace(4);
         this.spaces[5] = new Property(200000, 25000, 0, 5);
         this.spaces[6] = new Property(100000, 6000, 50000, 6);
-        
-        this.spaces[7] = new Property(100000, 6000, 50000, 7);
-        this.spaces[8] = new CardSpace(8);
+
+        this.spaces[7] = new CardSpace(7);
+        this.spaces[8] = new Property(100000, 6000, 50000, 8);
         this.spaces[9] = new Property(120000, 8000, 50000, 9);
         this.spaces[10] = new SpecialSpace(10);
         this.spaces[11] = new Property(140000, 10000, 100000, 11);
