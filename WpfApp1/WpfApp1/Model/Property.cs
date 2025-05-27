@@ -20,7 +20,7 @@ public class Property : Space  {
 	/// </summary>
 	private int upgradeValue;
 	private int mortgageValue;
-	private bool isMortgaged;
+	public bool isMortgaged;
     public int position;
     private Player? player;
 
