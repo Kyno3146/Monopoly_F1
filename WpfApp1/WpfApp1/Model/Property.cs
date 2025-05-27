@@ -482,7 +482,7 @@ public class Property : Space  {
     /// <summary>
     /// Player pays rent if owned
     /// </summary>
-    public override void Action(ref Player p, Plateau plat, Game g, Player p2)
+    public override void Action(ref Player p, Plateau plat, Game g, ref Player p2)
     {
         if (player != null)
         {

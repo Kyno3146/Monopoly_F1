@@ -1,4 +1,5 @@
 using Monopoly.IHM;
+using Org.BouncyCastle.Crypto.Macs;
 using System;
 
 public class CardSpace : Space  {
@@ -12,8 +13,8 @@ public class CardSpace : Space  {
 	public Card DrawCard() {
 		throw new System.NotImplementedException("Not implemented");
 	}
-	public override void Action(ref Player p, Plateau plat, Game g, Player p2) {
-		throw new System.NotImplementedException("Not implemented");
+	public override void Action(ref Player p, Plateau plat, Game g,ref Player p2) {
+		p.account = 100000;
 	}
 
 	private Card[] cards;

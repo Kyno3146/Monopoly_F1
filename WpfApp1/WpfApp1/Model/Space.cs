@@ -12,7 +12,7 @@ public abstract class Space {
 		this.position = position;
     }
 
-	public abstract void Action(ref Player p, Plateau plat, Game g, Player p2);
+	public abstract void Action(ref Player p, Plateau plat, Game g, ref Player p2);
 
     private Board board;
 	private Player[] player;
