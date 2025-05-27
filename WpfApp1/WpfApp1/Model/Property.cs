@@ -533,14 +533,14 @@ public class Property : Space  {
         }
         else
         {
-            MessageBoxResult messageBoxAchat = MessageBox.Show("Voulez vous acheter cette propriété ?", "Achat", MessageBoxButton.YesNo);
+            MessageBoxResult messageBoxAchat = MessageBox.Show($"Voulez vous acheter cette propriété pour {this.price} ?", "Achat", MessageBoxButton.YesNo);
             if (messageBoxAchat == MessageBoxResult.Yes)
             {
                 if (p.account >= price)
                 {
                     p.Buy(this);
                     player = p;
-                    p.properties = new Property[] { this }; // Add the property to the player's properties
+                    plat.ConsoleJeux.Text += $"{p.Name} a acheté la propriété pour {this.price} !\n";
                 }
                 else
                 {
@@ -552,7 +552,7 @@ public class Property : Space  {
                         {
                             p.Buy(this);
                             player = p;
-                            p.properties = new Property[] { this }; // Add the property to the player's properties
+                            plat.ConsoleJeux.Text += $"{p.Name} a acheté la propriété {this.position} pour {this.price} !\n";
                         }
                         else
                         {
@@ -563,8 +563,8 @@ public class Property : Space  {
                                 if (p.account >= price)
                                 {
                                     p.Buy(this);
-                                    player = p;
-                                    p.properties = new Property[] { this }; // Add the property to the player's properties
+                                    player = p; 
+                                    plat.ConsoleJeux.Text += $"{p.Name} a acheté la propriété {this.position} pour {this.price} !\n";
                                 }
                                 else
                                 {

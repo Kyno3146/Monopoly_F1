@@ -42,7 +42,7 @@ public class Player
     public Player(string n)
     {
         this.name = n;
-        this.account = 1500; // Starting money  
+        this.account = 1500000; // Starting money  
         this.position = 0; // Starting position  
         this.properties = new Property[0]; // Initialize an empty array of properties  
         this.dice = new Dice(); // Initialize the dice field  
