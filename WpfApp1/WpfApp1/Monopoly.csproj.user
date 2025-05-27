@@ -10,6 +10,9 @@
     <Compile Update="IHM\Enchere.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="IHM\Hypotheque.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="IHM\InfoCarte.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,6 +37,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="IHM\Enchere.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="IHM\Hypotheque.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="IHM\InfoCarte.xaml">
