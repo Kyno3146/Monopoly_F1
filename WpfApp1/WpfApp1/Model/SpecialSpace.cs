@@ -1,3 +1,4 @@
+using Monopoly.IHM;
 using System;
 
 public class SpecialSpace : Space
@@ -17,7 +18,7 @@ public class SpecialSpace : Space
     /// <summary>
     /// Executes special space logic
     /// </summary>
-    public override void Action(ref Player p)
+    public override void Action(ref Player p, Plateau plat, Game g)
     {
         if (this.position == 4)
         {
@@ -32,6 +33,7 @@ public class SpecialSpace : Space
         if (this.position == 30)
         {
             p.position = 10;
+            p.isInJail = true;
         }
     }
 }

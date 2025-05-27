@@ -482,7 +482,7 @@ public class Property : Space  {
     /// <summary>
     /// Player pays rent if owned
     /// </summary>
-    public override void Action(ref Player p)
+    public override void Action(ref Player p, Plateau plat, Game g)
     {
         if (player != null)
         {
@@ -540,27 +540,74 @@ public class Property : Space  {
                 {
                     p.Buy(this);
                     player = p;
+                    p.properties = new Property[] { this }; // Add the property to the player's properties
                 }
                 else
                 {
-                    MessageBoxResult messageBoxHypotèque = MessageBox.Show("Vous n'avez pas assez d'argent pour acheter cette propriété, voulez vous hypotéquer une de vos propriétés ?", "Hypothèque", MessageBoxButton.YesNo);
+                        MessageBoxResult messageBoxHypotèque = MessageBox.Show("Vous n'avez pas assez d'argent pour acheter cette propriété, voulez vous hypotéquer une de vos propriétés ? (2 max)", "Hypothèque", MessageBoxButton.YesNo);
                     if (messageBoxHypotèque == MessageBoxResult.Yes)
                     {
-                        Card card = new Card(position.ToString());
-                        List<string> info = card.infoCarte(position.ToString());
-                        plateau.ConsoleJeux.Text += " ---- Enchère ---- \n";
-                        Enchere enchere = new Enchere(info, playerNames[0], playerNames[1]);
-                        enchere.Show();
+                        // hypotheque une propriété
+                        if (p.account >= price)
+                        {
+                            p.Buy(this);
+                            player = p;
+                            p.properties = new Property[] { this }; // Add the property to the player's properties
+                        }
+                        else
+                        {
+                            MessageBoxResult messageBoxHypotèque2 = MessageBox.Show("Vous n'avez pas assez d'argent pour acheter cette propriété, voulez vous hypotéquer une de vos propriétés ? (1 max)", "Hypothèque", MessageBoxButton.YesNo);
+                            if (messageBoxHypotèque2 == MessageBoxResult.Yes)
+                            {
+                                // hypotheque une propriété
+                                if (p.account >= price)
+                                {
+                                    p.Buy(this);
+                                    player = p;
+                                    p.properties = new Property[] { this }; // Add the property to the player's properties
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez toujours pas assez d'argent pour acheter cette propriété ! Cette proprité va donc être mise à l'enchère");
+                                    Card card = new Card(position.ToString());
+                                    List<string> info = card.infoCarte(position.ToString());
+                                    plat.ConsoleJeux.Text += " ---- Enchère ---- \n";
+                                    Enchere enchere = new Enchere(info, g.playerNames[0], g.playerNames[1]);
+                                    enchere.Show();
+                                }
+
+                            }
+                            else
+                            {
+                                Card card = new Card(position.ToString());
+                                List<string> info = card.infoCarte(position.ToString());
+                                plat.ConsoleJeux.Text += " ---- Enchère ---- \n";
+                                Enchere enchere = new Enchere(info, g.playerNames[0], g.playerNames[1]);
+                                enchere.Show();
+                            }
+
+
+
+                        }
                     }
                     else
                     {
-                        // enchère 
+                        Card card = new Card(position.ToString());
+                        List<string> info = card.infoCarte(position.ToString());
+                        plat.ConsoleJeux.Text += " ---- Enchère ---- \n";
+                        Enchere enchere = new Enchere(info, g.playerNames[0], g.playerNames[1]);
+                        enchere.Show();
+                    }
+
                     }
                 }
-            }
             else
             {
-                // enchère 
+                Card card = new Card(position.ToString());
+                List<string> info = card.infoCarte(position.ToString());
+                plat.ConsoleJeux.Text += " ---- Enchère ---- \n";
+                Enchere enchere = new Enchere(info, g.playerNames[0], g.playerNames[1]);
+                enchere.Show();
             }
         }
     }

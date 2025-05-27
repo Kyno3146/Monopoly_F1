@@ -16,7 +16,7 @@ public class Game {
     private Plateau plateau;
     private Player[] players;
 	private Bank bank;
-    private List<string> playerNames = new List<string>();
+    public List<string> playerNames = new List<string>();
 	private bool isGameOver = false; // Indicates if the game is over
 	private bool isPlayerTurn = false; // Indicates if it's the player's turn false = joueur 1 true = joueur 2
     private bool Btn_clicked = false; // Indicates if the button has been clicked
@@ -59,20 +59,77 @@ public class Game {
             {
                 if (this.isPlayerTurn == false)
                 {
+                    if (players[0].isInJail == true)
+                    {
+                        MessageBoxResult messageBoxResult = MessageBox.Show("Vous êtes en prison, vous devez payer 50000 pour sortir", "Prison", MessageBoxButton.YesNo);
+                        if (messageBoxResult == MessageBoxResult.Yes)
+                        {
+                            int value = 50000;
+                            players[0].Pay(ref value);
+                            players[0].isInJail = false;
+                        }
+                        else
+                        {
+                            plateau.ConsoleJeux.Text += $" ---- {playerNames[0]} est toujours en prison ---- \n";
+                            return;
+                        }
+                    }
+                    else { 
                     int diceValue = players[0].RollDice();
                     players[0].verifPosition(players[0].position);
                     plateau.ConsoleJeux.Text += $" ---- {playerNames[0]} a lancé le dé et a obtenu : {diceValue} ---- \n";
                     plateau.MooveF1(isPlayerTurn, players[0].position);
-                    if (players[0]. position == )
+                    board.spaces[players[0].position].Action(ref players[0], plateau, this);
+                    if (player[0].properties.Length > 0)
+                    {
+                        MessageBoxResult messageBoxAmelioration = MessageBox.Show("Souhaitez vous améliorer vos propriétés ?", "Amelioration", MessageBoxButton.YesNo);
+                        if (messageBoxAmelioration == MessageBoxResult.Yes)
+                        {
+                            // Afficher la fenetre Ameliorations
+                            // Amelioration amelioration = new Amelioration(player[0].properties);
+                            // amelioration.Show();
+                        }
+
+                    }
                     this.isPlayerTurn = true;
+                    }
                 }
                 else
                 {
-                    players[1].RollDice();
-                    players[1].verifPosition(players[1].position);
-                    plateau.MooveF1(isPlayerTurn, players[1].position);
-                    plateau.ConsoleJeux.Text += $" ---- {playerNames[1]} a lancé le dé et a obtenu : {players[1].position} ---- \n";
-                    this.isPlayerTurn = false;
+                    if (players[1].isInJail == true)
+                    {
+                        MessageBoxResult messageBoxResult = MessageBox.Show("Vous êtes en prison, vous devez payer 50000 pour sortir", "Prison", MessageBoxButton.YesNo);
+                        if (messageBoxResult == MessageBoxResult.Yes)
+                        {
+                            int value = 50000;
+                            players[1].Pay(ref value);
+                            players[1].isInJail = false;
+                        }
+                        else
+                        {
+                            plateau.ConsoleJeux.Text += $" ---- {playerNames[1]} est toujours en prison ---- \n";
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        int diceValue = player[1].RollDice();
+                        players[1].verifPosition(players[1].position);
+                        plateau.ConsoleJeux.Text += $" ---- {playerNames[1]} a lancé le dé et a obtenu : {players[1].position} ---- \n";
+                        plateau.MooveF1(isPlayerTurn, players[1].position);
+                        board.spaces[players[1].position].Action(ref players[1], plateau, this);
+                        if (player[1].properties.Length > 0)
+                        {
+                            MessageBoxResult messageBoxAmelioration = MessageBox.Show("Souhaitez vous améliorer vos propriétés ?", "Amelioration", MessageBoxButton.YesNo);
+                            if (messageBoxAmelioration == MessageBoxResult.Yes)
+                            {
+                                // Afficher la fenetre Ameliorations
+                                // Amelioration amelioration = new Amelioration(player[1].properties);
+                                // amelioration.Show();
+                            }
+                        }
+                        this.isPlayerTurn = false;
+                    }
                 }
             }
             this.Btn_Clicked = false;

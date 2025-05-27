@@ -20,12 +20,13 @@ public class Player
     /// <summary>  
     /// Owned properties  
     /// </summary>  
-    private Property[] properties; // Fixed type to 'Property[]' instead of 'Player[]'  
+    public Property[] properties; // Fixed type to 'Property[]' instead of 'Player[]'  
 
     private Dice dice; // Fixed ambiguity by ensuring only one 'dice' field exists  
 
     public int nb_championships;
     public int nb_museums;
+    public bool isInJail = false; // Indicates if the player is in jail or not
 
     public string Name
     {
@@ -92,6 +93,7 @@ public class Player
         if (position > 39)
         {
             this.position = position - 40; // Adjust the position if it exceeds the board size  
+            this.account += 200000; // Give the player $200 for passing 'Go'
         }
     }
 }

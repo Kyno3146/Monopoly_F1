@@ -1,3 +1,4 @@
+using Monopoly.IHM;
 using System;
 
 public class CardSpace : Space  {
@@ -11,7 +12,7 @@ public class CardSpace : Space  {
 	public Card DrawCard() {
 		throw new System.NotImplementedException("Not implemented");
 	}
-	public override void Action(ref Player p) {
+	public override void Action(ref Player p, Plateau plat, Game g) {
 		throw new System.NotImplementedException("Not implemented");
 	}
 
