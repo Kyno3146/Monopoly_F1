@@ -11,6 +11,8 @@ namespace Monopoly.BDD
 {
     public class CommandeGeneral
     {
+        private Connect connexion = new Connect();
+
         public CommandeGeneral() { }
 
         /// <summary>  
@@ -21,6 +23,9 @@ namespace Monopoly.BDD
         /// <author>Barthoux Sauze Thomas</author>  
         public void exit(object sender, RoutedEventArgs e)
         {
+            // reset des joueurs en ligne
+            connexion.UpdatePlayerCloseGame();
+
             Application.Current.Shutdown();
         }
 

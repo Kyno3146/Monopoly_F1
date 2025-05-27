@@ -24,6 +24,7 @@ namespace Monopoly.IHM
         private Connect connexion;
         private List<string> listeItemRoot;
         private List<string> listeItemUser;
+        public bool realPlayer = true;
 
         public StatJoueur(string nom)
         {
@@ -64,6 +65,13 @@ namespace Monopoly.IHM
             if (nom.Equals("root"))
             {
                 listItemRoot();
+            }
+            else if (nom.Equals("invite"))
+            {
+                MessageBox.Show("Vous n'avez pas accès à cette page /n Merci de vous connecter", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                this.realPlayer = false;
+                this.Close();
+                return;
             }
             else
             {

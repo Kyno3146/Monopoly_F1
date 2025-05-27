@@ -173,11 +173,10 @@ namespace Monopoly.IHM
             }
         }
 
-
-
         /// <summary>
         /// Gère l'ouverture de la fenêtre d'enchère pour une carte
         /// </summary>
+        /// <author>Barthoux Sauze Thomas</author>
         private void Enchere(object sender, RoutedEventArgs e)
         {
             if (sender is Image image && image.Tag is string tag && !string.IsNullOrEmpty(tag))
@@ -198,6 +197,7 @@ namespace Monopoly.IHM
         /// </summary>
         /// <param name="position">Position sur le plateau (0-39)</param>
         /// <returns>Tuple (row, col)</returns>
+        /// <author>Barthoux Sauze Thomas</author>
         private (int row, int col) GetGridPosition(int position)
         {
             if (position >= 0 && position <= 10)
@@ -214,6 +214,7 @@ namespace Monopoly.IHM
         /// <summary>
         /// Retourne la rotation pour l'image du joueur en fonction de sa position
         /// </summary>
+        /// <author>Barthoux Sauze Thomas</author>
         private RotateTransform GetRotationTransform(int position)
         {
             if (position >= 0 && position < 10)
@@ -227,6 +228,12 @@ namespace Monopoly.IHM
         }
 
         #region Exit
+        /// <summary>
+        /// Exit the application when the exit menu item is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <author>Barthoux Sauze Thomas</author>
         private void ExitToMenu(object sender, RoutedEventArgs e)
         {
             CommandeGeneral commande = new CommandeGeneral();
@@ -237,6 +244,12 @@ namespace Monopoly.IHM
 
         #endregion
 
+        /// <summary>
+        /// This method is called when the "Jouer" button is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <author>Barthoux Sauze Thomas</author>
         private void Jouer_click(object sender, RoutedEventArgs e)
         {
             if (this.game == null)

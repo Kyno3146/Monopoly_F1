@@ -32,7 +32,7 @@
         <!--Player icon-->
         <Label x:Name="User1" Content="Invite" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White"/>
         <Button Background="#00FFFFFF" Grid.Row="1" Click="user1IHM" HorizontalAlignment="Center" VerticalAlignment="center" BorderBrush="#00FFFFFF">
-            <fa:ImageAwesome x:Name="icon1" Icon="UserCircle" Width="50" HorizontalAlignment="Center" Foreground="White"  />
+            <fa:ImageAwesome x:Name="icon1" Icon="UserCircle" Width="50" HorizontalAlignment="Center" Foreground="White" MouseRightButtonDown="deconexion" />
         </Button>
 
         <Label x:Name="User2" Content="Invite" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" />

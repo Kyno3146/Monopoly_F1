@@ -146,7 +146,7 @@ namespace WpfApp1.IHM
         #endregion
 
         /// <summary>
-        ///
+        /// Initialise les icones de statue de joueur 
         /// </summary>
         /// <param name="comboboxSelected"></param>
         public void statutUser(int comboboxSelected)
@@ -163,20 +163,48 @@ namespace WpfApp1.IHM
             // Affichage conditionnel
             if (Users.Count >= 1 && !string.IsNullOrWhiteSpace(Users[0]))
             {
-                this.username1 = Users[0];
-                User1.Content = Users[0];
-                User1.Foreground = Brushes.Red;
-                icon1.Foreground = Brushes.Red;
-                User1.Tag = Users[0];
+                if (Users[0] != "invite")
+                {
+                    this.username1 = Users[0];
+                    User1.Content = Users[0];
+                    User1.Foreground = Brushes.Red;
+                    icon1.Foreground = Brushes.Red;
+                    User1.Tag = Users[0];
+                }
+                else
+                {
+                    this.username1 = "invite";
+                    User1.Content = "Invite";
+                    User1.Foreground = Brushes.Gray;
+                    icon1.Foreground = Brushes.Gray;
+                    User1.Tag = "invite";
+                }
             }
 
             if (Users.Count >= 2 && !string.IsNullOrWhiteSpace(Users[1]))
             {
-                this.username2 = Users[1];
-                User2.Content = Users[1];
-                User2.Foreground = Brushes.Green;
-                icon2.Foreground = Brushes.Green;
-                User2.Tag = Users[1];
+                if (Users[1] == "invite")
+                {
+                    this.username2 = "invite";
+                    User2.Content = "Invite";
+                    User2.Foreground = Brushes.Gray;
+                    icon2.Foreground = Brushes.Gray;
+                    User2.Tag = "invite";
+                }
+                else if (Users[1] == Users[0])
+                {
+                    MessageBox.Show("Le joueur 2 ne peut pas être le même que le joueur 1.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    LoginPage login = new LoginPage();
+                    login.Show();
+                }
+                else
+                {
+                    this.username2 = Users[1];
+                    User2.Content = Users[1];
+                    User2.Foreground = Brushes.Green;
+                    icon2.Foreground = Brushes.Green;
+                    User2.Tag = Users[1];
+                }
             }
         }
 
@@ -190,7 +218,30 @@ namespace WpfApp1.IHM
         private void user2IHM(object sender, RoutedEventArgs e)
         {
             StatJoueur statJoueur = new StatJoueur(username2);
-            statJoueur.Show();
+            if (statJoueur.realPlayer.Equals(false))
+            {
+                return;
+            }
+            else
+            {
+                statJoueur.Show();
+            }
+        }
+
+        /// Deconnexion de l'utilisateur sélectionné 
+        /// <summary>au clique droit sur l'icone
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void deconexion(object sender, MouseButtonEventArgs e)
+        {
+            var result = MessageBox.Show("Voulez-vous vous déconnecter ?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            if (result == MessageBoxResult.Yes)
+            {
+                Connect connect = new Connect();
+                connect.DisconnectJoueur(comboboxselected);
+                statutUser(comboboxselected);
+            }
         }
     }
 }

@@ -363,5 +363,61 @@ namespace Monopoly.BDD
 
             #endregion
         }
+
+
+        /// <summary>
+        /// UpdatePlayerCloseGame method to update the player status when the game is closed
+        /// </summary>
+        /// <author>Barthoux Sauze Thomas</author>
+        public void UpdatePlayerCloseGame()
+        {
+            if (connection != null)
+            {
+                try
+                {
+                    using (DbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = "UPDATE player_connected SET username = 'invite', idJoueur = 9999999 WHERE idJoueur < 9999999";
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de la mise à jour des joueurs : " + ex.Message);
+                }
+            }
+        }
+
+        /// <summary>
+        /// DisconnectJoueur method to disconnect a player based on the combobox selection
+        /// </summary>
+        /// <param name="comboboxselected"></param>
+        /// <author>Barthoux Sauze Thomas</author>
+        public void DisconnectJoueur(int comboboxselected)
+        {
+            if (connection != null)
+            {
+                try
+                {
+                    using (DbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = "UPDATE player_connected SET username = 'invite', idJoueur = 9999999 WHERE idComboBox = @comboboxselected";
+                        var paramCombobox = command.CreateParameter();
+                        paramCombobox.DbType = System.Data.DbType.Int32;
+                        paramCombobox.ParameterName = "@comboboxselected";
+                        paramCombobox.Value = comboboxselected;
+                        command.Parameters.Add(paramCombobox);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de la déconnexion du joueur : " + ex.Message);
+                }
+            }
+        }
+
+
+
     }
 }
