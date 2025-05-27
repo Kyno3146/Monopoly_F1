@@ -33,13 +33,14 @@
         <TextBlock x:Name="valachat" Grid.Row="3" Grid.Column="1" VerticalAlignment="Bottom" Background="LightGray" Margin="0,0,10,0"/>
 
         <Label x:Name="Joueur1" Content="Proposition Joueur 1 :" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
-        <TextBlock x:Name="PropositionJ2" Grid.Row="4" Grid.Column="1" VerticalAlignment="Bottom" Background="LightGray" Margin="0,0,10,0"/>
+        <TextBlock x:Name="PropositionJ1" Grid.Row="4" Grid.Column="1" VerticalAlignment="Bottom" Background="LightGray" Margin="0,0,10,0"/>
 
-        <Label Content="Proposition Joueur 2 :" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Label x:Name="Joueur2" Content="Proposition Joueur 2 :" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
         <TextBlock x:Name="PropostionJ2" Grid.Row="5" Grid.Column="1" VerticalAlignment="Bottom" Background="LightGray" Margin="0,0,10,0"/>
 
         <Label Content="" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
-        <Button x:Name="enrichir" Content="Enrichir" Grid.Row="7" Grid.Column="1" Background="LightGray" Margin="0,0,10,10"/>
+        <Button x:Name="Encherir" Content="Encherir" Grid.Row="7" Grid.Column="1" Background="LightGray" Margin="0,0,10,10" Click="encherir"/>
+        <Button x:Name="Abandonner" Content="Abandonner" Grid.Row="8" Grid.Column="1" Background="LightGray" Margin="0,0,10,10" />
 
         <Image x:Name="imgCarte"  Grid.Column="0" Grid.Row="1" Grid.RowSpan="7" Margin="10" />
 
