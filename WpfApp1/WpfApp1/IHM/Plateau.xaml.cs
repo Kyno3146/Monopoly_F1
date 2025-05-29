@@ -6,6 +6,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Monopoly.BDD;
+using static Monopoly.IHM.Enchere;
 
 namespace Monopoly.IHM
 {
@@ -23,6 +24,7 @@ namespace Monopoly.IHM
         private Image imgJ2;
         private bool isMooveF1Executing;
         private Game game;
+
         #endregion
 
         #region Constructeur
@@ -108,6 +110,8 @@ namespace Monopoly.IHM
             Board board = new Board();
             this.game = new Game(plateau, board);
             this.game.StartGame(false, false);
+            GameContext.CurrentGame = this.game;
+
         }
 
         /// <summary>
