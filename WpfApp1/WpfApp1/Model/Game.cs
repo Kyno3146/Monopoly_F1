@@ -17,7 +17,7 @@ public class Game {
     private Player[] players;
 	private Bank bank;
     public List<string> playerNames = new List<string>();
-	private bool isGameOver = false; // Indicates if the game is over
+	public bool isGameOver = false; // Indicates if the game is over
 	private bool isPlayerTurn = false; // Indicates if it's the player's turn false = joueur 1 true = joueur 2
     private bool Btn_clicked = false; // Indicates if the button has been clicked
 
@@ -81,7 +81,7 @@ public class Game {
                     players[0].verifPosition(players[0].position);
                     plateau.ConsoleJeux.Text += $" ---- {playerNames[0]} a lancé le dé et a obtenu : {diceValue} ---- \n";
                     plateau.MooveF1(isPlayerTurn, players[0].position);
-                    board.spaces[players[0].position].Action(ref players[0], plateau, this,ref players[1]);
+                    board.spaces[players[0].position].Action(ref players[0], plateau, this,ref players[1], board);
                         if (players[0] != null && players[0].properties != null && players[0].properties.Length > 0)
                     {
                         MessageBoxResult messageBoxAmelioration = MessageBox.Show("Souhaitez vous améliorer vos propriétés ?", "Amelioration", MessageBoxButton.YesNo);
@@ -119,7 +119,7 @@ public class Game {
                         players[1].verifPosition(players[1].position);
                         plateau.ConsoleJeux.Text += $" ---- {playerNames[1]} a lancé le dé et a obtenu : {players[1].position} ---- \n";
                         plateau.MooveF1(isPlayerTurn, players[1].position);
-                        board.spaces[players[1].position].Action(ref players[1], plateau, this, ref players[1]);
+                        board.spaces[players[1].position].Action(ref players[1], plateau, this, ref players[1], board);
 
                         if (players[1] != null && players[1].properties != null && players[1].properties.Length > 0)
                         {

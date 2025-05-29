@@ -14,7 +14,7 @@ public class Property : Space  {
 	/// <summary>
 	/// The stae of the property(0-5)
 	/// </summary>
-	private int level;
+	public int level;
 	/// <summary>
 	/// The cost of an upgrade
 	/// </summary>
@@ -482,7 +482,7 @@ public class Property : Space  {
     /// <summary>
     /// Player pays rent if owned
     /// </summary>
-    public override void Action(ref Player p, Plateau plat, Game g, ref Player p2)
+    public override void Action(ref Player p, Plateau plat, Game g, ref Player p2, Board b)
     {
         if (player != null)
         {
