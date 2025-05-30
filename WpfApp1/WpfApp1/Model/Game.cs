@@ -98,6 +98,7 @@ public class Game {
                 }
                 else
                 {
+                    plateau.ConsoleJeux.Text += $"{playerNames[1]} possède {players[1].account} € \n";
                     if (players[1].isInJail == true)
                     {
                         MessageBoxResult messageBoxResult = MessageBox.Show("Vous êtes en prison, vous devez payer 50000 pour sortir", "Prison", MessageBoxButton.YesNo);
