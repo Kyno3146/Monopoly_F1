@@ -36,6 +36,7 @@ namespace Monopoly.IHM
             this.joueur1 = joueur1;
             this.joueur2 = joueur2;
             infoLoad(info);
+            this.meilleurPrix = 0;
         }
 
         public int meilleurPrix
@@ -52,6 +53,7 @@ namespace Monopoly.IHM
         ///<author>Barthoux Sauze Thomas</author>  
         private void infoLoad(List<string> info)
         {
+            MessageBox.Show(info[0].ToString());
             this.LabelCarte.Content = info[1];
             string imagePath = "Image/" + info[0] + ".png";
             imgCarte.Source = new BitmapImage(new Uri(imagePath, UriKind.Relative));
@@ -75,16 +77,14 @@ namespace Monopoly.IHM
 
             if (GameContext.CurrentGame != null && GameContext.CurrentGame.IsPlayerTurn)
             {
-                PropositionJ1.Background = Brushes.Green;
-                PropostionJ2.Background = Brushes.Red;
-            }
-            else
-            {
                 PropositionJ1.Background = Brushes.Red;
                 PropostionJ2.Background = Brushes.Green;
             }
-
-            this.MeilleurPrix = 0;
+            else
+            {
+                PropositionJ1.Background = Brushes.Green;
+                PropostionJ2.Background = Brushes.Red;
+            }
 
         }
 
@@ -115,33 +115,6 @@ namespace Monopoly.IHM
         }
 
         /// <summary>
-        /// Checks if the "Abandonner" button is pressed and prompts the user for confirmation.
-        /// </summary>
-        /// <author>Barthoux Sauze Thomas</author>
-        public void checkAbandon(object sender, RoutedEventArgs e)
-        {
-            if (this.Abandonner.IsPressed)
-            {
-                MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment abandonner l'enchère ?", "Confirmation", MessageBoxButton.YesNo);
-                if (result == MessageBoxResult.Yes)
-                {
-                    MessageBox.Show("Vous avez abandonné l'enchère.");
-                    if (!IsplayerTurn)
-                    {
-                        // Joueur 1 abandonne, donc c'est au joueur 2 de jouer  
-                        joueur2.account -= MeilleurPrix; // Joueur 2 gagne l'enchère  
-                    }
-                    else
-                    {
-                        // Joueur 2 abandonne, donc c'est au joueur 1 de jouer  
-                        joueur1.account -= MeilleurPrix; // Joueur 1 gagne l'enchère  
-                    }
-                    this.Close();
-                }
-            }
-        }
-
-        /// <summary>
         /// This method is called when the "Enchérir" button is clicked.
         /// </summary>
         /// <param name="sender"></param>'
@@ -149,20 +122,15 @@ namespace Monopoly.IHM
         /// <author>Barthoux Sauze Thomas</author>
         private void encherir(object sender, RoutedEventArgs e)
         {
-            if (this.PropositionJ1.Text == "" && this.PropostionJ2.Text == "")
-            {
-                MessageBox.Show("Veuillez entrer une proposition pour enchérir.");
-                return;
-            }
-            else if (this.PropositionJ1.Text != "") // Joueur 1 propose
+            if (this.PropositionJ1.IsEnabled && !string.IsNullOrWhiteSpace(this.PropositionJ1.Text))
             {
                 if (int.TryParse(this.PropositionJ1.Text, out J1Values))
                 {
-                    if (J1Values > this.MeilleurPrix && J1Values <= this.joueur1.account)
+                    if (J1Values > this.meilleurPrix && J1Values <= this.joueur1.account)
                     {
-                        this.MeilleurPrix = J1Values;
+                        this.meilleurPrix = J1Values;
                         MessageBox.Show($"{joueur1.Name} a enchéri {J1Values}.");
-                        IsplayerTurn = true; // Passage au joueur 2
+                        IsplayerTurn = true;
                         LoadText();
                     }
                     else
@@ -175,15 +143,15 @@ namespace Monopoly.IHM
                     MessageBox.Show("Veuillez entrer un nombre valide pour l'enchère du joueur 1.");
                 }
             }
-            else if (this.PropostionJ2.Text != "") // Joueur 2 propose
+            else if (this.PropostionJ2.IsEnabled && !string.IsNullOrWhiteSpace(this.PropostionJ2.Text))
             {
                 if (int.TryParse(this.PropostionJ2.Text, out J2Values))
                 {
-                    if (J2Values > this.MeilleurPrix && J2Values <= this.joueur2.account)
+                    if (J2Values > this.meilleurPrix && J2Values <= this.joueur2.account)
                     {
-                        this.MeilleurPrix = J2Values;
+                        this.meilleurPrix = J2Values;
                         MessageBox.Show($"{joueur2.Name} a enchéri {J2Values}.");
-                        IsplayerTurn = false; // Passage au joueur 1
+                        IsplayerTurn = false;
                         LoadText();
                     }
                     else
@@ -196,12 +164,42 @@ namespace Monopoly.IHM
                     MessageBox.Show("Veuillez entrer un nombre valide pour l'enchère du joueur 2.");
                 }
             }
+            else
+            {
+                MessageBox.Show("Veuillez entrer une proposition pour enchérir.");
+            }
         }
+
 
 
         public static class GameContext
         {
             public static Game CurrentGame { get; set; }
+        }
+
+
+        /// <summary>
+        /// Checks if the "Abandonner" button is pressed and prompts the user for confirmation.
+        /// </summary>
+        /// <author>Barthoux Sauze Thomas</author>
+        private void Abandon(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment abandonner l'enchère ?", "Confirmation", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                MessageBox.Show("Vous avez abandonné l'enchère.");
+                if (!IsplayerTurn)
+                {
+                    // Joueur 1 abandonne, donc c'est au joueur 2 de jouer  
+                    joueur2.account -= MeilleurPrix; // Joueur 2 gagne l'enchère  
+                }
+                else
+                {
+                    // Joueur 2 abandonne, donc c'est au joueur 1 de jouer  
+                    joueur1.account -= MeilleurPrix; // Joueur 1 gagne l'enchère  
+                }
+                this.Close();
+            }
         }
     }
 }

@@ -42,7 +42,7 @@
 
         <Label Content="" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
         <Button x:Name="Encherir" Content="Encherir" Grid.Row="7" Grid.Column="1" Background="LightGray" Margin="0,0,10,10" Click="encherir"/>
-        <Button x:Name="Abandonner" Content="Abandonner" Grid.Row="8" Grid.Column="1" Background="LightGray" Margin="0,0,10,10" Click="checkAbandon" /> 
+        <Button x:Name="Abandonner" Content="Abandonner" Grid.Row="8" Grid.Column="1" Background="LightGray" Margin="0,0,10,10" Click="Abandon" /> 
 
         <Image x:Name="imgCarte"  Grid.Column="0" Grid.Row="1" Grid.RowSpan="7" Margin="10" />
 
