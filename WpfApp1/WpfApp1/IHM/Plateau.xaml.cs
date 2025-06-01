@@ -231,6 +231,7 @@ namespace Monopoly.IHM
                 return new RotateTransform(0);
         }
 
+
         #region Exit
         /// <summary>
         /// Exit the application when the exit menu item is clicked.
@@ -263,6 +264,25 @@ namespace Monopoly.IHM
             }
             game.Btn_Clicked = true;
             game.StartGame(game.IsPlayerTurn, game.IsGameOver);
+        }
+
+        private void InventaireJoueur1_DropDownOpened(object sender, EventArgs e)
+        {
+            if (this.joueur1 == null)
+            {
+                MessageBox.Show("Le joueur 1 n'est pas initialisé.");
+                return;
+            }
+            InventaireJoueur1.Items.Clear();
+            foreach (var property in this.joueur1.properties)
+            {
+                ListBoxItem item = new ListBoxItem
+                {
+                    Content = $"{property.position} - Niveau : {property.level}",
+                    Tag = property.position // Utilisé pour identifier la propriété
+                };
+                InventaireJoueur1.Items.Add(item);
+            }
         }
     }
 }

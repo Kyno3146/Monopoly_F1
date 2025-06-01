@@ -88,8 +88,13 @@ public class Game {
                         if (messageBoxAmelioration == MessageBoxResult.Yes)
                         {
                             // Afficher la fenetre Ameliorations
-                            // Amelioration amelioration = new Amelioration(player[0].properties);
-                            // amelioration.Show();
+
+                                if (players[0] != null && players[0].properties != null && players[0].properties.Length > 0)
+                                {
+                                    List<Property> propertyList = new List<Property>(players[0].properties);
+                                    Amelioration amelioration = new Amelioration(propertyList, players[0].position);
+                                    amelioration.Show();
+                                }
                         }
 
                     }
@@ -128,8 +133,13 @@ public class Game {
                             if (messageBoxAmelioration == MessageBoxResult.Yes)
                             {
                                 // Afficher la fenetre Ameliorations  
-                                // Amelioration amelioration = new Amelioration(players[1].properties);  
-                                // amelioration.Show();  
+
+                                if (players[1] != null && players[1].properties != null)
+                                {
+                                    List<Property> propertyList = new List<Property>(players[1].properties);
+                                    Amelioration amelioration = new Amelioration(propertyList, players[1].position);
+                                    amelioration.Show();
+                                }
                             }
                         }
                         this.isPlayerTurn = false;

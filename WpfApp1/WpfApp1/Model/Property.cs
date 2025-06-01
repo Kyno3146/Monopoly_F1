@@ -480,8 +480,6 @@ public class Property : Space  {
         
     }
 
-
-
     /// <summary>
     /// Player pays rent if owned
     /// </summary>

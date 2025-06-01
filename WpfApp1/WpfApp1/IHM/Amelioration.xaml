@@ -1,0 +1,41 @@
+﻿<Window x:Class="Monopoly.IHM.Amelioration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Monopoly.IHM"
+        mc:Ignorable="d"
+        Title="Amelioration" Height="250" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label x:Name="TitleUpgrade" Content="Amélioration : " Grid.Column="0" Grid.Row="0" FontSize="24" HorizontalAlignment="Center" Grid.ColumnSpan="6"/>
+
+        <Label Content="Niveau Disponible" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <ListBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"  Background="LightGray" x:Name="lstAmelioration">
+            <ListBoxItem Content="Niveau 1"/>
+            <ListBoxItem Content="Niveau 2" />
+            <ListBoxItem Content="Niveau 3" />
+            <ListBoxItem Content="Niveau 4" />
+            <ListBoxItem Content="Niveau 5" />
+        </ListBox>
+
+        <Label Content="Veuleur de l'amélioration" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <TextBlock Text="0" Grid.Column="3"  Grid.Row="2" Grid.ColumnSpan="2" x:Name="txtValeurHypotheque" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <Button Content="Amélioration" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" Margin="5" x:Name="btnAmelioration" Click="btnAmelioration_Click" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    </Grid>
+</Window>

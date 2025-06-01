@@ -191,7 +191,7 @@ namespace Monopoly.IHM
                 if (!IsplayerTurn)
                 {
                     // Joueur 1 abandonne, donc c'est au joueur 2 de jouer  
-                    joueur2.account -= MeilleurPrix; // Joueur 2 gagne l'enchère  
+                    joueur2.account -= MeilleurPrix; // Joueur 2 gagne l'enchère
                 }
                 else
                 {

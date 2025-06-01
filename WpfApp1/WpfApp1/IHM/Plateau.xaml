@@ -96,9 +96,9 @@
         <!-- Menu déroulant iventaire joueur 1 -->
         <!--<author>Barthoux Sauze Thomas <author>-->
         <Label Content="Inventaire Joueur 1" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="25" Foreground="White" Background="#15161C" Grid.Column="13" Grid.Row="1" />
-        <ComboBox x:Name="InventaireJoueur1" Grid.Column="13" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Background="White" Foreground="Black" FontSize="20" Text="Inventaire Joueur 1" Margin="0,56,0,0"/>
+        <ComboBox x:Name="InventaireJoueur1" Grid.Column="13" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Background="White" Foreground="Black" FontSize="20" Text="Inventaire Joueur 1" Margin="0,56,0,0" DropDownOpened="InventaireJoueur1_DropDownOpened"/>
         <Label Content="Inventaire Joueur 2" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="25" Foreground="White" Background="#15161C" Grid.Column="13" Grid.Row="3" />
-        <ComboBox x:Name="InventaireJoueur2" Grid.Column="13" Grid.Row="3" Grid.ColumnSpan="1" Grid.RowSpan="2" Background="White" Foreground="Black" FontSize="20" Text="Inventaire Joueur 2" Margin="0,56,0,0"/>
+        <ComboBox x:Name="InventaireJoueur2" Grid.Column="13" Grid.Row="3" Grid.ColumnSpan="1" Grid.RowSpan="2" Background="White" Foreground="Black" FontSize="20" Text="Inventaire Joueur 2" Margin="0,56,0,0" DropDownOpened="InventaireJoueur2_DropDownOpened"/>
 
         <!-- Zone ToString() -->
         <Label Content="Console" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="25" Foreground="White" Background="#15161C" Grid.Column="13" Grid.Row="6" />

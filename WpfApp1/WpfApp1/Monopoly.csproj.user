@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="IHM\Amelioration.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="IHM\Enchere.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -36,6 +39,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="IHM\Amelioration.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="IHM\Enchere.xaml">
       <SubType>Designer</SubType>
     </Page>
