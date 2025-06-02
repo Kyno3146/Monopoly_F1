@@ -99,6 +99,7 @@ public class CardSpace : Space  {
             {
                 plat.ConsoleJeux.Text += "Tu à pris une course de suspention pour ton comportement en piste ! \n";
                 p.position = 10; // Move to Suspension position
+                p.isInJail = true; // Set player as in jail
             }
             else if (id == 9)
             {
@@ -241,6 +242,7 @@ public class CardSpace : Space  {
             {
                 plat.ConsoleJeux.Text += "Tu as été disqualifié pour comportement anti-sportif, tu prends le drapeau noir.\n";
                 p.position = 10; // Move to race ban position
+                p.isInJail = true; // Set player as in jail
             }
             else if (id == 4)
             {

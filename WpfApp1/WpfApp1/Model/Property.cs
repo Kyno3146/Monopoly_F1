@@ -548,7 +548,7 @@ public class Property : Space  {
                         MessageBoxResult messageBoxHypotèque = MessageBox.Show("Vous n'avez pas assez d'argent pour acheter cette propriété, voulez vous hypotéquer une de vos propriétés ? (2 max)", "Hypothèque", MessageBoxButton.YesNo);
                     if (messageBoxHypotèque == MessageBoxResult.Yes)
                     {
-                        // hypotheque une propriété
+                        // hypotéquer une propriété
                         if (p.account >= price)
                         {
                             p.Buy(this);
