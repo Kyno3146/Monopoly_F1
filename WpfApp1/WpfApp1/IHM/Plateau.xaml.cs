@@ -284,5 +284,24 @@ namespace Monopoly.IHM
                 InventaireJoueur1.Items.Add(item);
             }
         }
+
+        private void InventaireJoueur2_DropDownOpened(object sender, EventArgs e)
+        {
+            if (this.joueur2 == null)
+            {
+                MessageBox.Show("Le joueur 2 n'est pas initialisé.");
+                return;
+            }
+            InventaireJoueur2.Items.Clear();
+            foreach (var property in this.joueur2.properties)
+            {
+                ListBoxItem item = new ListBoxItem
+                {
+                    Content = $"{property.position} - Niveau : {property.level}",
+                    Tag = property.position // Utilisé pour identifier la propriété
+                };
+                InventaireJoueur2.Items.Add(item);
+            }
+        }
     }
 }
