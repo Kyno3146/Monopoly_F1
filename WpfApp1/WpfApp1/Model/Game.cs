@@ -30,9 +30,6 @@ public class Game {
 		this.board = board;
         this.plateau = plateau;
         this.bank = new Bank();
-        this.players = new Player[2];
-        this.players[0] = new Player(" 1");
-        this.players[1] = new Player(" 2");
         InitPlayer();
     }
 
@@ -185,4 +182,7 @@ public class Game {
         set => isPlayerTurn = value;
     }
     public bool IsGameOver { get; set; }
+
+    public Player[] Players => players;
+
 }

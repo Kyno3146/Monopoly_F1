@@ -266,42 +266,106 @@ namespace Monopoly.IHM
             game.StartGame(game.IsPlayerTurn, game.IsGameOver);
         }
 
+        #region Inventaire
+
+        /// <summary>
+        /// Affiche l'inventaire du joueur 1 lorsque le menu déroulant est ouvert.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <author>Barthoux Sauze Thomas</author>
+        /// <Info> var joueur = this.game.Players[0]; récupére les infos du joueur 0 depuis game </Info>
         private void InventaireJoueur1_DropDownOpened(object sender, EventArgs e)
         {
-            if (this.joueur1 == null)
+
+            if (this.game == null || this.game.Players == null || this.game.Players.Length == 0 || this.game.Players[0] == null)
             {
                 MessageBox.Show("Le joueur 1 n'est pas initialisé.");
                 return;
             }
+
+            var joueur = this.game.Players[0];
+
+            Card card = new Card("");
+            List<string> info = card.infoCarte(joueur.position.ToString());
+
             InventaireJoueur1.Items.Clear();
-            foreach (var property in this.joueur1.properties)
+
+            // Ajoute le compte en banque en premier
+            ComboBoxItem compteItem = new ComboBoxItem
             {
-                ListBoxItem item = new ListBoxItem
+                Content = $"💰 Compte : {joueur.account} €",
+                IsEnabled = false // Non sélectionnable
+            };
+            InventaireJoueur1.Items.Add(compteItem);
+
+            // Ajoute les propriétés ensuite
+            if (joueur.properties != null)
+            {
+                foreach (var property in joueur.properties)
                 {
-                    Content = $"{property.position} - Niveau : {property.level}",
-                    Tag = property.position // Utilisé pour identifier la propriété
-                };
-                InventaireJoueur1.Items.Add(item);
+                    ComboBoxItem item = new ComboBoxItem
+                    {
+                        Content = $"{info[1]} - Niveau : {property.level}",
+                        Tag = property.position
+                    };
+                    InventaireJoueur1.Items.Add(item);
+                }
             }
+
+            // Sélectionne le compte en banque par défaut (affiché même ComboBox fermée)
+            InventaireJoueur1.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Affiche l'inventaire du joueur 2 lorsque le menu déroulant est ouvert.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <author>Barthoux Sauze Thomas</author>
+        /// <Info> var joueur = this.game.Players[1]; récupére les infos du joueur 1 depuis game </Info>
         private void InventaireJoueur2_DropDownOpened(object sender, EventArgs e)
         {
-            if (this.joueur2 == null)
+            if (this.game == null || this.game.Players == null || this.game.Players.Length == 0 || this.game.Players[0] == null)
             {
                 MessageBox.Show("Le joueur 2 n'est pas initialisé.");
                 return;
             }
+
+            var joueur = this.game.Players[1];
+
+            Card card = new Card("");
+            List<string> info = card.infoCarte(joueur.position.ToString());
+
             InventaireJoueur2.Items.Clear();
-            foreach (var property in this.joueur2.properties)
+
+            // Ajoute le compte en banque en premier
+            ComboBoxItem compteItem = new ComboBoxItem
             {
-                ListBoxItem item = new ListBoxItem
+                Content = $"💰 Compte : {joueur.account} €",
+                IsEnabled = false // Non sélectionnable
+            };
+            InventaireJoueur2.Items.Add(compteItem);
+
+            // Ajoute les propriétés ensuite
+            if (joueur.properties != null)
+            {
+                foreach (var property in joueur.properties)
                 {
-                    Content = $"{property.position} - Niveau : {property.level}",
-                    Tag = property.position // Utilisé pour identifier la propriété
-                };
-                InventaireJoueur2.Items.Add(item);
+                    ComboBoxItem item = new ComboBoxItem
+                    {
+                        Content = $"{info[1]} - Niveau : {property.level}",
+                        Tag = property.position
+                    };
+                    InventaireJoueur2.Items.Add(item);
+                }
             }
+
+            // Sélectionne le compte en banque par défaut (affiché même ComboBox fermée)
+            InventaireJoueur2.SelectedIndex = 0;
         }
+
+
+        #endregion
     }
 }
