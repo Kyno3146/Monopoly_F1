@@ -286,9 +286,6 @@ namespace Monopoly.IHM
 
             var joueur = this.game.Players[0];
 
-            Card card = new Card("");
-            List<string> info = card.infoCarte(joueur.position.ToString());
-
             InventaireJoueur1.Items.Clear();
 
             // Ajoute le compte en banque en premier
@@ -304,6 +301,9 @@ namespace Monopoly.IHM
             {
                 foreach (var property in joueur.properties)
                 {
+                    Card card = new Card("");
+                    List<string> info = card.infoCarte(property.position.ToString());
+
                     ComboBoxItem item = new ComboBoxItem
                     {
                         Content = $"{info[1]} - Niveau : {property.level}",
@@ -334,9 +334,6 @@ namespace Monopoly.IHM
 
             var joueur = this.game.Players[1];
 
-            Card card = new Card("");
-            List<string> info = card.infoCarte(joueur.position.ToString());
-
             InventaireJoueur2.Items.Clear();
 
             // Ajoute le compte en banque en premier
@@ -352,6 +349,9 @@ namespace Monopoly.IHM
             {
                 foreach (var property in joueur.properties)
                 {
+                    Card card = new Card("");
+                    List<string> info = card.infoCarte(property.position.ToString());
+
                     ComboBoxItem item = new ComboBoxItem
                     {
                         Content = $"{info[1]} - Niveau : {property.level}",

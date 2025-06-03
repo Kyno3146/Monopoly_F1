@@ -171,7 +171,9 @@ namespace Monopoly.IHM
         }
 
 
-
+        /// <summary>
+        /// This class holds the current game context, allowing access to the current game instance.
+        /// </summary>
         public static class GameContext
         {
             public static Game CurrentGame { get; set; }
@@ -184,22 +186,58 @@ namespace Monopoly.IHM
         /// <author>Barthoux Sauze Thomas</author>
         private void Abandon(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment abandonner l'enchère ?", "Confirmation", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
+            // Demande de confirmation
+            if (MessageBox.Show("Voulez-vous vraiment abandonner l'enchère ?", "Confirmation", MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+                return;
+
+            MessageBox.Show("Vous avez abandonné l'enchère.");
+
+            // Recherche de la propriété concernée (à adapter selon ta logique exacte)
+            Property proprieteEncheree = null;
+            if (info.Count > 0)
             {
-                MessageBox.Show("Vous avez abandonné l'enchère.");
-                if (!IsplayerTurn)
+                foreach (var space in GameContext.CurrentGame.Board.spaces)
                 {
-                    // Joueur 1 abandonne, donc c'est au joueur 2 de jouer  
-                    joueur2.account -= MeilleurPrix; // Joueur 2 gagne l'enchère
+                    if (space is Property prop && prop.position == getpositon())
+                    {
+                        proprieteEncheree = prop;
+                        break;
+                    }
                 }
-                else
-                {
-                    // Joueur 2 abandonne, donc c'est au joueur 1 de jouer  
-                    joueur1.account -= MeilleurPrix; // Joueur 1 gagne l'enchère  
-                }
-                this.Close();
             }
+
+            // Déterminer le joueur gagnant
+            var gagnant = IsplayerTurn ? joueur1 : joueur2;
+
+            // Débiter le compte et ajouter la propriété
+            gagnant.account -= MeilleurPrix;
+
+            if (proprieteEncheree != null)
+            {
+                var list = gagnant.properties?.ToList() ?? new List<Property>();
+                list.Add(proprieteEncheree);
+                gagnant.properties = list.ToArray();
+
+                // Mise à jour des compteurs selon la position
+                if (new[] { 5, 15, 25, 35 }.Contains(proprieteEncheree.position))
+                    gagnant.nb_championships++;
+                else if (new[] { 12, 28 }.Contains(proprieteEncheree.position))
+                    gagnant.nb_museums++;
+            }
+
+            this.Close();
         }
+
+        /// <summary>
+        /// Returns the position of the player based on whose turn it is.
+        /// Use for abandon
+        /// </summary>
+        /// <returns></returns>
+        private int getpositon()
+        {
+            return IsplayerTurn ? joueur2.position : joueur1.position;
+        }
+
+
     }
 }

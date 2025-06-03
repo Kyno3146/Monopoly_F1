@@ -19,11 +19,11 @@ namespace Monopoly.IHM
     /// </summary>
     public partial class Amelioration : Window
     {
-        private List<Property> propertyPlayer;
-        private int Caseposition;
+        private Player player;
         private List<string> info;
         private Property property;
-        private object selectedItem;
+        private int indexPR;
+        private int levelselcted;
 
         public Property[] Properties { get; }
         public int Position { get; }
@@ -34,13 +34,13 @@ namespace Monopoly.IHM
         /// <param name="propertyPlayer"></param>
         /// <param name="position"></param>
         /// <author>Barthoux Sauze Thomas</author>
-        public Amelioration(List<Property> propertyPlayer, int position)
+        public Amelioration(Player Player)
         {
-            this.Caseposition = position;
-            this.propertyPlayer = propertyPlayer;
-            SelectProperty(propertyPlayer);
-
+            this.player = Player;
             InitializeComponent();
+            TitleUpgrade.Content += player.Name;
+
+            SelectProperty(player);
         }
 
         /// <summary>
@@ -48,19 +48,24 @@ namespace Monopoly.IHM
         /// </summary>
         /// <param name="propertyPlayer"></param>
         /// <author>Barthoux Sauze Thomas</author>
-        private void SelectProperty(List<Property> propertyPlayer)
+        private void SelectProperty(Player player)
         {
-            foreach (Property pr in propertyPlayer)
+            if (player.properties == null) 
             {
-                if (pr.position == Caseposition)
+                MessageBox.Show("Aucune propriété trouvée pour le joueur.");
+                this.Close();
+                return;
+            }
+            else
+            {
+                foreach (Property pr in player.properties)
                 {
-                    //Card card = new Card(pr.position.ToString());
-                    //info = card.infoCarte(pr.position.ToString());
-                    property = pr;
-
-                    //MessageBox.Show("Propriété : " + info[0] + " - Niveau : " + property.price);
+                    Card tmp = new Card("");
+                    info = tmp.infoCarte(pr.position.ToString());
+                    lstCasePossible.Items.Add(info[1].ToString());
                 }
             }
+
         }
 
         /// <summary>
@@ -71,42 +76,48 @@ namespace Monopoly.IHM
         /// <author>Barthoux Sauze Thomas</author>
         private void btnAmelioration_Click(object sender, RoutedEventArgs e)
         {
-            if (this.property == null)
+            if (this.indexPR == null)
             {
                 MessageBox.Show("Aucune propriété sélectionnée pour l'amélioration.");
                 return;
             }
-
-            if (lstAmelioration.SelectedItem is ListBoxItem selectedItem)
+            else
             {
-                string text = selectedItem.Content.ToString();
-
-                if (!string.IsNullOrWhiteSpace(text) && char.IsDigit(text[^1]))
+                if (this.levelselcted == 0)
                 {
-                    int levelselected = int.Parse(text[^1].ToString());
-
-                    if (levelselected > property.level && levelselected < 6)
-                    {
-                        // ici tu peux appliquer l'amélioration
-                        property.level = levelselected; 
-                        property.Upgrade();
-                        MessageBox.Show($"Propriété améliorée au niveau {property.level} avec succès !");
-                        this.Close(); // Ferme la fenêtre d'amélioration
-                    }
-                    else
-                    {
-                        MessageBox.Show("Veuillez sélectionner un niveau supérieur à celui actuel de la propriété.");
-                    }
+                    MessageBox.Show("Aucun niveau sélectionné pour l'amélioration.");
+                    return;
+                }
+                if (player.properties[indexPR].level >= this.levelselcted || indexPR > 5)
+                {
+                    MessageBox.Show("Le niveau sélectionné est inférieur ou égal au niveau actuel de la propriété.");
+                    return;
                 }
                 else
                 {
-                    MessageBox.Show("Le niveau sélectionné n'est pas un chiffre valide.");
+                    player.properties[indexPR].Upgrade();
+                    MessageBox.Show($"Propriété améliorée au niveau {player.properties[indexPR].level.ToString()} avec succès !");
+                    this.Close(); // Ferme la fenêtre d'amélioration
                 }
             }
-            else
-            {
-                MessageBox.Show("L'élément sélectionné n'est pas valide.");
-            }
+           
+        }
+
+        private void savePropertyselected(object sender, MouseButtonEventArgs e)
+        {
+            indexPR = lstCasePossible.SelectedIndex;
+
+            Card tmp2 = new Card("");
+            info = tmp2.infoCarte(player.properties[indexPR].position.ToString());
+
+            labelselectpr.Content += info[0].ToString();
+        }
+
+        private void selectLVL(object sender, MouseButtonEventArgs e)
+        {
+            levelselcted = lstAmelioration.SelectedIndex+1;
+            labelselectlvl.Content += levelselcted.ToString();
+
         }
 
     }

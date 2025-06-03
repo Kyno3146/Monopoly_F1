@@ -88,8 +88,7 @@ public class Game {
 
                                 if (players[0] != null && players[0].properties != null && players[0].properties.Length > 0)
                                 {
-                                    List<Property> propertyList = new List<Property>(players[0].properties);
-                                    Amelioration amelioration = new Amelioration(propertyList, players[0].position);
+                                    Amelioration amelioration = new Amelioration(players[0]);
                                     amelioration.Show();
                                 }
                         }
@@ -122,7 +121,7 @@ public class Game {
                         players[1].verifPosition(players[1].position);
                         plateau.ConsoleJeux.Text += $" ---- {playerNames[1]} a lancé le dé et a obtenu : {players[1].position} ---- \n";
                         plateau.MooveF1(isPlayerTurn, players[1].position);
-                        board.spaces[players[1].position].Action(ref players[1], plateau, this, ref players[1], board);
+                        board.spaces[players[1].position].Action(ref players[1], plateau, this, ref players[0], board);
 
                         if (players[1] != null && players[1].properties != null && players[1].properties.Length > 0)
                         {
@@ -133,8 +132,7 @@ public class Game {
 
                                 if (players[1] != null && players[1].properties != null)
                                 {
-                                    List<Property> propertyList = new List<Property>(players[1].properties);
-                                    Amelioration amelioration = new Amelioration(propertyList, players[1].position);
+                                    Amelioration amelioration = new Amelioration(players[1]);
                                     amelioration.Show();
                                 }
                             }
@@ -184,5 +182,11 @@ public class Game {
     public bool IsGameOver { get; set; }
 
     public Player[] Players => players;
+
+    /// <summary>
+    /// Obligatoire pour les enchéres
+    /// </summary>
+    /// <author>Barthoux Sauze Thomas</author>
+    public Board Board => board;
 
 }

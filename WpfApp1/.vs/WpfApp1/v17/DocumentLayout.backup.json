@@ -3,44 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\thomi\\desktop\\but_info\\dev\\poo\\sae\\repository\\monopoly_f1\\wpfapp1\\wpfapp1\\ihm\\plateau.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\ihm\\plateau.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\thomi\\desktop\\but_info\\dev\\poo\\sae\\repository\\monopoly_f1\\wpfapp1\\wpfapp1\\ihm\\plateau.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\ihm\\plateau.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\thomi\\desktop\\but_info\\dev\\poo\\sae\\repository\\monopoly_f1\\wpfapp1\\wpfapp1\\ihm\\enchere.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\ihm\\enchere.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\thomi\\desktop\\but_info\\dev\\poo\\sae\\repository\\monopoly_f1\\wpfapp1\\wpfapp1\\ihm\\hypotheque.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\ihm\\hypotheque.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\thomi\\desktop\\but_info\\dev\\poo\\sae\\repository\\monopoly_f1\\wpfapp1\\wpfapp1\\model\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\model\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\thomi\\desktop\\but_info\\dev\\poo\\sae\\repository\\monopoly_f1\\wpfapp1\\wpfapp1\\model\\cardspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\model\\cardspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\thomi\\desktop\\but_info\\dev\\poo\\sae\\repository\\monopoly_f1\\wpfapp1\\wpfapp1\\model\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\model\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\thomi\\desktop\\but_info\\dev\\poo\\sae\\repository\\monopoly_f1\\wpfapp1\\wpfapp1\\model\\property.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\model\\property.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\thomi\\desktop\\but_info\\dev\\poo\\sae\\repository\\monopoly_f1\\wpfapp1\\wpfapp1\\ihm\\amelioration.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\ihm\\amelioration.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\thomi\\desktop\\but_info\\dev\\poo\\sae\\repository\\monopoly_f1\\wpfapp1\\wpfapp1\\ihm\\amelioration.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\ihm\\amelioration.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\thomi\\desktop\\but_info\\dev\\poo\\sae\\repository\\monopoly_f1\\wpfapp1\\wpfapp1\\ihm\\amelioration.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\ihm\\amelioration.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\thomi\\desktop\\but_info\\dev\\poo\\sae\\repository\\monopoly_f1\\wpfapp1\\wpfapp1\\model\\property.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\model\\property.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\thomi\\desktop\\but_info\\dev\\poo\\sae\\repository\\monopoly_f1\\wpfapp1\\wpfapp1\\model\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\model\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\thomi\\desktop\\but_info\\dev\\poo\\sae\\repository\\monopoly_f1\\wpfapp1\\wpfapp1\\model\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\model\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\thomi\\desktop\\but_info\\dev\\poo\\sae\\repository\\monopoly_f1\\wpfapp1\\wpfapp1\\ihm\\plateau.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\ihm\\plateau.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,111 +50,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Plateau.xaml",
-              "DocumentMoniker": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Plateau.xaml",
-              "RelativeDocumentMoniker": "WpfApp1\\IHM\\Plateau.xaml",
-              "ToolTip": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Plateau.xaml",
-              "RelativeToolTip": "WpfApp1\\IHM\\Plateau.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-03T10:23:09.055Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\Model\\Player.cs",
               "RelativeDocumentMoniker": "WpfApp1\\Model\\Player.cs",
               "ToolTip": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\Model\\Player.cs",
               "RelativeToolTip": "WpfApp1\\Model\\Player.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAABHAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T09:53:49.99Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Hypotheque.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Hypotheque.xaml.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\IHM\\Hypotheque.xaml.cs",
-              "ToolTip": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Hypotheque.xaml.cs",
-              "RelativeToolTip": "WpfApp1\\IHM\\Hypotheque.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T09:03:37.951Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CardSpace.cs",
-              "DocumentMoniker": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\Model\\CardSpace.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Model\\CardSpace.cs",
-              "ToolTip": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\Model\\CardSpace.cs",
-              "RelativeToolTip": "WpfApp1\\Model\\CardSpace.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAiwPQAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T08:58:51.576Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Enchere.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Enchere.xaml.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\IHM\\Enchere.xaml.cs",
-              "ToolTip": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Enchere.xaml.cs",
-              "RelativeToolTip": "WpfApp1\\IHM\\Enchere.xaml.cs",
-              "ViewState": "AgIAAK4AAAAAAAAAAAA1wMIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T17:05:30.259Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Plateau.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Plateau.xaml.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\IHM\\Plateau.xaml.cs",
-              "ToolTip": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Plateau.xaml.cs",
-              "RelativeToolTip": "WpfApp1\\IHM\\Plateau.xaml.cs",
-              "ViewState": "AgIAAEQBAAAAAAAAAAAowG0BAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T15:21:36.178Z",
+              "WhenOpened": "2025-06-03T21:16:52.918Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "Amelioration.xaml",
               "DocumentMoniker": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Amelioration.xaml",
               "RelativeDocumentMoniker": "WpfApp1\\IHM\\Amelioration.xaml",
               "ToolTip": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Amelioration.xaml",
               "RelativeToolTip": "WpfApp1\\IHM\\Amelioration.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-01T14:33:58.373Z"
+              "WhenOpened": "2025-06-03T19:19:21.07Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Property.cs",
-              "DocumentMoniker": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\Model\\Property.cs",
-              "RelativeDocumentMoniker": "WpfApp1\\Model\\Property.cs",
-              "ToolTip": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\Model\\Property.cs",
-              "RelativeToolTip": "WpfApp1\\Model\\Property.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAUwCQAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T14:13:31.919Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "Amelioration.xaml.cs",
               "DocumentMoniker": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Amelioration.xaml.cs",
               "RelativeDocumentMoniker": "WpfApp1\\IHM\\Amelioration.xaml.cs",
               "ToolTip": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Amelioration.xaml.cs",
               "RelativeToolTip": "WpfApp1\\IHM\\Amelioration.xaml.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAgwF0AAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAcwHAAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T20:12:21.911Z"
+              "WhenOpened": "2025-06-03T19:18:52.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Property.cs",
+              "DocumentMoniker": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\Model\\Property.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\Model\\Property.cs",
+              "ToolTip": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\Model\\Property.cs",
+              "RelativeToolTip": "WpfApp1\\Model\\Property.cs",
+              "ViewState": "AgIAAAgCAAAAAAAAAAAMwNwBAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T14:53:12.577Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Plateau.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Plateau.xaml.cs",
+              "RelativeDocumentMoniker": "WpfApp1\\IHM\\Plateau.xaml.cs",
+              "ToolTip": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Plateau.xaml.cs",
+              "RelativeToolTip": "WpfApp1\\IHM\\Plateau.xaml.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAADABAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T15:21:36.178Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -180,9 +120,10 @@
               "RelativeDocumentMoniker": "WpfApp1\\Model\\Game.cs",
               "ToolTip": "C:\\Users\\thomi\\Desktop\\BUT_INFO\\DEV\\POO\\SAE\\repository\\Monopoly_F1\\WpfApp1\\WpfApp1\\Model\\Game.cs",
               "RelativeToolTip": "WpfApp1\\Model\\Game.cs",
-              "ViewState": "AgIAAKcAAAAAAAAAAADwv7oAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAG0AAAAAAAAAAIAwwHsAAABtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T16:42:08.094Z"
+              "WhenOpened": "2025-05-30T16:42:08.094Z",
+              "EditorCaption": ""
             }
           ]
         }
