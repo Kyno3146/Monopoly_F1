@@ -174,7 +174,7 @@ public class Game {
     /// A bouger plus tard
     /// </summary>
     public bool Btn_Clicked { get; set; }
-    public bool IsPlayerTurn
+    public bool IsPlayerTurnGame
     {
         get => isPlayerTurn;
         set => isPlayerTurn = value;
