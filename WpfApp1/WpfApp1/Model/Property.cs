@@ -76,8 +76,7 @@ public class Property : Space  {
                     this.rent = 250000;
                 }
             }
-
-            else if (price == 30000)
+            else if (price == 100000)
             {
                 if (this.level == 0)
                 {
