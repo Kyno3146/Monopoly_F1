@@ -46,7 +46,7 @@ public class Property : Space  {
     /// <exception cref="System.InvalidOperationException"></exception>
     /// <author>Riviere Kylian</author>
     public void Upgrade() {
-        if (level < 5 && upgradeValue>0)
+        if (level < 5 && upgradeValue>0 && this.player != null)
         {
             if (price == 60000)
             {
@@ -468,8 +468,9 @@ public class Property : Space  {
                     this.level = 5;
                     this.rent = 2000000;
                 }
-                this.player.Pay(ref upgradeValue);
+                
             }
+            this.player.Pay(ref upgradeValue);
         }
         else
         {
