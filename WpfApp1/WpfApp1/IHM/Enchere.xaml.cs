@@ -33,8 +33,17 @@ namespace Monopoly.IHM
         {
             InitializeComponent();
             this.info = info;
-            this.joueur1 = joueur1;
-            this.joueur2 = joueur2;
+            if (game.IsPlayerTurnGame == false)
+            {
+                this.joueur1 = joueur1;
+                this.joueur2 = joueur2;
+            }
+            else
+            {
+                this.joueur1 = joueur2;
+                this.joueur2 = joueur1;
+            }
+
             this.game = game;
             infoLoad(info);
             this.meilleurPrix = 0;
