@@ -93,7 +93,7 @@ namespace Monopoly.IHM {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Monopoly;V1.0.0.0;component/ihm/loginpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Monopoly;component/ihm/loginpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\IHM\LoginPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
