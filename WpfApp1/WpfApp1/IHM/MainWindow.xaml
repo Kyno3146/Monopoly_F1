@@ -6,7 +6,65 @@
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="382.5" Width="850">
+        Title="MainWindow"
+        WindowStyle="None"
+        WindowState="Maximized"
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Style x:Key="GlassButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#66FFFFFF"/>
+            <!-- Blanc translucide -->
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="BorderThickness" Value="1.5"/>
+            <Setter Property="BorderBrush" Value="#CCFFFFFF"/>
+            <!-- Bordure blanche un peu transparente -->
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" Opacity="0.15" BlurRadius="10" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="8"
+                            SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#99FFFFFF"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="White"/>
+                                <Setter TargetName="border" Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="Black" Opacity="0.4" BlurRadius="15" ShadowDepth="3"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#CCFFFFFF"/>
+                                <Setter TargetName="border" Property="Effect" Value="{x:Null}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="#66000000"/>
+                                <Setter TargetName="border" Property="Background" Value="#33FFFFFF"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="#33FFFFFF"/>
+                                <Setter TargetName="border" Property="Effect" Value="{x:Null}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -24,18 +82,20 @@
 
 
         <TextBlock Text="Monopoly F1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" Grid.ColumnSpan="3" Foreground="Black"/>
-        <Button Content="Jouer" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Grid.Row="1" Grid.Column="1" Width="150" Height="50" Click="JouerPartie"  />
-        <Button Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Grid.Row="2" Grid.Column="1" Width="150" Height="50" Click="LoginPage"/>
-        <Button Content="Quitter" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Grid.Row="3" Grid.Column="1" Width="150" Height="50" Click="exit"/>
+        <Button Content="Jouer" Grid.Row="1" Grid.Column="1" Width="150" Height="50" Click="JouerPartie" Style="{StaticResource GlassButtonStyle}" />
+        <Button Content="Login" Grid.Row="2" Grid.Column="1" Width="150" Height="50" Click="LoginPage" Style="{StaticResource GlassButtonStyle}" />
+        <Button Content="Quitter" Grid.Row="3" Grid.Column="1" Width="150" Height="50" Click="exit" Style="{StaticResource GlassButtonStyle}" />
+
+
         <TextBlock x:Name="state" Grid.Column="2" HorizontalAlignment="Left" Height="30" Margin="185,10,0,0" TextWrapping="Wrap" Text="Serveur Off" Foreground="Red"  VerticalAlignment="Top" Width="72"/>
 
         <!--Player icon-->
-        <Label x:Name="User1" Content="Invite" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="User1" Content="Invite" Grid.Row="1" HorizontalAlignment="Center" Foreground="White" Grid.RowSpan="3" Margin="0,40,0,0"/>
         <Button Background="#00FFFFFF" Grid.Row="1" Click="user1IHM" HorizontalAlignment="Center" VerticalAlignment="center" BorderBrush="#00FFFFFF">
             <fa:ImageAwesome x:Name="icon1" Icon="UserCircle" Width="50" HorizontalAlignment="Center" Foreground="White" MouseRightButtonDown="deconexion" />
         </Button>
 
-        <Label x:Name="User2" Content="Invite" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" />
+        <Label x:Name="User2" Content="Invite" Grid.Row="2" HorizontalAlignment="Center"  Foreground="White" Grid.RowSpan="2" Margin="0,40,0,0" />
         <Button Background="#00FFFFFF" Grid.Row="2" Click="user2IHM" HorizontalAlignment="Center" VerticalAlignment="center" BorderBrush="#00FFFFFF" >
             <fa:ImageAwesome x:Name="icon2" Icon="UserCircle" Width="50" HorizontalAlignment="Center" Foreground="White"/>
         </Button>
@@ -54,6 +114,7 @@
                   Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Canvas}}"
                   Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Canvas}}"
                   MediaEnded="Introfin"/>
+            <Button Content="skip" Width="90" Height="23" Click="Skipintro" Style="{StaticResource GlassButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Canvas.Top="10" Canvas.Left="10" />
         </Canvas>
 
 

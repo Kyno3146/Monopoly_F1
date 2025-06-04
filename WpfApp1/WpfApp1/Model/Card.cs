@@ -63,11 +63,12 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(1.ToString());
                 break;
 
             case "case_f1_radio1":
-            case "case_f1_radio_team2":
-            case "case_f1_radio_team3":
+            case "case_radio_f1_team2":
+            case "case_radio_f1_team3":
             case "2":
             case "17":
             case "33":
@@ -94,6 +95,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(3.ToString());
                 break;
 
             case "case_formula_e":
@@ -107,6 +109,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(5.ToString());
                 break;
 
             case "case_licence":
@@ -131,9 +134,11 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(6.ToString());
                 break;
 
             case "case_fia":
+            case "case_fia3":
             case "7":
             case "22":
             case "36":
@@ -155,9 +160,10 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(8.ToString());
                 break;
 
-            case "case_gpabu":
+            case "case_gpAbu":
             case "9":
                 nom = "case_gpabu";
                 info.Add(nom);
@@ -168,6 +174,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(9.ToString());
                 break;
 
             case "case_raceban":
@@ -190,6 +197,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(11.ToString());
                 break;
 
             case "case_prost":
@@ -203,6 +211,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(12.ToString());
                 break;
 
             case "case_austin":
@@ -216,6 +225,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(13.ToString());
                 break;
 
             case "case_mexico":
@@ -229,6 +239,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(14.ToString());
                 break;
 
             case "case_gt_world":
@@ -242,6 +253,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(15.ToString());
                 break;
 
             case "case_Pays_Bas":
@@ -255,6 +267,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(16.ToString());
                 break;
 
             case "case_chine":
@@ -268,6 +281,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(17.ToString());
                 break;
 
             case "case_bahrain":
@@ -281,6 +295,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(18.ToString());
                 break;
 
             case "case_trevehivernal":
@@ -303,6 +318,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(21.ToString());
                 break;
 
             case "case_australie":
@@ -316,6 +332,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(23.ToString());
                 break;
 
             case "case_autriche":
@@ -329,6 +346,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(24.ToString());
                 break;
 
             case "case_wrc":
@@ -342,6 +360,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(25.ToString());
                 break;
 
             case "case_singapour":
@@ -355,6 +374,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(26.ToString());
                 break;
 
             case "case_silverstone":
@@ -368,6 +388,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(27.ToString());
                 break;
 
             case "case_Senna":
@@ -379,6 +400,7 @@ public class Card {
                 info.Add(this.description);
                 this.value = 150000;
                 info.Add(this.value.ToString());
+                info.Add(28.ToString());
                 break;
 
             case "case_espagne":
@@ -392,6 +414,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(29.ToString());
                 break;
 
             case "case_commisaire":
@@ -415,6 +438,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(31.ToString());
                 break;
 
             case "case_bresil":
@@ -428,6 +452,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(32.ToString());
                 break;
 
             case "case_belgique":
@@ -441,6 +466,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(34.ToString());
                 break;
 
             case "case_wec":
@@ -454,6 +480,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(35.ToString());
                 break;
 
             case "case_monza":
@@ -467,6 +494,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(37.ToString());
                 break;
 
             case "case_amende_FIA":
@@ -491,6 +519,7 @@ public class Card {
                 info.Add(this.value.ToString());
                 this.hypoteque = this.value / 2;
                 info.Add(this.hypoteque.ToString());
+                info.Add(39.ToString());
                 break;
 
             default:

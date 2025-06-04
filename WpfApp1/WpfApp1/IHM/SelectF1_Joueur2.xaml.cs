@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Org.BouncyCastle.Crypto.Digests;
+using WpfApp1.IHM;
 
 namespace Monopoly.IHM
 {
@@ -20,11 +22,8 @@ namespace Monopoly.IHM
     public partial class SelectF1_Joueur2 : Window
     {
         #region attribut
-        /// <summary>
-        /// attribut venant de l'ihm joueur 1
-        /// </summary>
-        /// <author>Barthoux Sauze Thomas</author>
         private string f1_Joueur1;
+        public MainWindow main;
         #endregion
 
         #region Constructeur
@@ -33,10 +32,12 @@ namespace Monopoly.IHM
         /// </summary>
         /// <param name="f1_j1"></param>
         /// <author>Barthoux Sauze Thomas</author>
-        public SelectF1_Joueur2(string f1_j1)
+        public SelectF1_Joueur2(string f1_j1, string username2, MainWindow main)
         {
             InitializeComponent();
+            this.LabelF1.Content = username2.ToString() + " selectionner votre monoplace"; 
             this.f1_Joueur1 = f1_j1;
+            this.main = main;
         }
 
         #endregion
@@ -57,6 +58,7 @@ namespace Monopoly.IHM
                 Plateau plateau = new Plateau(this.f1_Joueur1, f1_choose2);
                 plateau.Show();
                 this.Close();
+                main.Close();
             }
         }
         #endregion

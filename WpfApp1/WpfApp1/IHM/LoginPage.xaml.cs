@@ -91,6 +91,9 @@ namespace Monopoly.IHM
             window.statutUser(comboboxSelected);
             window.Show();
 
+            window.VideoIntro.Visibility = Visibility.Collapsed;
+            window.videoIntro.Volume = 0;
+
             this.Close();
         }
 

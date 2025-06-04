@@ -73,6 +73,7 @@ namespace Monopoly.IHM
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
+            mainWindow.Introfin(sender, e);
             this.Close();
         }
     }

@@ -24,6 +24,10 @@ public class Property : Space  {
     public int position;
     public Player? player;
 
+    public int Rent
+    {
+        get { return rent; }
+    }
 
     /// <summary>
     /// The constructor
@@ -612,6 +616,7 @@ public class Property : Space  {
             }
         }
     }
+
     /// <summary>
     /// A function wich mortgege the property
     /// </summary>

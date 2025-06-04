@@ -11,6 +11,61 @@
         ResizeMode="CanResize"
         Background="#15161C">
 
+    <Window.Resources>
+        <Style x:Key="GlassButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#66FFFFFF"/>
+            <!-- Blanc translucide -->
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="BorderThickness" Value="1.5"/>
+            <Setter Property="BorderBrush" Value="#CCFFFFFF"/>
+            <!-- Bordure blanche un peu transparente -->
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" Opacity="0.15" BlurRadius="10" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="8"
+                        SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#99FFFFFF"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="White"/>
+                                <Setter TargetName="border" Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="Black" Opacity="0.4" BlurRadius="15" ShadowDepth="3"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#CCFFFFFF"/>
+                                <Setter TargetName="border" Property="Effect" Value="{x:Null}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="#66000000"/>
+                                <Setter TargetName="border" Property="Background" Value="#33FFFFFF"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="#33FFFFFF"/>
+                                <Setter TargetName="border" Property="Effect" Value="{x:Null}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*" />
@@ -66,7 +121,7 @@
         <Image x:Name="case_Prost" Source="Image/case_prost.png" Tag="case_prost" MouseLeftButtonUp="viewInfoCarte" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="9" Stretch="Fill"/>
         <Image x:Name="case_Austin" Source="Image/case_austin.png" Tag="case_austin" MouseLeftButtonUp="viewInfoCarte" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="8" Stretch="Fill"/>
         <Image x:Name="case_Mexico" Source="Image/case_mexico.png" Tag="case_mexico" MouseLeftButtonUp="viewInfoCarte" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="7" Stretch="Fill"/>
-        <Image x:Name="case_GTworld" Source="Image/case_gt_wold.png" Tag="case_gt_wold" MouseLeftButtonUp="viewInfoCarte" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="6" Stretch="Fill"/>
+        <Image x:Name="case_GTworld" Source="Image/case_gt_wold.png" Tag="case_gt_world" MouseLeftButtonUp="viewInfoCarte" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="6" Stretch="Fill"/>
         <Image x:Name="case_Pays_Bas" Source="Image/case_Pays_Bas.png" Tag="case_Pays_Bas" MouseLeftButtonUp="viewInfoCarte" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="5" Stretch="Fill"/>
         <Image x:Name="case_F1Radio2" Source="Image/case_radio_f1_team2.png" Tag="case_radio_f1_team2" MouseLeftButtonUp="viewInfoCarte" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="4" Stretch="Fill"/>
         <Image x:Name="case_Chine" Source="Image/case_chine.png" Tag="case_chine" MouseLeftButtonUp="viewInfoCarte" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="3" Stretch="Fill"/>
@@ -96,7 +151,7 @@
         <!-- Menu déroulant iventaire joueur 1 -->
         <!--<author>Barthoux Sauze Thomas <author>-->
         <Label x:Name="LabelJ1" Content="" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="25" Foreground="White" Background="#15161C" Grid.Column="13" Grid.Row="1" />
-        <ComboBox x:Name="InventaireJoueur1" Grid.Column="13" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Background="White" Foreground="Black" FontSize="20" Text="Inventaire Joueur 1" Margin="0,56,0,0" DropDownOpened="InventaireJoueur1_DropDownOpened"/>
+        <ComboBox x:Name="InventaireJoueur1" Grid.Column="13" Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Background="White" Foreground="Black" FontSize="20" Text="Inventaire Joueur 1" Margin="0,56,0,0"  DropDownOpened="InventaireJoueur1_DropDownOpened"/>
         <Label x:Name="LabelJ2" Content="" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="25" Foreground="White" Background="#15161C" Grid.Column="13" Grid.Row="3" />
         <ComboBox x:Name="InventaireJoueur2" Grid.Column="13" Grid.Row="3" Grid.ColumnSpan="1" Grid.RowSpan="2" Background="White" Foreground="Black" FontSize="20" Text="Inventaire Joueur 2" Margin="0,56,0,0" DropDownOpened="InventaireJoueur2_DropDownOpened"/>
 
@@ -114,13 +169,16 @@
         </ScrollViewer>
 
         <!--Btn jouer-->
-        <Button x:Name="Jouer" Grid.Column="5" Grid.Row="9" Grid.ColumnSpan="3" Content="Joueur : " Width="150" Height="30" Background="White" FontSize="20" Foreground="Red" Click="Jouer_click"/>
+        <Button x:Name="Jouer" Grid.Column="5" Grid.Row="9" Grid.ColumnSpan="3" Content="Joueur : " Width="150" Height="30" Style="{StaticResource GlassButtonStyle}" Foreground="Red" Click="Jouer_click"/>
 
 
         <!--Exit_Button-->
-        <Button x:Name="Exit" Grid.Column="13" Grid.Row="15" Content="Exit" Width="150" Height="30" Background="White" FontSize="20" Foreground="Red" Click="ExitToMenu"/>
+        <Button x:Name="Exit" Grid.Column="13" Grid.Row="15" Content="Exit" Width="150" Height="30" Style="{StaticResource GlassButtonStyle}" Foreground="Red" Click="ExitToMenu"/>
 
         
+        <!--Alerte fia-->
+        <MediaElement Name="AlerteFIA" Source="IHM/Video/FIA_sound.mp3" Volume="1" LoadedBehavior="Manual" UnloadedBehavior="Stop" Grid.ColumnSpan="15" Grid.RowSpan="15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsHitTestVisible="False"/>
+
         <!--Monoplace-->
         <Grid x:Name="Monoplace"
       Grid.Row="0" Grid.Column="0"

@@ -29,15 +29,23 @@ namespace WpfApp1.IHM
         private string username1;
         private string username2;
         private int comboboxselected;
+        private bool firstStart = false;  
 
 
         public static bool Connected { get; set; } = false;
+        public bool FirstStart
+        {
+            get { return firstStart; }
+            set { firstStart = value; }
+        }
 
         public MainWindow()
         {
             InitializeComponent();
+            this.firstStart = true;
+            statutUser(0);
+            statutUser(1);
             InitTimer();
-
         }
 
 
@@ -64,7 +72,6 @@ namespace WpfApp1.IHM
             {
                 LoginPage loginPage = new LoginPage();
                 loginPage.Show();
-                this.Close();
             }
         }
 
@@ -77,22 +84,27 @@ namespace WpfApp1.IHM
         {
             if (Connected != false)
             {
-                SelectF1 selectF1 = new SelectF1();
+                SelectF1 selectF1 = new SelectF1(username1, username2, this);
                 selectF1.Show();
-                this.Close();
             }
         }
 
-        private void Introfin(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Open la fenetre pour s'inscrire
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <author>Barthoux Sauze Thomas</author>
+        public void Introfin(object sender, RoutedEventArgs e)
         {
             VideoIntro.Visibility = Visibility.Collapsed;
+            videoIntro.Volume = 0;
         }
 
-
-
-
-
-
+        private void Skipintro(object sender, RoutedEventArgs e)
+        {
+            Introfin(sender, e);
+        }
 
         #region Statut Serveur
         /// <summary>
@@ -221,7 +233,11 @@ namespace WpfApp1.IHM
             }
         }
 
-
+        /// <summary>
+        /// affiche ihm de l'utilisateur1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void user1IHM(object sender, RoutedEventArgs e)
         {
             StatJoueur statJoueur = new StatJoueur(username1);
@@ -257,8 +273,8 @@ namespace WpfApp1.IHM
             }
         }
 
-        #endregion
 
+        #endregion
 
     }
 }

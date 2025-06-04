@@ -65,7 +65,17 @@
     <None Remove="IHM\Image\Monoplaces\VCARB.png" />
     <None Remove="IHM\Image\Monoplaces\Williams.png" />
     <None Remove="IHM\Image\Register\image_fond_register.jpg" />
+    <None Remove="IHM\Video\FIA_sound.mp3" />
     <None Remove="IHM\Video\intro.mp4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="IHM\Video\FIA_sound.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IHM\Video\intro.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -141,9 +151,6 @@
     <Resource Include="IHM\Image\Monoplaces\VCARB.png" />
     <Resource Include="IHM\Image\Monoplaces\Williams.png" />
     <Resource Include="IHM\Image\Register\image_fond_register.jpg" />
-    <Content Include="IHM\Video\intro.mp4">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
 </Project>

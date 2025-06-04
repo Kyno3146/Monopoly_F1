@@ -33,6 +33,10 @@ public class Game {
         InitPlayer();
     }
 
+    /// <summary>
+    /// initialise les joueurs
+    /// </summary>
+    /// <author>Barthoux Sauze Thomas</author>
     public void InitPlayer()
 	{
 		this.playerNames =connect.SelectJoueur();
@@ -41,14 +45,17 @@ public class Game {
         this.players[0] = new Player(this.playerNames[0]);
         this.players[1] = new Player(this.playerNames[1]);
     }
+
     /// <summary>
     /// Starts the game
     /// </summary>
     public void StartGame(bool joueur, bool statutGame)
     {
+
         this.isPlayerTurn = joueur;
         this.isGameOver = statutGame;
         PlayTurn();
+
 
         if (this.Btn_Clicked == true)
         {

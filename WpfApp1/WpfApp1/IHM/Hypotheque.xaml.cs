@@ -21,15 +21,17 @@ namespace Monopoly.IHM
     {
         #region Attributs
         private Card card;
-        private List<Property> properties;
+        private Player player;
+        private List<string> info = new List<string>();
+        private int index;
         #endregion
 
         #region Constructeurs
-        public Hypotheque(List<Property> properties)
+        public Hypotheque(Player p)
         {
             InitializeComponent();
-            this.properties = properties;
-            InitValue(properties);
+            this.player = p;
+            SelectProperty(player);
         }
         #endregion
 
@@ -39,14 +41,25 @@ namespace Monopoly.IHM
         /// </summary>
         /// <param name="propriete"></param>
         /// <author>Barthoux Sauze Thomas</author>
-        private void InitValue(List<Property> propriete)
+        private void SelectProperty(Player player)
         {
-            List<string> infoCarte;
-            foreach (Property prop in propriete)
+            if (player.properties == null)
             {
-                infoCarte = card.infoCarte(prop.position.ToString());
-                lstPropriete.Items.Add(infoCarte[1]);
+                MessageBox.Show("Aucune propriété trouvée pour le joueur.");
+                this.Close();
+                return;
             }
+            else
+            {
+                foreach (Property pr in player.properties)
+                {
+                    Card tmp = new Card("");
+                    info = tmp.infoCarte(pr.position.ToString());
+
+                    lstCasePossible.Items.Add(info[0].ToString());
+                }
+            }
+
         }
 
         /// <summary>
@@ -57,12 +70,16 @@ namespace Monopoly.IHM
         /// <author>Barthoux Sauze Thomas</author>
         private void lstPropriete_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (lstPropriete.SelectedItem != null)
-            {
-                string selectedProperty = lstPropriete.SelectedItem.ToString();
-                List<string> infoCarte = card.infoCarte(selectedProperty);
-                this.txtValeurHypotheque.Text = infoCarte[4];
-            }
+            txtValeurHypotheque.Text = info[4];
+        }
+
+        private void savePropertyselected(object sender, MouseButtonEventArgs e)
+        {
+            index = lstCasePossible.SelectedIndex;
+
+            Card tmp2 = new Card("");
+            info = tmp2.infoCarte(player.properties[index].position.ToString());
+            //labelselectpr.Content += info[0].ToString();
         }
 
         /// <summary>
@@ -75,10 +92,12 @@ namespace Monopoly.IHM
             if (MessageBoxResult.Yes == MessageBox.Show("Voulez-vous bien hypotèquer cette propriété ?", "Hypothèque", MessageBoxButton.YesNo, MessageBoxImage.Question))
             {
                 // Logique pour hypothéquer la propriété
-                string selectedProperty = lstPropriete.SelectedItem.ToString();
+                player.properties[index].isMortgaged = true; // Marquer la propriété comme hypothéquée
+                player.account += player.properties[index].price / 2; // Ajouter la moitié du prix de la propriété au compte du joueur
+
                 // Appeler la méthode pour hypothéquer la propriété
                 // HypothequeProperty(selectedProperty);
-                MessageBox.Show($"La propriété {selectedProperty} a été hypothéquée avec succès.", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"La propriété {info[0]} a été hypothéquée avec succès.", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
         #endregion

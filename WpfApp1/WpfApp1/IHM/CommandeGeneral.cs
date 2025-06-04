@@ -41,7 +41,12 @@ namespace Monopoly.BDD
             {
                 // Code pour quitter le jeu
                 MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
+                if (mainWindow.FirstStart == true)
+                {
+                    //mainWindow.VideoIntro.Visibility = Visibility.Hidden;
+                    mainWindow.Show();
+                    mainWindow.Introfin(null, null);
+                }
                 plateau.Close();
 
                 // Mettre à jour la base de données pour le joueur qui a quitté

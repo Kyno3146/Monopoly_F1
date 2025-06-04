@@ -25,7 +25,7 @@
 
         <!--IHM Selection de la f1-->
 
-        <Label Content="Joueur 2 sélectionnez votre F1"
+        <Label x:Name="LabelF1" Content=" "
    Grid.Column="0" Grid.ColumnSpan="7"
    Grid.Row="0"
    HorizontalAlignment="Center"

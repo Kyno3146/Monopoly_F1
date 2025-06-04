@@ -21,7 +21,6 @@ namespace Monopoly.IHM
         private string f1_j2;
         private Image imgJ1;
         private Image imgJ2;
-        private bool isMooveF1Executing;
         private Game game;
         List<string> joueurConnected;
 
@@ -138,6 +137,7 @@ namespace Monopoly.IHM
             }
         }
 
+        #region Monoplace déplacement
         /// <summary>
         /// Déplace la monoplace du joueur à la nouvelle position
         /// </summary>
@@ -218,7 +218,7 @@ namespace Monopoly.IHM
             else
                 return new RotateTransform(0);
         }
-
+        #endregion
 
         #region Exit
         /// <summary>
@@ -363,5 +363,10 @@ namespace Monopoly.IHM
         }
 
         #endregion
+
+        public void FIAalert()
+        {
+            AlerteFIA.Play();
+        }
     }
 }

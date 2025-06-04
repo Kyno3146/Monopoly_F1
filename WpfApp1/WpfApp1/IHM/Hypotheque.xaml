@@ -25,7 +25,7 @@
         <Label Content="Hypothèque" Grid.Column="0" Grid.Row="0" FontSize="24" HorizontalAlignment="Center" Grid.ColumnSpan="6"/>
         
         <Label Content="Propriété" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-        <ListBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"  Background="LightGray" x:Name="lstPropriete">
+        <ListBox x:Name="lstCasePossible" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"  Background="LightGray" MouseDoubleClick="savePropertyselected">
             <!-- Items will be added dynamically -->
         </ListBox>
 

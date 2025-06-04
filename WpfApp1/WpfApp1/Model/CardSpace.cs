@@ -18,15 +18,19 @@ public class CardSpace : Space  {
         if (p.position == 7 || p.position == 22 || p.position == 36)
         {
             plat.ConsoleJeux.Text += $" ---- {p.Name} a pioché une carte FIA ! ---- \n";
+            plat.FIAalert();
             if (id == 0)
             {
                 plat.ConsoleJeux.Text += "Drapeu Rouge ! Tu retourne à la case départ !\n";
                 p.position = 40; // Move to start position
+                plat.MooveF1(g.IsPlayerTurnGame, p.position);
+
             }
             else if (id == 1)
             {
                 plat.ConsoleJeux.Text += "L'undercut à bien fonctionné, tu arrives directement à Monaco\n";
                 p.position = 39; // Move to Monaco position
+                plat.MooveF1(g.IsPlayerTurnGame, p.position);
                 b.spaces[p.position].Action(ref p, plat, g, ref p2, b); // Execute action for Monaco space
             }
             else if (id == 2)
@@ -35,14 +39,17 @@ public class CardSpace : Space  {
                 if (p.position == 7)
                 {
                     p.position = 15; // Move to Championship position
+                    plat.MooveF1(g.IsPlayerTurnGame, p.position);
                 }
                 else if (p.position == 22)
                 {
                     p.position = 25; // Move to Championship position
+                    plat.MooveF1(g.IsPlayerTurnGame, p.position);
                 }
                 else if (p.position == 36)
                 {
                     p.position = 5; // Move to Championship position
+                    plat.MooveF1(g.IsPlayerTurnGame, p.position);
                     p.account += 200000;
                 }
                 b.spaces[p.position].Action(ref p, plat, g, ref p2, b); // Execute action for Championship space
@@ -211,13 +218,14 @@ public class CardSpace : Space  {
             }
             else if (id == 15)
             {
-                plat.ConsoleJeux.Text += "Tu est invité par Red Bull au RedBull ring, rndez-vous en Autriche !\n";
+                plat.ConsoleJeux.Text += "Tu est invité par Red Bull au RedBull ring, rendez-vous en Autriche !\n";
 
                 if (p.position == 22 || p.position == 36)
                 {
                     p.account += 200000; // Add money for passing start
                 }
                 p.position = 20; // Move to Red Bull Ring position
+                plat.MooveF1(g.IsPlayerTurnGame, p.position);
                 b.spaces[p.position].Action(ref p, plat, g, ref p2, b); // Execute action for Red Bull Ring space
             }
         }
@@ -324,6 +332,7 @@ public class CardSpace : Space  {
             {
                 plat.ConsoleJeux.Text += "Radio Check ! La course va commencer, rends toi sur la grille de départ !\n";
                 p.position = 40; // Move to start position
+                plat.MooveF1(g.IsPlayerTurnGame, p.position);
             }
             else if (id == 9)
             {

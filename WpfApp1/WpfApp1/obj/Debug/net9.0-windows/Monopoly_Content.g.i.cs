@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ihm/video/fia_sound.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ihm/video/intro.mp4")]
 
 

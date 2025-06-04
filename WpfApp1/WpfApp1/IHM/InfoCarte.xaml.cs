@@ -54,8 +54,17 @@ namespace Monopoly.IHM
 
             // Si total est présent (en dernière position)
             if (info.Count > 5)
-                this.valachat.Text += "\n" + info[info.Count - 1];  // Affiche le total dans valachat
+            {
+                int position = int.Parse(info[5]);
+                Property tmp = new Property(0, 0, 0, 0);
+                tmp.position = position;
+                this.loyer.Text += tmp.Rent.ToString() + " €";
+            }
         }
 
+        private void ExitInfo(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
