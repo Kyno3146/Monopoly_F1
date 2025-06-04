@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -179,6 +178,25 @@ namespace Monopoly.IHM
         }
 
         /// <summary>
+        /// Gère l'ouverture de la fenêtre d'enchère pour une carte
+        /// </summary>
+        /// <author>Barthoux Sauze Thomas</author>
+        private void Enchere(object sender, RoutedEventArgs e)
+        {
+            if (sender is Image image && image.Tag is string tag && !string.IsNullOrEmpty(tag))
+            {
+                Card card = new Card(tag);
+                List<string> info = card.infoCarte(tag);
+                Enchere enchere = new Enchere(info, joueur1, joueur2);
+                enchere.Show();
+            }
+            else
+            {
+                MessageBox.Show("Tag de l'image est invalide ou manquant.", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        /// <summary>
         /// Calcule la position dans la grille en fonction du numéro de case
         /// </summary>
         /// <param name="position">Position sur le plateau (0-39)</param>
@@ -245,7 +263,7 @@ namespace Monopoly.IHM
                 return;
             }
             game.Btn_Clicked = true;
-            game.StartGame(game.IsPlayerTurnGame, game.IsGameOver);
+            game.StartGame(game.IsPlayerTurn, game.IsGameOver);
         }
 
         #region Inventaire
@@ -292,7 +310,6 @@ namespace Monopoly.IHM
                         Tag = property.position
                     };
                     InventaireJoueur1.Items.Add(item);
-                    
                 }
             }
 

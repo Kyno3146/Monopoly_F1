@@ -25,11 +25,22 @@
         </Grid.RowDefinitions>
         <Label x:Name="TitleUpgrade" Content="Amélioration : " Grid.Column="0" Grid.Row="0" FontSize="24" HorizontalAlignment="Center" Grid.ColumnSpan="6"/>
 
-        <Label Content="Case Possible" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-        <ListBox Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Background="LightGray" x:Name="lstCasePossible" Margin="0,60,0,61" MouseDoubleClick="savePropertyselected" Grid.RowSpan="3">
+        <Label Content="Niveau Disponible" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <ListBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"  Background="LightGray" x:Name="lstAmelioration" Margin="0,0,10,0" MouseDoubleClick="selectLVL">
+            <ListBoxItem Content="Niveau 1"/>
+            <ListBoxItem Content="Niveau 2" />
+            <ListBoxItem Content="Niveau 3" />
+            <ListBoxItem Content="Niveau 4" />
+            <ListBoxItem Content="Niveau 5" />
+        </ListBox>
+
+        <Label Content="Case Possible" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <ListBox Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2" Background="LightGray" x:Name="lstCasePossible" Margin="10,0,0,0" MouseDoubleClick="savePropertyselected">
 
         </ListBox>
-        <Label x:Name="labelselectpr" Content="Propriétés Sélectionnées : " Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="center"/>
+
+        <Label x:Name="labelselectpr" Content="Propriétés Sélectionnées : " Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="center"/>
+        <Label x:Name="labelselectlvl" Content="Niveau Choisit : " HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"/>
 
         <Button Content="Amélioration" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Margin="5" x:Name="btnAmelioration" Click="btnAmelioration_Click" VerticalAlignment="Center" HorizontalAlignment="Center"/>
     </Grid>

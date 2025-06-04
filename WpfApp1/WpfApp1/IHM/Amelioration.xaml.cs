@@ -23,6 +23,7 @@ namespace Monopoly.IHM
         private List<string> info;
         private Property property;
         private int indexPR;
+        private int levelselcted;
 
         public Property[] Properties { get; }
         public int Position { get; }
@@ -61,15 +62,7 @@ namespace Monopoly.IHM
                 {
                     Card tmp = new Card("");
                     info = tmp.infoCarte(pr.position.ToString());
-                    if (!new[] { 5, 12, 15, 25, 28, 35 }.Contains(pr.position))
-                    {
-                        MessageBox.Show("Cette case ne peut etre améliorée.");
-                    }
-                    else
-                    {
-                        lstCasePossible.Items.Add(info[1].ToString());
-                    }
-
+                    lstCasePossible.Items.Add(info[1].ToString());
                 }
             }
 
@@ -90,9 +83,22 @@ namespace Monopoly.IHM
             }
             else
             {
-                player.properties[indexPR].Upgrade();
-                MessageBox.Show($"Propriété améliorée au niveau {player.properties[indexPR].level.ToString()} avec succès !");
-                this.Close(); // Ferme la fenêtre d'amélioration
+                if (this.levelselcted == 0)
+                {
+                    MessageBox.Show("Aucun niveau sélectionné pour l'amélioration.");
+                    return;
+                }
+                if (player.properties[indexPR].level >= this.levelselcted || indexPR > 5)
+                {
+                    MessageBox.Show("Le niveau sélectionné est inférieur ou égal au niveau actuel de la propriété.");
+                    return;
+                }
+                else
+                {
+                    player.properties[indexPR].Upgrade();
+                    MessageBox.Show($"Propriété améliorée au niveau {player.properties[indexPR].level.ToString()} avec succès !");
+                    this.Close(); // Ferme la fenêtre d'amélioration
+                }
             }
            
         }
@@ -105,6 +111,13 @@ namespace Monopoly.IHM
             info = tmp2.infoCarte(player.properties[indexPR].position.ToString());
 
             labelselectpr.Content += info[0].ToString();
+        }
+
+        private void selectLVL(object sender, MouseButtonEventArgs e)
+        {
+            levelselcted = lstAmelioration.SelectedIndex+1;
+            labelselectlvl.Content += levelselcted.ToString();
+
         }
 
     }
