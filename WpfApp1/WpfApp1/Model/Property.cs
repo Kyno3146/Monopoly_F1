@@ -468,8 +468,9 @@ public class Property : Space  {
                     this.level = 5;
                     this.rent = 2000000;
                 }
-                this.player.Pay(ref upgradeValue);
             }
+
+            this.player.Pay(ref upgradeValue);
         }
         else
         {
