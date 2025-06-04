@@ -216,6 +216,7 @@ namespace Monopoly.IHM
             {
                 var list = gagnant.properties?.ToList() ?? new List<Property>();
                 list.Add(proprieteEncheree);
+                proprieteEncheree.player = gagnant; // Assigner le joueur gagnant à la propriété
                 gagnant.properties = list.ToArray();
 
                 // Mise à jour des compteurs selon la position

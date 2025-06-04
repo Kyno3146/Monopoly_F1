@@ -68,6 +68,7 @@ public class Player
         this.account -= p.price; // Deduct the price from the account  
         Array.Resize(ref this.properties, this.properties.Length + 1); // Resize the properties array  
         this.properties[this.properties.Length - 1] = p; // Add the property to the properties array  
+        p.player = this; // Set the player as the owner of the property
         if (p.position == 5 || p.position == 15 || p.position == 25 || p.position == 35)
         {
             this.nb_championships++; // Increment the number of championships if the property is a championship  
