@@ -37,8 +37,9 @@ namespace WpfApp1.IHM
         {
             InitializeComponent();
             InitTimer();
-            
+
         }
+
 
         /// <summary>
         /// Exit the application when the exit menu item is clicked.
@@ -81,6 +82,17 @@ namespace WpfApp1.IHM
                 this.Close();
             }
         }
+
+        private void Introfin(object sender, RoutedEventArgs e)
+        {
+            VideoIntro.Visibility = Visibility.Collapsed;
+        }
+
+
+
+
+
+
 
         #region Statut Serveur
         /// <summary>
@@ -145,6 +157,7 @@ namespace WpfApp1.IHM
         }
         #endregion
 
+        #region Statistique
         /// <summary>
         /// Initialise les icones de statue de joueur 
         /// </summary>
@@ -243,5 +256,9 @@ namespace WpfApp1.IHM
                 statutUser(comboboxselected);
             }
         }
+
+        #endregion
+
+
     }
 }

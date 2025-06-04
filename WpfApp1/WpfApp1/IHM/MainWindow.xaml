@@ -39,5 +39,24 @@
         <Button Background="#00FFFFFF" Grid.Row="2" Click="user2IHM" HorizontalAlignment="Center" VerticalAlignment="center" BorderBrush="#00FFFFFF" >
             <fa:ImageAwesome x:Name="icon2" Icon="UserCircle" Width="50" HorizontalAlignment="Center" Foreground="White"/>
         </Button>
+
+        <Canvas x:Name="VideoIntro"
+        Grid.Row="0" Grid.Column="0"
+        Grid.ColumnSpan="3" Grid.RowSpan="4"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch"
+        Panel.ZIndex="100">
+            <MediaElement Name="videoIntro"
+                  Source="IHM/Video/intro.mp4"
+                  LoadedBehavior="Play"
+                  UnloadedBehavior="Stop"
+                  Stretch="Fill"
+                  Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Canvas}}"
+                  Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Canvas}}"
+                  MediaEnded="Introfin"/>
+        </Canvas>
+
+
+
     </Grid>
 </Window>

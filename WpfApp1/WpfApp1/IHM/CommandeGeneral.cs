@@ -49,6 +49,6 @@ namespace Monopoly.BDD
 
             }
 
-        }
+        } 
     }
 }

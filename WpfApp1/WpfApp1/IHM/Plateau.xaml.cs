@@ -19,12 +19,11 @@ namespace Monopoly.IHM
         #region Attributs
         private string f1_j1;
         private string f1_j2;
-        private Player joueur1;
-        private Player joueur2;
         private Image imgJ1;
         private Image imgJ2;
         private bool isMooveF1Executing;
         private Game game;
+        List<string> joueurConnected;
 
         #endregion
 
@@ -53,7 +52,12 @@ namespace Monopoly.IHM
             this.WindowStyle = WindowStyle.None;
             this.ResizeMode = ResizeMode.NoResize;
 
-            Jouer.Content = "Joueur 1";
+            // Affichage du nom des joueurs au niveau de l'inventaire 
+            Connect connect = new Connect();
+            joueurConnected = connect.SelectJoueur();
+
+            this.LabelJ1.Content = joueurConnected[0].ToString() + " : " + f1_j1.ToString();
+            this.LabelJ2.Content = joueurConnected[1].ToString() + " : " + f1_j2.ToString();
 
             startGame(this);
         }
@@ -102,10 +106,11 @@ namespace Monopoly.IHM
         /// <param name="plateau"></param>
         public void startGame(Plateau plateau)
         {
+
             this.Show();
             this.ConsoleJeux.Text += " ---- Lancement du jeu ---- \n";
-            this.ConsoleJeux.Text += $" ---- Joueur 1 : {f1_j1} ---- \n";
-            this.ConsoleJeux.Text += $" ---- Joueur 2 : {f1_j2} ---- \n";
+            this.ConsoleJeux.Text += $" ---- {joueurConnected[0]} : {f1_j1} ---- \n";
+            this.ConsoleJeux.Text += $" ---- {joueurConnected[1]} : {f1_j2} ---- \n\n";
 
 
             Board board = new Board();
