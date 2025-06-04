@@ -59,17 +59,17 @@ public class Game {
                     plateau.ConsoleJeux.Text += $"{playerNames[0]} possède {players[0].account} € \n";
                     if (players[0].isInJail == true)
                     {
-                        MessageBoxResult messageBoxResult = MessageBox.Show("Vous êtes en prison, vous devez payer 50000 pour sortir", "Prison", MessageBoxButton.YesNo);
+                        MessageBoxResult messageBoxResult = MessageBox.Show("Vous avez un raceban, vous devez payer 50000 pour reprendre la piste", "Raceban", MessageBoxButton.YesNo);
                         if (messageBoxResult == MessageBoxResult.Yes)
                         {
                             int value = 50000;
-                            players[0].Pay(ref value);
+                            players[0].Pay(value);
                             players[0].isInJail = false;
                         }
                         else
                         {
-                            plateau.ConsoleJeux.Text += $" ---- {playerNames[0]} est toujours en prison ---- \n";
-                            return;
+                            plateau.ConsoleJeux.Text += $" ---- {playerNames[0]} raceban prolongé ---- \n";
+                            IsPlayerTurnGame = !IsPlayerTurnGame;
                         }
                     }
                     else { 
@@ -103,17 +103,17 @@ public class Game {
                     plateau.ConsoleJeux.Text += $"{playerNames[1]} possède {players[1].account} € \n";
                     if (players[1].isInJail == true)
                     {
-                        MessageBoxResult messageBoxResult = MessageBox.Show("Vous êtes en prison, vous devez payer 50000 pour sortir", "Prison", MessageBoxButton.YesNo);
+                        MessageBoxResult messageBoxResult = MessageBox.Show("Vous avez un raceban, vous devez payer 50000 pour reprendre la piste", "Raceban", MessageBoxButton.YesNo);
                         if (messageBoxResult == MessageBoxResult.Yes)
                         {
                             int value = 50000;
-                            players[1].Pay(ref value);
+                            players[1].Pay(value);
                             players[1].isInJail = false;
                         }
                         else
                         {
-                            plateau.ConsoleJeux.Text += $" ---- {playerNames[1]} est toujours en prison ---- \n";
-                            return;
+                            plateau.ConsoleJeux.Text += $" ---- {playerNames[1]} raceban prolongé ---- \n";
+                            IsPlayerTurnGame = !IsPlayerTurnGame;
                         }
                     }
                     else

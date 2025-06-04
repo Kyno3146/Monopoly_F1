@@ -164,6 +164,7 @@ namespace Monopoly.IHM
 
                 Grid.SetRow(img, row);
                 Grid.SetColumn(img, col);
+
                 img.Margin = margin;
                 img.RenderTransform = GetRotationTransform(position);
                 Monoplace.Children.Add(img);

@@ -83,7 +83,7 @@ public class Player
     /// Pays a specified amount  
     /// </summary>  
     /// <param name="s">the amount of money which is spent</param>  
-    public void Pay(ref int s)
+    public void Pay(int s)
     {
         this.account -= s; // Deduct the amount from the account  
         s = 0; // Reset the amount to zero after payment  

@@ -23,17 +23,18 @@ public class SpecialSpace : Space
         if (this.position == 4)
         {
             int value = 200000;
-            p.Pay(ref value);
+            p.Pay( value);
         }
         if (this.position == 38)
         {
             int value = 100000;
-            p.Pay(ref value);
+            p.Pay(value);
         }
         if (this.position == 30)
         {
             p.position = 10;
             p.isInJail = true;
+            plat.MooveF1(g.IsPlayerTurnGame ,p.position);
         }
     }
 }

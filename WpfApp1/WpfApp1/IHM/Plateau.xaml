@@ -11,7 +11,7 @@
         ResizeMode="CanResize"
         Background="#15161C">
 
-    <Grid Width="1400" Height="1080">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*" />
             <ColumnDefinition Width="2*" />
@@ -121,11 +121,14 @@
         <!--Monoplace-->
         <Grid x:Name="Monoplace"
       Grid.Row="0" Grid.Column="0"
-      Grid.RowSpan="14" Grid.ColumnSpan="15"
+      Grid.RowSpan="15" Grid.ColumnSpan="15"
       Background="Transparent"
       Panel.ZIndex="10"
-      IsHitTestVisible="False">
+      IsHitTestVisible="False"
+      HorizontalAlignment="Stretch"
+      VerticalAlignment="Stretch">
 
+            <!-- Même structure que le Grid principal -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*" />
                 <ColumnDefinition Width="2*" />
@@ -143,7 +146,6 @@
                 <ColumnDefinition Width="8*" />
                 <ColumnDefinition Width="0.5*" />
             </Grid.ColumnDefinitions>
-
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.5*" />
                 <RowDefinition Height="2*"/>
@@ -162,6 +164,7 @@
             </Grid.RowDefinitions>
 
         </Grid>
+
 
     </Grid>
 </Window>

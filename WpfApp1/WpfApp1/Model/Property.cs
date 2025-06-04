@@ -470,7 +470,7 @@ public class Property : Space  {
                 }
             }
 
-            this.player.Pay(ref upgradeValue);
+            this.player.Pay(upgradeValue);
         }
         else
         {
@@ -493,22 +493,22 @@ public class Property : Space  {
                 if (player.nb_championships == 1)
                 {
                     rent = 50000;
-                    p.Pay(ref rent);
+                    p.Pay(rent);
                 }
                 else if (player.nb_championships == 2)
                 {
                     rent = 100000;
-                    p.Pay(ref rent);
+                    p.Pay(rent);
                 }
                 else if (player.nb_championships == 3)
                 {
                     rent = 150000;
-                    p.Pay(ref rent);
+                    p.Pay(rent);
                 }
                 else if (player.nb_championships == 4)
                 {
                     rent = 200000;
-                    p.Pay(ref rent);
+                    p.Pay( rent);
                 }
             }
             else if (p.position == 12 || p.position == 28)
@@ -518,18 +518,18 @@ public class Property : Space  {
                 if (player.nb_museums == 1)
                 {
                     rent = d.value * 4;
-                    p.Pay(ref rent);
+                    p.Pay( rent);
                 }
                 else if (player.nb_museums == 2)
                 {
                     rent = d.value * 10;
-                    p.Pay(ref rent);
+                    p.Pay( rent);
                 }
             }
             else
             {
                 rent = this.rent;
-                p.Pay(ref rent);
+                p.Pay( rent);
             }
         }
         else

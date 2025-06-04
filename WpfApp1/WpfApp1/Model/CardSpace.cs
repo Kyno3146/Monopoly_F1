@@ -13,7 +13,6 @@ public class CardSpace : Space  {
     }
 
 	public override void Action(ref Player p, Plateau plat, Game g,ref Player p2, Board b) {
-		p.account = 100000;
 		Random rand = new Random();
 		int id = rand.Next(1, 16);
         if (p.position == 7 || p.position == 22 || p.position == 36)
@@ -54,15 +53,18 @@ public class CardSpace : Space  {
                 if (p.position == 7)
                 {
                     p.position = 12; // Move to Museum position
+                    plat.MooveF1(g.IsPlayerTurnGame, p.position); 
                 }
                 else if (p.position == 22)
                 {
                     p.position = 28; // Move to Museum position
+                    plat.MooveF1(g.IsPlayerTurnGame, p.position);
                 }
                 else if (p.position == 36)
                 {
                     p.position = 12; // Move to Museum position
                     p.account += 200000;
+                    plat.MooveF1(g.IsPlayerTurnGame, p.position);
                 }
                 b.spaces[p.position].Action(ref p, plat, g, ref p2, b); // Execute action for Museum space
             }
@@ -70,6 +72,7 @@ public class CardSpace : Space  {
             {
                 plat.ConsoleJeux.Text += "Avance jusque au circuit de Monza !\n";
                 p.position = 37; // Move to Monza position
+                plat.MooveF1(g.IsPlayerTurnGame, p.position);
                 b.spaces[p.position].Action(ref p, plat, g, ref p2, b); // Execute action for Monza space
             }
             else if (id == 5)
@@ -77,12 +80,14 @@ public class CardSpace : Space  {
                 plat.ConsoleJeux.Text += "Tu dois te rendre au Hungaroaring ! Reçois 200000€ pour être passé par la ligne de départ / arrivée !\n";
                 p.position = 1; // Move to Hungaroaring position
                 p.account += 200000; // Add money for passing start
+                plat.MooveF1(g.IsPlayerTurnGame, p.position);
                 b.spaces[p.position].Action(ref p, plat, g, ref p2, b); // Execute action for Hungaroaring space
             }
             else if (id == 6)
             {
                 plat.ConsoleJeux.Text += "Tu as reçu une pénalité, recule de 3 cases !\n";
                 p.position -= 3; // Move back 3 spaces
+                plat.MooveF1(g.IsPlayerTurnGame, p.position);
                 b.spaces[p.position].Action(ref p, plat, g, ref p2, b); // Execute action for new position
             }
             else if (id == 7)
@@ -94,6 +99,7 @@ public class CardSpace : Space  {
             {
                 plat.ConsoleJeux.Text += "Tu à pris une course de suspention pour ton comportement en piste ! \n";
                 p.position = 10; // Move to Suspension position
+                plat.MooveF1(g.IsPlayerTurnGame, p.position);
                 p.isInJail = true; // Set player as in jail
             }
             else if (id == 9)
@@ -237,6 +243,7 @@ public class CardSpace : Space  {
             {
                 plat.ConsoleJeux.Text += "Tu as été disqualifié pour comportement anti-sportif, tu prends le drapeau noir.\n";
                 p.position = 10; // Move to race ban position
+                plat.MooveF1(g.IsPlayerTurnGame, p.position);
                 p.isInJail = true; // Set player as in jail
             }
             else if (id == 4)
@@ -376,6 +383,7 @@ public class CardSpace : Space  {
             {
                 plat.ConsoleJeux.Text += "Radio Check ! La course va commencer, rends toi sur la grille de départ !\n";
                 p.position = 40; // Move to start position
+                plat.MooveF1(g.IsPlayerTurnGame, p.position);
             }
             else if (id == 12)
             {
