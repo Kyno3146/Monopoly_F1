@@ -573,7 +573,7 @@ public class Property : Space  {
                                     Card card = new Card(position.ToString());
                                     List<string> info = card.infoCarte(position.ToString());
                                     plat.ConsoleJeux.Text += " ---- Enchère ---- \n";
-                                    Enchere enchere = new Enchere(info, p, p2);
+                                    Enchere enchere = new Enchere(info, p, p2,g);
                                     enchere.Show();
                                 }
 
@@ -583,7 +583,7 @@ public class Property : Space  {
                                 Card card = new Card(position.ToString());
                                 List<string> info = card.infoCarte(position.ToString());
                                 plat.ConsoleJeux.Text += " ---- Enchère ---- \n";
-                                Enchere enchere = new Enchere(info, p, p2);
+                                Enchere enchere = new Enchere(info, p, p2,g);
                                 enchere.Show();
                             }
 
@@ -596,7 +596,7 @@ public class Property : Space  {
                         Card card = new Card(position.ToString());
                         List<string> info = card.infoCarte(position.ToString());
                         plat.ConsoleJeux.Text += " ---- Enchère ---- \n";
-                        Enchere enchere = new Enchere(info, p, p2);
+                        Enchere enchere = new Enchere(info, p, p2,g);
                         enchere.Show();
                     }
 
@@ -607,7 +607,7 @@ public class Property : Space  {
                 Card card = new Card(position.ToString());
                 List<string> info = card.infoCarte(position.ToString());
                 plat.ConsoleJeux.Text += " ---- Enchère ---- \n";
-                Enchere enchere = new Enchere(info, p, p2);
+                Enchere enchere = new Enchere(info, p, p2,g);
                 enchere.Show();
             }
         }

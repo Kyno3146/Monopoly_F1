@@ -29,14 +29,16 @@ namespace Monopoly.IHM
         private int J2Values;
         private bool IsplayerTurn = false; // false = joueur 1, true = joueur 2
 
-        public Enchere(List<string> info, Player joueur1, Player joueur2)
+        public Enchere(List<string> info, Player joueur1, Player joueur2, Game game)
         {
             InitializeComponent();
             this.info = info;
             this.joueur1 = joueur1;
             this.joueur2 = joueur2;
+            this.game = game;
             infoLoad(info);
             this.meilleurPrix = 0;
+
         }
 
         public int meilleurPrix
@@ -75,7 +77,7 @@ namespace Monopoly.IHM
             this.Joueur1.Content += joueur1.Name;
             this.Joueur2.Content += joueur2.Name;
 
-            if (GameContext.CurrentGame != null && GameContext.CurrentGame.IsPlayerTurn)
+            if (GameContext.CurrentGame != null && game.IsPlayerTurnGame)
             {
                 PropositionJ1.Background = Brushes.Red;
                 PropostionJ2.Background = Brushes.Green;
@@ -236,7 +238,7 @@ namespace Monopoly.IHM
         /// <returns></returns>
         private int getpositon()
         {
-            return IsplayerTurn ? joueur2.position : joueur1.position;
+            return game.IsPlayerTurnGame ? joueur1.position : joueur2.position;
         }
 
 
