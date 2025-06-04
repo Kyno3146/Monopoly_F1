@@ -474,7 +474,7 @@ public class Property : Space  {
         }
         else
         {
-           throw new System.InvalidOperationException("La propriété est déja au niveau maximum !");
+          MessageBox.Show("La propriété est déjà au niveau maximum ou l'upgradeValue est négatif !", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
         }
         
         

@@ -76,18 +76,25 @@ namespace Monopoly.IHM
         /// <author>Barthoux Sauze Thomas</author>
         private void btnAmelioration_Click(object sender, RoutedEventArgs e)
         {
-            if (this.indexPR == null)
+            if (labelselectpr.Content.ToString() == "Propriété sélectionnée : ")
             {
-                MessageBox.Show("Aucune propriété sélectionnée pour l'amélioration.");
+                MessageBox.Show("Veuillez sélectionner une propriété à améliorer.");
                 return;
             }
             else
             {
-                player.properties[indexPR].Upgrade();
-                MessageBox.Show($"Propriété améliorée au niveau {player.properties[indexPR].level.ToString()} avec succès !");
-                this.Close(); // Ferme la fenêtre d'amélioration
+                if (this.indexPR == null)
+                {
+                    MessageBox.Show("Aucune propriété sélectionnée pour l'amélioration.");
+                    return;
+                }
+                else
+                {
+                    player.properties[indexPR].Upgrade();
+                    MessageBox.Show($"Propriété améliorée au niveau {player.properties[indexPR].level.ToString()} avec succès !");
+                    this.Close(); // Ferme la fenêtre d'amélioration
+                }
             }
-           
         }
 
         private void savePropertyselected(object sender, MouseButtonEventArgs e)
