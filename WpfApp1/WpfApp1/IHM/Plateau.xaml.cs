@@ -255,11 +255,16 @@ namespace Monopoly.IHM
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// <author>Barthoux Sauze Thomas</author>
-        /// <Info> var joueur = this.game.Players[0]; récupére les infos du joueur 0 depuis game </Info>
         private void InventaireJoueur1_DropDownOpened(object sender, EventArgs e)
         {
+            reloadInventaireJ1();
+        }
 
+        /// <summary>
+        /// Recharge l'inventaire du joueur 1 dans la ComboBox.
+        /// </summary>
+        public void reloadInventaireJ1()
+        {
             if (this.game == null || this.game.Players == null || this.game.Players.Length == 0 || this.game.Players[0] == null)
             {
                 MessageBox.Show("Le joueur 1 n'est pas initialisé.");
@@ -292,7 +297,7 @@ namespace Monopoly.IHM
                         Tag = property.position
                     };
                     InventaireJoueur1.Items.Add(item);
-                    
+
                 }
             }
 
@@ -305,9 +310,12 @@ namespace Monopoly.IHM
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// <author>Barthoux Sauze Thomas</author>
-        /// <Info> var joueur = this.game.Players[1]; récupére les infos du joueur 1 depuis game </Info>
         private void InventaireJoueur2_DropDownOpened(object sender, EventArgs e)
+        {
+            reloadInventaireJ2();
+        }
+
+        public void reloadInventaireJ2()
         {
             if (this.game == null || this.game.Players == null || this.game.Players.Length == 0 || this.game.Players[0] == null)
             {
@@ -347,7 +355,6 @@ namespace Monopoly.IHM
             // Sélectionne le compte en banque par défaut (affiché même ComboBox fermée)
             InventaireJoueur2.SelectedIndex = 0;
         }
-
 
         #endregion
     }

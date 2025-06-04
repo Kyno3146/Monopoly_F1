@@ -94,6 +94,7 @@ public class Game {
                         }
 
                     }
+                    plateau.reloadInventaireJ1();
                     this.isPlayerTurn = true;
                     }
                 }
@@ -141,6 +142,7 @@ public class Game {
                     }
                 }
             }
+            plateau.reloadInventaireJ2();
             this.Btn_Clicked = false;
         }
     }
