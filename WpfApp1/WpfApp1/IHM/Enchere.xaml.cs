@@ -78,9 +78,6 @@ namespace Monopoly.IHM
             if (info.Count > 3)
                 this.valachat.Text = info[3];
 
-            // Si total est présent (en dernière position)  
-            if (info.Count > 5)
-                this.valachat.Text += "\n" + info[info.Count - 1]; // Affiche le total dans valachat  
 
             // Affichage des joueurs  
             this.Joueur1.Content += joueur1.Name;
