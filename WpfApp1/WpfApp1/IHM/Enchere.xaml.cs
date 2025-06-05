@@ -244,7 +244,7 @@ namespace Monopoly.IHM
         /// <returns></returns>
         private int getpositon()
         {
-            return game.IsPlayerTurnGame ? joueur1.position : joueur2.position;
+            return game.IsPlayerTurnGame ? joueur2.position : joueur1.position;
         }
 
 

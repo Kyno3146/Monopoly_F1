@@ -154,7 +154,7 @@ public class Game {
                     {
                         int diceValue = players[1].RollDice();
                         players[1].verifPosition(players[1].position);
-                        plateau.ConsoleJeux.Text += $" ---- {playerNames[1]} a lancé le dé et a obtenu : {players[1].position} ---- \n";
+                        plateau.ConsoleJeux.Text += $" ---- {playerNames[1]} a lancé le dé et a obtenu : {diceValue} ---- \n";
                         plateau.MooveF1(isPlayerTurn, players[1].position);
                         board.spaces[players[1].position].Action(ref players[1], plateau, this, ref players[0], board);
 
