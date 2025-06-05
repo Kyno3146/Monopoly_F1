@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Diagnostics.Eventing.Reader;
+using System.Linq.Expressions;
 using System.Windows;
 using Monopoly.BDD;
 using Monopoly.IHM;
@@ -70,8 +71,20 @@ public class Game {
                         if (messageBoxResult == MessageBoxResult.Yes)
                         {
                             int value = 50000;
-                            players[0].Pay(value);
-                            players[0].isInJail = false;
+                            if (players[0].account < value)
+                            {
+                                MessageBoxResult messageBoxAchat = MessageBox.Show($"Voulez vous hypotéquer une propriété pour payer l'ammande ?", "Raceban", MessageBoxButton.YesNo);
+                                if (messageBoxAchat == MessageBoxResult.Yes)
+                                {
+                                    Hypotheque hypotheque = new Hypotheque(players[0]);
+                                    hypotheque.ShowDialog();
+                                }
+                            }
+                            else
+                            {
+                                players[0].Pay(value);
+                                players[0].isInJail = false;
+                            }
                         }
                         else
                         {
@@ -80,8 +93,7 @@ public class Game {
                         }
                     }
                     else { 
-                    int diceValue = players[0].RollDice();
-                    MessageBox.Show($"Vous avez lancé le dé et obtenu : {diceValue}", "Lancement du dé", MessageBoxButton.OK, MessageBoxImage.Information); 
+                    int diceValue = players[0].RollDice(); 
                     players[0].verifPosition(players[0].position);
                     plateau.ConsoleJeux.Text += $" ---- {playerNames[0]} a lancé le dé et a obtenu : {diceValue} ---- \n";
                     plateau.MooveF1(isPlayerTurn, players[0].position);
@@ -96,7 +108,7 @@ public class Game {
                                 if (players[0] != null && players[0].properties != null && players[0].properties.Length > 0)
                                 {
                                     Amelioration amelioration = new Amelioration(players[0]);
-                                    amelioration.Show();
+                                    amelioration.ShowDialog();
                                 }
                         }
 
@@ -114,8 +126,21 @@ public class Game {
                         if (messageBoxResult == MessageBoxResult.Yes)
                         {
                             int value = 50000;
-                            players[1].Pay(value);
-                            players[1].isInJail = false;
+                            if (players[1].account < value)
+                            {
+                                MessageBoxResult messageBoxAchat = MessageBox.Show($"Voulez vous hypotéquer une propriété pour payer l'ammande ?", "Raceban", MessageBoxButton.YesNo);
+                                if (messageBoxAchat == MessageBoxResult.Yes)
+                                {
+                                    Hypotheque hypotheque = new Hypotheque(players[1]);
+                                    hypotheque.ShowDialog();
+                                }
+                            }
+                            else
+                            {
+                                players[1].Pay(value);
+                                players[1].isInJail = false;
+                            }
+                            
                         }
                         else
                         {
@@ -141,7 +166,7 @@ public class Game {
                                 if (players[1] != null && players[1].properties != null)
                                 {
                                     Amelioration amelioration = new Amelioration(players[1]);
-                                    amelioration.Show();
+                                    amelioration.ShowDialog();
                                 }
                             }
                         }

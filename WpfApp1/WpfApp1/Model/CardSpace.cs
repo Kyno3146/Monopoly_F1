@@ -132,7 +132,8 @@ public class CardSpace : Space  {
                         else
                         {
                             MessageBox.Show("Vous n'avez pas assez d'argent pour payer vos propriétés. Vous devez hypotéquer des propriétés.", "Alerte", MessageBoxButton.OK, MessageBoxImage.Warning);
-                            // Hyotèque
+                            Hypotheque h = new Hypotheque(p);
+                            h.ShowDialog();
                         }
                     }
                     p.account -= totalCost; // Deduct total cost from account
@@ -161,7 +162,8 @@ public class CardSpace : Space  {
                             else
                             {
                                 MessageBox.Show("Vous n'avez pas assez d'argent pour payer vos propriétés. Vous devez hypotéquer des propriétés.", "Alerte", MessageBoxButton.OK, MessageBoxImage.Warning);
-                                // Hypotèque 
+                                Hypotheque h = new Hypotheque(p);
+                                h.ShowDialog();
                             }
                         }
                         p.account -= 150000; // Deduct fine from account
@@ -199,7 +201,8 @@ public class CardSpace : Space  {
                         else
                         {
                             MessageBox.Show("Vous n'avez pas assez d'argent pour payer vos propriétés. Vous devez hypotéquer des propriétés.", "Alerte", MessageBoxButton.OK, MessageBoxImage.Warning);
-                            // Hypotèque
+                            Hypotheque h = new Hypotheque(p);
+                            h.ShowDialog();
                         }
                     }
                     p.account -= 150000; // Deduct fine from account
@@ -281,7 +284,8 @@ public class CardSpace : Space  {
                             else
                             {
                                 MessageBox.Show("Vous n'avez pas assez d'argent pour payer vos propriétés. Vous devez hypotéquer des propriétés.", "Alerte", MessageBoxButton.OK, MessageBoxImage.Warning);
-                                // Hypotèque 
+                                Hypotheque h = new Hypotheque(p);
+                                h.ShowDialog();
                             }
                         }
                         p.account -= 150000; // Deduct fine from account
@@ -314,7 +318,8 @@ public class CardSpace : Space  {
                         else
                         {
                             MessageBox.Show("Votre adverssaire n'a pas assez d'argent pour vous payer. Il doit hypotéquer des propriétés.", "Alerte", MessageBoxButton.OK, MessageBoxImage.Warning);
-                            // Hypotèque 
+                            Hypotheque h = new Hypotheque(p);
+                            h.ShowDialog(); // Show mortgage window for player 2
                         }
                     }
                     p2.account -= 10000; // Deduct fine from account
@@ -349,7 +354,8 @@ public class CardSpace : Space  {
                         else
                         {
                             MessageBox.Show("Vous n'avez pas assez d'argent pour payer vos propriétés. Vous devez hypotéquer des propriétés.", "Alerte", MessageBoxButton.OK, MessageBoxImage.Warning);
-                            // Hypotèque 
+                            Hypotheque h = new Hypotheque(p);
+                            h.ShowDialog(); // Show mortgage window for player
                         }
                     }
                     p.account -= 100000; // Deduct fine from account
@@ -376,7 +382,8 @@ public class CardSpace : Space  {
                         else
                         {
                             MessageBox.Show("Vous n'avez pas assez d'argent pour payer vos propriétés. Vous devez hypotéquer des propriétés.", "Alerte", MessageBoxButton.OK, MessageBoxImage.Warning);
-                            // Hypotèque 
+                            Hypotheque h = new Hypotheque(p);
+                            h.ShowDialog(); // Show mortgage window for player
                         }
                     }
                     p.account -= 150000; // Deduct fine from account

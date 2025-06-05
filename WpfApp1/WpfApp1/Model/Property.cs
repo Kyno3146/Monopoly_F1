@@ -50,7 +50,7 @@ public class Property : Space  {
     /// <exception cref="System.InvalidOperationException"></exception>
     /// <author>Riviere Kylian</author>
     public void Upgrade() {
-        if (level < 5 && upgradeValue>0)
+        if (level < 5 && upgradeValue>0 && player.account>=upgradeValue)
         {
             if (price == 60000)
             {
@@ -478,7 +478,7 @@ public class Property : Space  {
         }
         else
         {
-          MessageBox.Show("La propriété est déjà au niveau maximum ou l'upgradeValue est négatif !", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+          MessageBox.Show("La propriété est déjà au niveau maximum ou vous n'avez pas assez d'argent pour l'améliorer !", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
         }
         
         
@@ -533,7 +533,30 @@ public class Property : Space  {
             else
             {
                 rent = this.rent;
-                p.Pay( rent);
+                if (p.account >= rent)
+                {
+                    p.Pay(rent);
+                }
+                else
+                {
+                    while (p.account <= rent)
+                    {
+                        if (p.properties.Length > 0)
+                        {
+                            MessageBox.Show("Vous n'avez pas assez d'argent pour payer le loyer, vous devez hypotéquer une de vos propriétés !", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                            Hypotheque h = new Hypotheque(p);
+                            h.ShowDialog();
+                            
+                        }
+                        else
+                        {
+                            g.isGameOver = true;
+                            MessageBox.Show("Vous n'avez pas assez d'argent pour payer le loyer, vous avez perdu !", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                    p.Pay(rent);
+                }
+                player.account += rent;
             }
         }
         else
@@ -552,7 +575,8 @@ public class Property : Space  {
                         MessageBoxResult messageBoxHypotèque = MessageBox.Show("Vous n'avez pas assez d'argent pour acheter cette propriété, voulez vous hypotéquer une de vos propriétés ? (2 max)", "Hypothèque", MessageBoxButton.YesNo);
                     if (messageBoxHypotèque == MessageBoxResult.Yes)
                     {
-                        // hypotéquer une propriété
+                        Hypotheque h = new Hypotheque(p);
+                        h.ShowDialog();
                         if (p.account >= price)
                         {
                             p.Buy(this);
@@ -564,7 +588,8 @@ public class Property : Space  {
                             MessageBoxResult messageBoxHypotèque2 = MessageBox.Show("Vous n'avez pas assez d'argent pour acheter cette propriété, voulez vous hypotéquer une de vos propriétés ? (1 max)", "Hypothèque", MessageBoxButton.YesNo);
                             if (messageBoxHypotèque2 == MessageBoxResult.Yes)
                             {
-                                // hypotheque une propriété
+                                Hypotheque h1 = new Hypotheque(p);
+                                h1.ShowDialog();
                                 if (p.account >= price)
                                 {
                                     p.Buy(this);
@@ -578,7 +603,7 @@ public class Property : Space  {
                                     List<string> info = card.infoCarte(position.ToString());
                                     plat.ConsoleJeux.Text += " ---- Enchère ---- \n";
                                     Enchere enchere = new Enchere(info, p, p2,g);
-                                    enchere.Show();
+                                    enchere.ShowDialog();
                                 }
 
                             }
@@ -588,7 +613,7 @@ public class Property : Space  {
                                 List<string> info = card.infoCarte(position.ToString());
                                 plat.ConsoleJeux.Text += " ---- Enchère ---- \n";
                                 Enchere enchere = new Enchere(info, p, p2,g);
-                                enchere.Show();
+                                enchere.ShowDialog();
                             }
 
 
@@ -601,7 +626,7 @@ public class Property : Space  {
                         List<string> info = card.infoCarte(position.ToString());
                         plat.ConsoleJeux.Text += " ---- Enchère ---- \n";
                         Enchere enchere = new Enchere(info, p, p2,g);
-                        enchere.Show();
+                        enchere.ShowDialog();
                     }
 
                     }
@@ -612,7 +637,7 @@ public class Property : Space  {
                 List<string> info = card.infoCarte(position.ToString());
                 plat.ConsoleJeux.Text += " ---- Enchère ---- \n";
                 Enchere enchere = new Enchere(info, p, p2,g);
-                enchere.Show();
+                enchere.ShowDialog();
             }
         }
     }
