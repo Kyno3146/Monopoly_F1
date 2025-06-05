@@ -240,13 +240,15 @@ namespace WpfApp1.IHM
         /// <param name="e"></param>
         private void user1IHM(object sender, RoutedEventArgs e)
         {
-            StatJoueur statJoueur = new StatJoueur(username1);
-            statJoueur.Show();
+            //StatJoueur statJoueur = new StatJoueur(username1);
+            //statJoueur.Show();
+            MessageBox.Show("En cours de production pour la SAE BDD", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            return;
         }
 
         private void user2IHM(object sender, RoutedEventArgs e)
         {
-            StatJoueur statJoueur = new StatJoueur(username2);
+            /*StatJoueur statJoueur = new StatJoueur(username2);
             if (statJoueur.realPlayer.Equals(false))
             {
                 return;
@@ -254,7 +256,9 @@ namespace WpfApp1.IHM
             else
             {
                 statJoueur.Show();
-            }
+            }*/
+            MessageBox.Show("En cours de production pour la SAE BDD", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            return;
         }
 
         /// Deconnexion de l'utilisateur sélectionné 

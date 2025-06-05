@@ -62,6 +62,8 @@ namespace Monopoly.IHM
         }
         #endregion
 
+        #region methodes
+
         /// <summary>
         /// Initialise la grille Monoplace avec les images des joueurs
         /// </summary>
@@ -129,7 +131,13 @@ namespace Monopoly.IHM
                 Card card = new Card(tag);
                 List<string> info = card.infoCarte(tag);
                 InfoCarte infoCarte = new InfoCarte(info);
+                infoCarte.OnGetRent = pos =>
+                {
+                    Property property = this.game.Board.spaces[pos] as Property;
+                    return property != null ? property.Rent : 0;
+                };
                 infoCarte.Show();
+
             }
             else
             {
@@ -364,11 +372,23 @@ namespace Monopoly.IHM
 
         #endregion
 
+        #region Features sonores
+        /// <summary>
+        /// Plays the FIA alert sound.
+        /// </summary>
         public void FIAalert()
         {
             AlerteFIA.Play();
         }
 
+        #endregion
+
+        #region Secret
+        /// <summary>
+        /// Handles the click event for the "egg" button, playing a random sound.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void egg(object sender, RoutedEventArgs e)
         {
             int rdm = new Random().Next(0, 2); // [0, 2) donc 0 ou 1
@@ -390,7 +410,8 @@ namespace Monopoly.IHM
             }
 
         }
+        #endregion
 
-
+        #endregion
     }
 }

@@ -70,7 +70,8 @@ namespace Monopoly.IHM
         /// <author>Barthoux Sauze Thomas</author>
         private void lstPropriete_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            txtValeurHypotheque.Text = info[4];
+            int val = int.Parse(info[3]) / 2;
+            txtValeurHypotheque.Text = val.ToString();
         }
 
         private void savePropertyselected(object sender, MouseButtonEventArgs e)
@@ -89,7 +90,7 @@ namespace Monopoly.IHM
         /// <param name="e"></param>
         private void btnHypothequer_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBoxResult.Yes == MessageBox.Show("Voulez-vous bien hypotèquer cette propriété ?", "Hypothèque", MessageBoxButton.YesNo, MessageBoxImage.Question))
+            if (MessageBoxResult.Yes == MessageBox.Show("Voulez-vous bien hypotèquer " + lstCasePossible.Items[index].ToString() + "?", "Hypothèque", MessageBoxButton.YesNo, MessageBoxImage.Question))
             {
                 // Logique pour hypothéquer la propriété
                 player.properties[index].isMortgaged = true; // Marquer la propriété comme hypothéquée
@@ -98,6 +99,7 @@ namespace Monopoly.IHM
                 // Appeler la méthode pour hypothéquer la propriété
                 // HypothequeProperty(selectedProperty);
                 MessageBox.Show($"La propriété {info[0]} a été hypothéquée avec succès.", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Close(); // Fermer la fenêtre après l'hypothèque
             }
         }
         #endregion

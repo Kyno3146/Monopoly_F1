@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly.IHM"
         mc:Ignorable="d"
-        Title="Enchere" Height="450" Width="450" Background="#15161C">
+        Title="Enchere" Height="450" Width="500" Background="#15161C">
 
     <Window.Resources>
         <Style x:Key="GlassButtonStyle" TargetType="Button">
@@ -97,8 +97,8 @@
         <TextBox x:Name="PropostionJ2" Grid.Row="5" Grid.Column="1" VerticalAlignment="Bottom" Background="LightGray" Margin="0,0,10,0"/>
 
         <Label Content="" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White"/>
-        <Button x:Name="Encherir" Content="Encherir" Grid.Row="7" Grid.Column="1" Background="LightGray" Margin="57,16,68,10" Click="encherir"  />
-        <Button x:Name="Abandonner" Content="Abandonner" Grid.Row="8" Grid.Column="1" Background="LightGray" Margin="57,14,68,10" Click="Abandon" />
+        <Button x:Name="Encherir" Content="Encherir" Grid.Row="7" Grid.Column="1" Background="LightGray" Margin="57,16,68,10" Click="encherir" Style="{StaticResource GlassButtonStyle}" Foreground="Red" Width="100" />
+        <Button x:Name="Abandonner" Content="Abandonner" Grid.Row="8" Grid.Column="1" Background="LightGray" Margin="57,14,68,10" Click="Abandon" Style="{StaticResource GlassButtonStyle}" Foreground="Red" Width="100" />
 
         <Image x:Name="imgCarte"  Grid.Column="0" Grid.Row="1" Grid.RowSpan="7" Margin="10" />
 

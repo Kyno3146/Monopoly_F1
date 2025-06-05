@@ -56,11 +56,21 @@ namespace Monopoly.IHM
             if (info.Count > 5)
             {
                 int position = int.Parse(info[5]);
-                Property tmp = new Property(0, 0, 0, 0);
-                tmp.position = position;
-                this.loyer.Text += tmp.Rent.ToString() + " €";
+                if (OnGetRent != null)
+                {
+                    int rent = OnGetRent(position);
+                    this.loyer.Text = rent.ToString() + " €";
+                }
+                else
+                {
+                    this.loyer.Text = "N/A";
+                }
             }
+
         }
+
+        public Func<int, int>? OnGetRent { get; set; }
+
 
         private void ExitInfo(object sender, RoutedEventArgs e)
         {
