@@ -20,12 +20,15 @@ namespace Monopoly.IHM
     /// </summary>
     public partial class StatJoueur : Window
     {
+        #region Attributs
         private string nom;
         private Connect connexion;
         private List<string> listeItemRoot;
         private List<string> listeItemUser;
         public bool realPlayer = true;
+        #endregion
 
+        #region Constructeurs
         public StatJoueur(string nom)
         {
             this.nom = nom;
@@ -33,7 +36,9 @@ namespace Monopoly.IHM
             InitIHM(this.nom);
             VerificationUser(nom);
         }
+        #endregion
 
+        #region Méthodes
         /// <summary>
         /// Affiche les premiéres données de l'utilisateur dans la fenêtre
         /// </summary>
@@ -115,5 +120,7 @@ namespace Monopoly.IHM
                 this.ListeProprietes.Items.Add(item);
             }
         }
+
+        #endregion
     }
 }

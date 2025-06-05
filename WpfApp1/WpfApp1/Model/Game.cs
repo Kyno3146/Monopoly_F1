@@ -197,7 +197,8 @@ public class Game {
     }
 
     /// <summary>
-    /// Ends the game and declares a winner
+    /// Ends the game put all information on a commande sql
+    /// not implemented yet it for BDD SAE
     /// </summary>
     public void EndGame() {
 		throw new System.NotImplementedException("Not implemented");

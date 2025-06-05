@@ -22,6 +22,7 @@ namespace WpfApp1.IHM
     /// </summary>  
     public partial class MainWindow : Window
     {
+        #region Attributs
         private DispatcherTimer timer;
         private int attemptCount = 0;
         private const int MaxAttempts = 5;
@@ -29,9 +30,10 @@ namespace WpfApp1.IHM
         private string username1;
         private string username2;
         private int comboboxselected;
-        private bool firstStart = false;  
+        private bool firstStart = false;
+        #endregion
 
-
+        #region Constructeurs
         public static bool Connected { get; set; } = false;
         public bool FirstStart
         {
@@ -47,8 +49,9 @@ namespace WpfApp1.IHM
             statutUser(1);
             InitTimer();
         }
+        #endregion
 
-
+        #region Méthodes
         /// <summary>
         /// Exit the application when the exit menu item is clicked.
         /// </summary>
@@ -278,6 +281,7 @@ namespace WpfApp1.IHM
         }
 
 
+        #endregion
         #endregion
 
     }

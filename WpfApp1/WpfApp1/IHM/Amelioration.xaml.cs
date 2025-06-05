@@ -19,11 +19,14 @@ namespace Monopoly.IHM
     /// </summary>
     public partial class Amelioration : Window
     {
+        #region Attributes
         private Player player;
         private List<string> info;
         private Property property;
         private int indexPR;
+        #endregion
 
+        #region Constructor
         public Property[] Properties { get; }
         public int Position { get; }
 
@@ -41,7 +44,9 @@ namespace Monopoly.IHM
 
             SelectProperty(player);
         }
+        #endregion
 
+        #region Methode
         /// <summary>
         /// Selects the property based on the player's properties and the case position.
         /// </summary>
@@ -97,6 +102,11 @@ namespace Monopoly.IHM
             }
         }
 
+        /// <summary>
+        /// Handles the mouse button click event to select a property from the list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void savePropertyselected(object sender, MouseButtonEventArgs e)
         {
             indexPR = lstCasePossible.SelectedIndex;
@@ -115,5 +125,6 @@ namespace Monopoly.IHM
             }
         }
 
+        #endregion
     }
 }

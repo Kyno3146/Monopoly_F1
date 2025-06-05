@@ -20,6 +20,7 @@ namespace Monopoly.IHM
     /// </summary>  
     public partial class Enchere : Window
     {
+        #region Attributes
         private List<string> info = new List<string>();
         private Player joueur1; // Renamed field to lowercase to avoid conflict  
         private Player joueur2;
@@ -28,7 +29,9 @@ namespace Monopoly.IHM
         private int J1Values;
         private int J2Values;
         private bool IsplayerTurn = false; // false = joueur 1, true = joueur 2
+        #endregion
 
+        #region Constructor
         public Enchere(List<string> info, Player joueur1, Player joueur2, Game game)
         {
             InitializeComponent();
@@ -55,8 +58,9 @@ namespace Monopoly.IHM
             get { return MeilleurPrix; }
             set { MeilleurPrix = value; }
         }
+        #endregion
 
-
+        #region Methods
         /// <summary>  
         /// Load the information of the card in the auction window.  
         /// </summary>  
@@ -247,6 +251,6 @@ namespace Monopoly.IHM
             return game.IsPlayerTurnGame ? joueur2.position : joueur1.position;
         }
 
-
+        #endregion
     }
 }

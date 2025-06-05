@@ -20,9 +20,18 @@ namespace Monopoly.IHM
     /// </summary>
     public partial class SelectF1 : Window
     {
+        #region Attributs
         public string username2;
         public MainWindow main;
+        #endregion
 
+        #region Constructeurs
+        /// <summary>
+        /// Constructor for the SelectF1 window.
+        /// </summary>
+        /// <param name="username1"></param>
+        /// <param name="username2"></param>
+        /// <param name="main"></param>
         public SelectF1(string username1, string username2, MainWindow main)
         {
             InitializeComponent();
@@ -30,7 +39,14 @@ namespace Monopoly.IHM
             this.main = main;
             this.username2 = username2;
         }
+        #endregion
 
+        #region Méthodes
+        /// <summary>
+        /// Method to handle the Play button click event.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Play(object sender, RoutedEventArgs e)
         {
             if (sender is Button bouton)
@@ -42,5 +58,6 @@ namespace Monopoly.IHM
                 this.Close();
             }
         }
+        #endregion
     }
 }

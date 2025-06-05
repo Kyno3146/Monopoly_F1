@@ -21,11 +21,14 @@ namespace Monopoly.IHM
     /// </summary>  
     public partial class Register : Window
     {
+        #region Contructeurs
         public Register()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Méthodes
         /// <summary>  
         /// Retour au menu login  
         /// </summary>  
@@ -49,7 +52,11 @@ namespace Monopoly.IHM
             MessageBox.Show("Inscription réussie !", "Monopoly", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-
+        /// <summary>
+        /// Enregistre un nouvel utilisateur dans la base de données
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Register_Click(object sender, RoutedEventArgs e)
         {
             Connect connect = new Connect();
@@ -69,6 +76,11 @@ namespace Monopoly.IHM
             }
         }
 
+        /// <summary>
+        /// Retourne au menu principal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
@@ -76,5 +88,6 @@ namespace Monopoly.IHM
             mainWindow.Introfin(sender, e);
             this.Close();
         }
+        #endregion
     }
 }

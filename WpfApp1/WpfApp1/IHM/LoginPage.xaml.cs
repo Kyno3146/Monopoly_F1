@@ -16,13 +16,21 @@ namespace Monopoly.IHM
     /// </summary>
     public partial class LoginPage : Window
     {
+        #region Attributs
         private int nbLogin =0;
+        #endregion
 
+        #region Constructeurs
+        /// <summary>
+        /// Constructor for the LoginPage window.
+        /// </summary>
         public LoginPage()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Méthodes
         /// <summary>
         /// Exit the application when the exit menu item is clicked.
         /// </summary>
@@ -110,6 +118,6 @@ namespace Monopoly.IHM
             this.Close();
         }
 
-
+        #endregion
     }
 }

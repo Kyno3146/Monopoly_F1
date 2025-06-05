@@ -19,15 +19,24 @@ namespace Monopoly.IHM
     /// </summary>
     public partial class InfoCarte : Window
     {
+        #region Attributs
         private List<string> info  = new List<string>();
+        #endregion
 
+        #region Constructeurs
+        /// <summary>
+        /// Constructeur de la fenêtre d'information de la carte.
+        /// </summary>
+        /// <param name="info"></param>
         public InfoCarte(List<string> info)
         {
             InitializeComponent();
             this.info = info;
             infoLoad(info);
         }
+        #endregion
 
+        #region Méthodes
         /// <summary>
         /// Affiche les informations de la carte
         /// </summary>
@@ -69,12 +78,23 @@ namespace Monopoly.IHM
 
         }
 
+        /// <summary>
+        /// Delegate to get the rent for a property based on its position.
+        /// </summary>
+        /// <author >Ia</author>
         public Func<int, int>? OnGetRent { get; set; }
 
-
+        /// <summary>
+        /// Closes the InfoCarte window when the exit button is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <author>Barthoux Sauze Thomas</author>
         private void ExitInfo(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
+        #endregion
     }
 }
