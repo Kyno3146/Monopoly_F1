@@ -1,5 +1,6 @@
 using Monopoly.IHM;
 using System;
+using System.Windows;
 
 public class SpecialSpace : Space
 {
@@ -23,13 +24,47 @@ public class SpecialSpace : Space
         if (this.position == 4)
         {
             int value = 200000;
-            p.Pay( value);
+            if (p.account < value)
+            {
+                while (p.account < value)
+                {
+                    if (p.properties.Length == 0)
+                    {
+                        MessageBox.Show("Vous n'avez plus d'argent ni de propriétés à hypotéquer, vous avez perdu !");
+                        g.isGameOver = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vous n'avez pas assez d'argent pour payer cette amende.Vous devez hypotéquer une propriété");
+                        Hypotheque hypotheque = new Hypotheque(p);
+                        hypotheque.ShowDialog();
+                    }
+                }
+                p.Pay(value);
+            }
         }
         if (this.position == 38)
         {
             int value = 100000;
-            p.Pay(value);
-        }
+            if (p.account < value)
+            {
+                while (p.account < value)
+                {
+                    if (p.properties.Length == 0)
+                    {
+                        MessageBox.Show("Vous n'avez plus d'argent ni de propriétés à hypotéquer, vous avez perdu !");
+                        g.isGameOver = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vous n'avez pas assez d'argent pour payer cette amende.Vous devez hypotéquer une propriété");
+                        Hypotheque hypotheque = new Hypotheque(p);
+                        hypotheque.ShowDialog();
+                    }
+                }
+                p.Pay(value);
+            }
+            }
         if (this.position == 30)
         {
             p.position = 10;
