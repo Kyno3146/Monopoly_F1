@@ -89,8 +89,9 @@ public class Game {
                         else
                         {
                             plateau.ConsoleJeux.Text += $" ---- {playerNames[0]} raceban prolongé ---- \n";
-                            IsPlayerTurnGame = !IsPlayerTurnGame;
+                            
                         }
+                        IsPlayerTurnGame = !IsPlayerTurnGame;
                     }
                     else { 
                     int diceValue = players[0].RollDice(); 
@@ -145,8 +146,9 @@ public class Game {
                         else
                         {
                             plateau.ConsoleJeux.Text += $" ---- {playerNames[1]} raceban prolongé ---- \n";
-                            IsPlayerTurnGame = !IsPlayerTurnGame;
+                            
                         }
+                        IsPlayerTurnGame = !IsPlayerTurnGame;
                     }
                     else
                     {
