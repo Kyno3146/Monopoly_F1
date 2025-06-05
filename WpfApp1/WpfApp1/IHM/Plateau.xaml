@@ -64,6 +64,29 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="NoHighlightButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
     </Window.Resources>
 
     <Grid>
@@ -103,6 +126,12 @@
 
         <TextBlock Text="" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="50" Grid.Column="2" Grid.ColumnSpan="9" Grid.Row="2" Grid.RowSpan="9" Background="#15161C" />
         <Image x:Name="case_Logo" Source="Image/formula-1-logo.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="9" Grid.RowSpan="9" Stretch="Fill"/>
+
+        <Button x:Name="Egg"
+        Grid.Column="6"
+        Grid.Row="6"
+        Click="egg"
+        Style="{StaticResource NoHighlightButton}" />
 
         <!-- Case plateau -->
         <!--<author>Barthoux Sauze Thomas <author>-->

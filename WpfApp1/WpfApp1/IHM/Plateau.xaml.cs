@@ -368,5 +368,29 @@ namespace Monopoly.IHM
         {
             AlerteFIA.Play();
         }
+
+        private void egg(object sender, RoutedEventArgs e)
+        {
+            int rdm = new Random().Next(0, 2); // [0, 2) donc 0 ou 1
+
+            MediaPlayer son = new MediaPlayer();
+
+            string path1 = "IHM/Video/nico-hulkneberg.mp3";
+            string path2 = "IHM/Video/pierre-gaslyyyy.mp3";
+
+            if (rdm == 0)
+            {
+                son.Open(new Uri(path1, UriKind.Relative));
+                son.Play();
+            }
+            else 
+            {
+                son.Open(new Uri(path2, UriKind.Relative));
+                son.Play();
+            }
+
+        }
+
+
     }
 }

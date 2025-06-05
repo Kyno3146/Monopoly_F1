@@ -132,7 +132,8 @@ public class CardSpace : Space  {
                         else
                         {
                             MessageBox.Show("Vous n'avez pas assez d'argent pour payer vos propriétés. Vous devez hypotéquer des propriétés.", "Alerte", MessageBoxButton.OK, MessageBoxImage.Warning);
-                            // Hyotèque
+                            Hypotheque hypotheque = new Hypotheque(p);
+                            hypotheque.Show();
                         }
                     }
                     p.account -= totalCost; // Deduct total cost from account

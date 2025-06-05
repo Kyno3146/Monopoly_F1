@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly.IHM"
         mc:Ignorable="d"
-        Title="InfoCarte" Height="450" Width="500"  Background="#15161C">
+        Title="InfoCarte" Height="450" Width="500"  Background="#15161C"
+        WindowState="Normal"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="CanResize">
 
 
     <Window.Resources>
@@ -97,7 +100,6 @@
         <Button x:Name="Exit" Grid.Column="1" Grid.Row="7" Content="Exit" Width="150" Height="30" Style="{StaticResource GlassButtonStyle}" Foreground="Red" Click="ExitInfo"/>
 
         <Image x:Name="imgCarte"  Grid.Column="0" Grid.Row="1" Grid.RowSpan="7" Margin="10" />
-
 
     </Grid>
 </Window>

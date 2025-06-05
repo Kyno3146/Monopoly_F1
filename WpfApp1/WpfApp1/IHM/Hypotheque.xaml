@@ -5,7 +5,98 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly.IHM"
         mc:Ignorable="d"
-        Title="Hypotheque" Height="250" Width="600">
+        Title="Hypotheque" Height="250" Width="600" Background="#15161C"
+        WindowState="Normal"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="CanResize">
+
+
+    <Window.Resources>
+        <Style x:Key="GlassButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#66FFFFFF"/>
+            <!-- Blanc translucide -->
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="BorderThickness" Value="1.5"/>
+            <Setter Property="BorderBrush" Value="#CCFFFFFF"/>
+            <!-- Bordure blanche un peu transparente -->
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" Opacity="0.15" BlurRadius="10" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="8"
+                        SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#99FFFFFF"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="White"/>
+                                <Setter TargetName="border" Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="Black" Opacity="0.4" BlurRadius="15" ShadowDepth="3"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#CCFFFFFF"/>
+                                <Setter TargetName="border" Property="Effect" Value="{x:Null}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="#66000000"/>
+                                <Setter TargetName="border" Property="Background" Value="#33FFFFFF"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="#33FFFFFF"/>
+                                <Setter TargetName="border" Property="Effect" Value="{x:Null}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ListBoxItem" x:Key="CenteredListBoxItem">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border x:Name="Bd"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="Transparent"
+                    BorderThickness="1"
+                    CornerRadius="5"
+                    Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#44FFFFFF"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#22FFFFFF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -22,16 +113,16 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Label Content="Hypothèque" Grid.Column="0" Grid.Row="0" FontSize="24" HorizontalAlignment="Center" Grid.ColumnSpan="6"/>
-        
-        <Label Content="Propriété" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-        <ListBox x:Name="lstCasePossible" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"  Background="LightGray" MouseDoubleClick="savePropertyselected">
+        <Label Content="Hypothèque" Grid.Column="0" Grid.Row="0" FontSize="24" HorizontalAlignment="Center" Grid.ColumnSpan="6" Foreground="White"/>
+
+        <Label Content="Propriété" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White"/>
+        <ListBox x:Name="lstCasePossible" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"  Background="White" MouseDoubleClick="savePropertyselected" ItemContainerStyle="{StaticResource CenteredListBoxItem}">
             <!-- Items will be added dynamically -->
         </ListBox>
 
-        <Label Content="Veuleur de l'hypotèque" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-        <TextBlock Text="0" Grid.Column="3"  Grid.Row="2" Grid.ColumnSpan="2" x:Name="txtValeurHypotheque" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Content="Veuleur de l'hypotèque" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White"/>
+        <TextBlock Text="0" Grid.Column="3"  Grid.Row="2" Grid.ColumnSpan="2" x:Name="txtValeurHypotheque" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
 
-        <Button Content="Hypothéquer" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" Margin="5" x:Name="btnHypothequer" Click="btnHypothequer_Click" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button Content="Hypothéquer" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" Margin="5" x:Name="btnHypothequer" Click="btnHypothequer_Click" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource GlassButtonStyle}" Foreground="Red" Width="100"/>
     </Grid>
 </Window>

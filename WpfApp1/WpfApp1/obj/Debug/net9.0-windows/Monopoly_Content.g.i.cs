@@ -10,5 +10,7 @@
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ihm/video/fia_sound.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ihm/video/intro.mp4")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ihm/video/nico-hulkneberg.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ihm/video/pierre-gaslyyyy.mp3")]
 
 
