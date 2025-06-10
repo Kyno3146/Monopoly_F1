@@ -98,11 +98,13 @@
   <ItemGroup>
     <Folder Include="Metier\" />
     <Folder Include="Model\" />
+    <Folder Include="Python\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
     <PackageReference Include="MySql.Data" Version="9.3.0" />
+    <PackageReference Include="pythonnet" Version="3.0.5" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\kylli\\Documents\\Github\\Monopoly_F1\\WpfApp1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\kylli\\documents\\github\\monopoly_f1\\wpfapp1\\wpfapp1\\python\\test.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\python\\test.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|c:\\users\\kylli\\documents\\github\\monopoly_f1\\wpfapp1\\wpfapp1\\ihm\\enchere.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{B62DA662-D81F-4752-B3C8-2F3FD1DBE05D}|WpfApp1\\Monopoly.csproj|solutionrelative:wpfapp1\\ihm\\enchere.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -43,6 +47,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Test.py",
+              "DocumentMoniker": "C:\\Users\\kylli\\Documents\\Github\\Monopoly_F1\\WpfApp1\\WpfApp1\\Python\\Test.py",
+              "RelativeDocumentMoniker": "WpfApp1\\Python\\Test.py",
+              "ToolTip": "C:\\Users\\kylli\\Documents\\Github\\Monopoly_F1\\WpfApp1\\WpfApp1\\Python\\Test.py",
+              "RelativeToolTip": "WpfApp1\\Python\\Test.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-06-10T06:45:07.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Enchere.xaml",
               "DocumentMoniker": "C:\\Users\\kylli\\Documents\\Github\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Enchere.xaml",
               "RelativeDocumentMoniker": "WpfApp1\\IHM\\Enchere.xaml",
@@ -54,7 +71,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Amelioration.xaml.cs",
               "DocumentMoniker": "C:\\Users\\kylli\\Documents\\Github\\Monopoly_F1\\WpfApp1\\WpfApp1\\IHM\\Amelioration.xaml.cs",
               "RelativeDocumentMoniker": "WpfApp1\\IHM\\Amelioration.xaml.cs",
