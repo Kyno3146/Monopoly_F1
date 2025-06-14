@@ -417,7 +417,346 @@ namespace Monopoly.BDD
             }
         }
 
+        /// <summary>
+        /// Récupère les dates d'inscription des utilisateurs et le nombre d'inscriptions par date
+        /// </summary>
+        /// <returns></returns>
+        /// <author>Barthoux Sauze Thomas</author>
+        /// <correctionIA>Probléme : Conversion automatique de date de string->date </correctionIA>
+        public List<(string, string)> DataInscription()
+        {
+            List<(string, string)> data = new List<(string, string)>();
+            if (connection != null)
+            {
+                try
+                {
+                    using (DbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = @"
+                    SELECT DATE_FORMAT(date_inscription, '%Y-%m-%d') AS date, COUNT(*) AS total
+                    FROM users
+                    WHERE date_inscription IS NOT NULL AND date_inscription != '0000-00-00'
+                    GROUP BY DATE(date_inscription)
+                    ORDER BY date;";
 
-    
+                        using (DbDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string date = reader.IsDBNull(reader.GetOrdinal("date"))
+                                                ? "unknown"
+                                                : reader.GetString(reader.GetOrdinal("date"));
+
+                                string count = reader.IsDBNull(reader.GetOrdinal("total"))
+                                                ? "0"
+                                                : reader.GetInt32(reader.GetOrdinal("total")).ToString();
+
+                                data.Add((date, count));
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de la récupération des dates d'inscription : " + ex.Message);
+                }
+            }
+            return data;
+        }
+
+        /// <summary>
+        /// Renvoie une liste de tuples contenant les dates et le nombre total de parties jouées par jour
+        /// </summary>
+        /// <returns></returns>
+        public List<(string, string)> DataFrequentationt() 
+        {
+            List<(string, string)> data = new List<(string, string)>();
+            if (connection != null)
+            {
+                try
+                {
+                    using (DbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = @"
+                        SELECT DATE_FORMAT(datePartie, '%Y-%m-%d') AS date, COUNT(*) AS total
+                        FROM historiquepartie
+                        WHERE datePartie IS NOT NULL AND datePartie != '0000-00-00'
+                        GROUP BY DATE(datePartie)
+                        ORDER BY date;";
+                        using (DbDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string date = reader.IsDBNull(reader.GetOrdinal("date"))
+                                                ? "unknown"
+                                                : reader.GetString(reader.GetOrdinal("date"));
+                                string count = reader.IsDBNull(reader.GetOrdinal("total"))
+                                                ? "0"
+                                                : reader.GetInt32(reader.GetOrdinal("total")).ToString();
+                                data.Add((date, count));
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de la récupération des données de fréquentation : " + ex.Message);
+                }
+            }
+            return data;
+        }
+
+        /// <summary>
+        /// Retourne une liste de tuples contenant le nom de la case et le nombre de passages
+        /// </summary>
+        /// <returns></returns>
+        public List<(string, string)> CasePlusVisite()
+        {
+            List<(string, string)> data = new List<(string, string)>();
+            if (connection != null)
+            {
+                try
+                {
+                    using (DbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = @"
+                        SELECT nomCase, nbPassage
+                        FROM caseevenement
+                        ORDER BY nbPassage DESC;"; // Limite à la case la plus visitée
+                        using (DbDataReader reader = command.ExecuteReader())
+                        {
+                            while(reader.Read())
+                            {
+                                string nomCase = reader.IsDBNull(reader.GetOrdinal("nomCase"))
+                                                ? "unknown"
+                                                : reader.GetString(reader.GetOrdinal("nomCase"));
+                                string nbPassage = reader.IsDBNull(reader.GetOrdinal("nbPassage"))
+                                                ? "0"
+                                                : reader.GetInt32(reader.GetOrdinal("nbPassage")).ToString();
+                                data.Add((nomCase, nbPassage));
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de la récupération des cases les plus visitées : " + ex.Message);
+                }
+            }
+            return data;
+        }
+
+        /// <summary>
+        /// Retourne une liste de tuples contenant le nom de la propriété et le nombre de passages
+        /// </summary>
+        /// <returns></returns>
+        public List<(string, string)> ProprietePlusVisite()
+        {
+            List<(string, string)> data = new List<(string, string)>();
+            if (connection != null)
+            {
+                try
+                {
+                    using (DbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = @"
+                        SELECT nomPropriete, nbPassage
+                        FROM propriete
+                        ORDER BY nbPassage DESC;"; // Limite à la propriété la plus visitée
+                        using (DbDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string nomPropriete = reader.IsDBNull(reader.GetOrdinal("nomPropriete"))
+                                                ? "unknown"
+                                                : reader.GetString(reader.GetOrdinal("nomPropriete"));
+                                string nbPassage = reader.IsDBNull(reader.GetOrdinal("nbPassage"))
+                                                ? "0"
+                                                : reader.GetInt32(reader.GetOrdinal("nbPassage")).ToString();
+                                data.Add((nomPropriete, nbPassage));
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de la récupération des propriétés les plus visitées : " + ex.Message);
+                }
+            }
+            return data;
+        }
+
+        /// <summary>
+        /// Renvoie une liste de tuples contenant le nom de la propriété et le nombre d'achats
+        /// </summary>
+        /// <returns></returns>
+        public List<(string, string)> ProprietePlusAcheter()
+        {
+            List<(string, string)> data = new List<(string, string)>();
+            if (connection != null)
+            {
+                try
+                {
+                    using (DbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = @"
+                       SELECT p.nomPropriete, COUNT(e.id) AS nbEnchere
+                        FROM enchere AS e
+                        INNER JOIN propriete AS p ON p.id = e.idPropriete
+                        GROUP BY p.nomPropriete
+                        ORDER BY nbEnchere DESC;"; // Limite à la propriété la plus achetée
+                        using (DbDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string nomPropriete = reader.IsDBNull(reader.GetOrdinal("nomPropriete"))
+                                                ? "unknown"
+                                                : reader.GetString(reader.GetOrdinal("nomPropriete"));
+                                string nbAchat = reader.IsDBNull(reader.GetOrdinal("nbAchat"))
+                                                ? "0"
+                                                : reader.GetInt32(reader.GetOrdinal("nbAchat")).ToString();
+                                data.Add((nomPropriete, nbAchat));
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de la récupération des propriétés les plus achetées : " + ex.Message);
+                }
+            }
+            return data;
+        }
+
+        /// <summary>
+        /// Retourne une liste de tuples contenant l'ID de l'enchère et le montant final
+        /// </summary>
+        /// <returns></returns>
+        public List<(string, string)> AnalyseEnchere()
+        {
+            List<(string, string)> data = new List<(string, string)>();
+            if (connection != null)
+            {
+                try
+                {
+                    using (DbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = @"
+                        SELECT montantFinal, id
+                        FROM enchere
+                        ORDER by id;"; // Limite à la propriété avec le plus d'enchères
+                        using (DbDataReader reader = command.ExecuteReader())
+                        {
+                           while (reader.Read())
+                            {
+                                string montantFinal = reader.IsDBNull(reader.GetOrdinal("montantFinal"))
+                                                ? "0"
+                                                : reader.GetInt32(reader.GetOrdinal("montantFinal")).ToString();
+                                string id = reader.IsDBNull(reader.GetOrdinal("id"))
+                                                ? "0"
+                                                : reader.GetInt32(reader.GetOrdinal("id")).ToString();
+                                data.Add((id, montantFinal));
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de la récupération des données d'enchères : " + ex.Message);
+                }
+            }
+            return data;
+        }
+
+        /// <summary>
+        ///  Récupère les cases avec le plus d'enchères
+        /// </summary>
+        /// <returns></returns>
+        public List<(string, string)> CasePlusEnchere()
+        {
+            List<(string, string)> data = new List<(string, string)>();
+            if (connection != null)
+            {
+                try
+                {
+                    using (DbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = @"
+                        SELECT p.nomPropriete, e.montantFinal
+                        FROM enchere AS e
+                        INNER JOIN propriete AS p ON p.id = e.idPropriete
+                        GROUP BY p.nomPropriete
+                        ORDER BY e.montantFinal DESC;"; // Limite à la case avec le plus d'enchères
+                        using (DbDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string nomCase = reader.IsDBNull(reader.GetOrdinal("nomCase"))
+                                                ? "unknown"
+                                                : reader.GetString(reader.GetOrdinal("nomCase"));
+                                string nbEnchere = reader.IsDBNull(reader.GetOrdinal("nbEnchere"))
+                                                ? "0"
+                                                : reader.GetInt32(reader.GetOrdinal("nbEnchere")).ToString();
+                                data.Add((nomCase, nbEnchere));
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de la récupération des cases avec le plus d'enchères : " + ex.Message);
+                }
+            }
+            return data;
+        }
+
+        /// <summary>
+        /// Récupère les données de victoire d'un joueur spécifique
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <returns></returns>
+        public List<(string , string)> CourbeVictoire(string nom)
+        {
+            List<(string, string)> data = new List<(string, string)>();
+            if (connection != null)
+            {
+                try
+                {
+                    using (DbCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = @"
+                        SELECT DATE_FORMAT(datePartie, '%Y-%m-%d') AS date, COUNT(*) AS total
+                        FROM historiquepartie
+                        WHERE gagnant = (SELECT id from users WHERE username = ""swolf"")
+                        GROUP BY DATE(datePartie)
+                        ORDER BY date;";
+                        
+                        var paramNom = command.CreateParameter();
+                        paramNom.DbType = System.Data.DbType.String;
+                        paramNom.ParameterName = "@idJoueur";
+                        paramNom.Value = GetUser(nom);
+                        command.Parameters.Add(paramNom);
+                        using (DbDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read()) 
+                            {
+                                string date = reader.IsDBNull(reader.GetOrdinal("date"))
+                                                ? "unknown"
+                                                : reader.GetString(reader.GetOrdinal("date"));
+                                string count = reader.IsDBNull(reader.GetOrdinal("total"))
+                                                ? "0"
+                                                : reader.GetInt32(reader.GetOrdinal("total")).ToString();
+                                data.Add((date, count));
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de la récupération des données de victoire : " + ex.Message);
+                }
+            }
+            return data;
+        }
     }
 }

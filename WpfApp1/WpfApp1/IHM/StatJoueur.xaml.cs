@@ -1,7 +1,11 @@
-﻿using System;
+﻿using Monopoly.BDD;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,7 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Monopoly.BDD;
+
 
 namespace Monopoly.IHM
 {
@@ -92,14 +96,19 @@ namespace Monopoly.IHM
         {
             this.listeItemRoot = new List<string>
             {
-                "1",
-                "2",
-                "3",
-                "4"
+                "Courbe d'inscription",
+                "Courbe de fréquentation",
+                "Case évènement le plus visité",
+                "Propriété le plus visité",
+                "Propriété le plus acheter",
+                /// Permet de voir les total enchères en cumulé en fonction des parties
+                "Analyse des enchéres",
+                "Qu'elle case est le plus au enchére"
             };
             foreach (string item in listeItemRoot)
             {
                 this.ListeProprietes.Items.Add(item);
+                this.ListeProprietes.Tag = item;
             }
         }
 
@@ -111,15 +120,100 @@ namespace Monopoly.IHM
         {
             this.listeItemUser = new List<string>
             {
-                "Voir les statistiques personnelles",
-                "Voir les parties en cours",
-                "Voir les parties terminées"
+                "Courbe de victoire",
+                "Enchére gagné par partie",
+                "Propriété le plus acheté au enchére",
+                "Courbe de vos dépense aux enchére",
+                "Courbe de propriété acheté",
+                "Courbe de propriété hypothéquer"
             };
             foreach (string item in listeItemUser)
             {
                 this.ListeProprietes.Items.Add(item);
+                this.ListeProprietes.Tag = item;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <author>Barthouux sauze Thomas</author>
+        private void ChoixStat(object sender, MouseButtonEventArgs e)
+        {
+            Connect connexion = new Connect();
+            if (this.nom == "root")
+            {
+                var selectedItem = ListeProprietes.SelectedItem as string; // si tu ajoutes des strings simple
+                switch (selectedItem)
+                {
+                    case "Courbe d'inscription":
+                        List<(string, string)> data = new List<(string, string)>();
+                        data = connexion.DataInscription();
+                        break;
+                    case "Courbe de fréquentation":
+                        List<(string, string)> dataFrequentation = new List<(string, string)>();
+                        dataFrequentation = connexion.DataFrequentationt();
+                        break;
+                    case "Case évènement le plus visité":
+                        List<(string, string)> dataCase = new List<(string, string)>();
+                        dataCase = connexion.CasePlusVisite();
+                        break;
+                    case "Propriété le plus visité":
+                        List<(string, string)> dataPropriete = new List<(string, string)>();
+                        dataPropriete = connexion.ProprietePlusVisite();
+                        break;
+                    case "Propriété le plus acheter":
+                        List<(string, string)> dataProprieteAcheter = new List<(string, string)>();
+                        dataProprieteAcheter = connexion.ProprietePlusAcheter();
+                        break;
+                    case "Analyse des enchéres":
+                        List<(string, string)> dataEnchere = new List<(string, string)>();
+                        dataEnchere = connexion.AnalyseEnchere();
+                        break;
+                    case "Qu'elle case est le plus cher gagné":
+                        List<(string, string)> dataCaseEnchere = new List<(string, string)>();
+                        dataCaseEnchere = connexion.CasePlusEnchere();
+                        break;
+                    default:
+                        MessageBox.Show("Fonctionnalité non implémentée pour cet utilisateur.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        break;
+                }
+            }
+            else if (this.nom == "invite")
+            {
+                MessageBox.Show("Vous n'avez pas accès à cette page /n Merci de vous connecter", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                this.realPlayer = false;
+                this.Close();
+                return;
+            }
+            else
+            {
+                string selectedItem = (string)((ListBoxItem)sender).Content;
+                switch (selectedItem)
+                {
+                    case "Courbe de victoire":
+                        List<(string, string)> dataVictoire = new List<(string, string)>();
+                        dataVictoire = connexion.CourbeVictoire(this.nom);
+                        break;
+                    case "Enchére gagné par partie":
+                        break;
+                    case "Propriété le plus acheté au enchére":
+                        break;
+                    case "Courbe de vos dépense aux enchére":
+                        break;
+                    case "Courbe de propriété acheté":
+                        break;
+                    case "Courbe de propriété hypothéquer":
+                        break;
+                    default:
+                        MessageBox.Show("Fonctionnalité non implémentée pour cet utilisateur.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        break;
+                }
+            }
+        }
+
 
         #endregion
     }

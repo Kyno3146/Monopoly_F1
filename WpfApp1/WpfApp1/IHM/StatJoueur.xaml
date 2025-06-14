@@ -47,7 +47,7 @@
 
 
         <!-- Selecton statistics -->
-        <ListBox x:Name="ListeProprietes" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Grid.RowSpan="5" Margin="10" Background="LightGray" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <ListBox x:Name="ListeProprietes" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Grid.RowSpan="5" Margin="10" Background="LightGray" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MouseDoubleClick="ChoixStat">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding}" />
@@ -55,9 +55,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Label x:Name="LabelStatSelect" Content=" Selectionner vos statistiques !" Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
-        <Canvas x:Name="StatistiquesCanvas" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="6" Grid.RowSpan="4" Background="LightGray" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-            <!-- Canvas for drawing statistics -->
-        </Canvas>
+        <Image x:Name="statImg" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="6" Grid.RowSpan="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
 
     </Grid>
 </Window>
