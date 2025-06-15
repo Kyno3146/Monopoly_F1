@@ -97,6 +97,7 @@
 
   <ItemGroup>
     <Folder Include="Model\" />
+    <Folder Include="Python\" />
   </ItemGroup>
 
   <ItemGroup>
