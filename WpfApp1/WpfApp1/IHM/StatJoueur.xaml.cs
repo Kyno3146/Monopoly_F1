@@ -169,7 +169,7 @@ namespace Monopoly.IHM
                     case "Analyse des enchéres":
                         Stat.DiagrammeCourbesTopEncheres(statImg);
                         break;
-                    case "Qu'elle case est le plus au enchére":
+                    case "Nombre d'enchéres par propriété":
                         Stat.DiagrammeEncheresParCase(statImg);
                         break;
                     default:
