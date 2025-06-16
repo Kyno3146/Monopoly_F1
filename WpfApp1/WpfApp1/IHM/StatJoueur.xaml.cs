@@ -1,5 +1,7 @@
 ﻿using Monopoly.BDD;
+using Mysqlx.Cursor;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -15,7 +17,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Python.Runtime;
 
 
 namespace Monopoly.IHM
@@ -143,39 +144,33 @@ namespace Monopoly.IHM
         /// <author>Barthouux sauze Thomas</author>
         private void ChoixStat(object sender, MouseButtonEventArgs e)
         {
-            /// Python
-            PythonEngine.Initialize(); // Initialisation de l'interpréteur Python
-            dynamic script = PythonEngine.ImportModule("Graphiques"); // Importation du script Python
-            ///
-
             Connect connexion = new Connect();
+
             if (this.nom == "root")
             {
-                var selectedItem = ListeProprietes.SelectedItem as string; // si tu ajoutes des strings simple
+                var selectedItem = ListeProprietes.SelectedItem as string;
                 switch (selectedItem)
                 {
                     case "Courbe d'inscription":
-
-                        script.courbe_inscriptions();
+                        Stat.CourbeInscriptions(statImg);
                         break;
                     case "Courbe de fréquentation":
-
+                        Stat.CourbePartiesJouees(statImg);
                         break;
                     case "Case évènement le plus visité":
-
+                        Stat.DiagrammeFrequentationEvenements(statImg);
                         break;
                     case "Propriété le plus visité":
-
+                        Stat.DiagrammeFrequentationPropriete(statImg);
                         break;
                     case "Propriété le plus acheter":
-
+                        Stat.DiagrammeAchatsPropriete(statImg);
                         break;
                     case "Analyse des enchéres":
-
+                        Stat.DiagrammeCourbesTopEncheres(statImg);
                         break;
-                    case "Qu'elle case est le plus cher gagné":
-
-                        
+                    case "Qu'elle case est le plus au enchére":
+                        Stat.DiagrammeEncheresParCase(statImg);
                         break;
                     default:
                         MessageBox.Show("Fonctionnalité non implémentée pour cet utilisateur.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -184,27 +179,35 @@ namespace Monopoly.IHM
             }
             else if (this.nom == "invite")
             {
-                MessageBox.Show("Vous n'avez pas accès à cette page /n Merci de vous connecter", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Vous n'avez pas accès à cette page\nMerci de vous connecter", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 this.realPlayer = false;
                 this.Close();
                 return;
             }
             else
             {
-                string selectedItem = (string)((ListBoxItem)sender).Content;
+                var selectedItem = ListeProprietes.SelectedItem as string;
+                int idJoueur = connexion.GetUser(this.nom);
+
                 switch (selectedItem)
                 {
                     case "Courbe de victoire":
+                        Stat.CourbeVictoiresDefaites(statImg, idJoueur);
                         break;
                     case "Enchére gagné par partie":
+                        //Stat.DiagrammeEncheresGagneesParPartie(idJoueur, statImg);
                         break;
                     case "Propriété le plus acheté au enchére":
+                        //Stat.DiagrammeProprietePlusAcheteeEnchere(idJoueur, statImg);
                         break;
                     case "Courbe de vos dépense aux enchére":
+                        //Stat.CourbeDepensesEncheres(idJoueur, statImg);
                         break;
                     case "Courbe de propriété acheté":
+                        //Stat.CourbeProprietesAchetees(idJoueur, statImg);
                         break;
                     case "Courbe de propriété hypothéquer":
+                        //Stat.CourbeProprietesHypothequees(idJoueur, statImg);
                         break;
                     default:
                         MessageBox.Show("Fonctionnalité non implémentée pour cet utilisateur.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -212,7 +215,6 @@ namespace Monopoly.IHM
                 }
             }
         }
-
 
         #endregion
     }

@@ -77,7 +77,7 @@ namespace Monopoly.IHM {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Monopoly;V1.0.0.0;component/ihm/hypotheque.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Monopoly;component/ihm/hypotheque.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\IHM\Hypotheque.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

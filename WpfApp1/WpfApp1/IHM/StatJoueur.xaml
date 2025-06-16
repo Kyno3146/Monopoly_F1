@@ -55,7 +55,9 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Label x:Name="LabelStatSelect" Content=" Selectionner vos statistiques !" Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
-        <Image x:Name="statImg" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="6" Grid.RowSpan="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+        <Canvas x:Name="statImg" Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="6" Grid.RowSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
+        </Canvas>
     </Grid>
 </Window>
+    
