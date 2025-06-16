@@ -97,12 +97,12 @@
 
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="Python\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
     <PackageReference Include="MySql.Data" Version="9.3.0" />
+    <PackageReference Include="Python.Runtime" Version="2.7.9" />
   </ItemGroup>
 
   <ItemGroup>

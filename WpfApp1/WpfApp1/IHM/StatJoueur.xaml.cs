@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Python.Runtime;
 
 
 namespace Monopoly.IHM
@@ -142,6 +143,11 @@ namespace Monopoly.IHM
         /// <author>Barthouux sauze Thomas</author>
         private void ChoixStat(object sender, MouseButtonEventArgs e)
         {
+            /// Python
+            PythonEngine.Initialize(); // Initialisation de l'interpréteur Python
+            dynamic script = PythonEngine.ImportModule("Graphiques"); // Importation du script Python
+            ///
+
             Connect connexion = new Connect();
             if (this.nom == "root")
             {
@@ -149,32 +155,27 @@ namespace Monopoly.IHM
                 switch (selectedItem)
                 {
                     case "Courbe d'inscription":
-                        List<(string, string)> data = new List<(string, string)>();
-                        data = connexion.DataInscription();
+
+                        script.courbe_inscriptions();
                         break;
                     case "Courbe de fréquentation":
-                        List<(string, string)> dataFrequentation = new List<(string, string)>();
-                        dataFrequentation = connexion.DataFrequentationt();
+
                         break;
                     case "Case évènement le plus visité":
-                        List<(string, string)> dataCase = new List<(string, string)>();
-                        dataCase = connexion.CasePlusVisite();
+
                         break;
                     case "Propriété le plus visité":
-                        List<(string, string)> dataPropriete = new List<(string, string)>();
-                        dataPropriete = connexion.ProprietePlusVisite();
+
                         break;
                     case "Propriété le plus acheter":
-                        List<(string, string)> dataProprieteAcheter = new List<(string, string)>();
-                        dataProprieteAcheter = connexion.ProprietePlusAcheter();
+
                         break;
                     case "Analyse des enchéres":
-                        List<(string, string)> dataEnchere = new List<(string, string)>();
-                        dataEnchere = connexion.AnalyseEnchere();
+
                         break;
                     case "Qu'elle case est le plus cher gagné":
-                        List<(string, string)> dataCaseEnchere = new List<(string, string)>();
-                        dataCaseEnchere = connexion.CasePlusEnchere();
+
+                        
                         break;
                     default:
                         MessageBox.Show("Fonctionnalité non implémentée pour cet utilisateur.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -194,8 +195,6 @@ namespace Monopoly.IHM
                 switch (selectedItem)
                 {
                     case "Courbe de victoire":
-                        List<(string, string)> dataVictoire = new List<(string, string)>();
-                        dataVictoire = connexion.CourbeVictoire(this.nom);
                         break;
                     case "Enchére gagné par partie":
                         break;
