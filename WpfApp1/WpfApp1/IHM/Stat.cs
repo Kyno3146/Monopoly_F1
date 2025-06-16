@@ -193,53 +193,32 @@ namespace Monopoly.IHM
         #endregion
 
         #region Joueur
-
-        public static void DiagrammePourcentageAchatPropriete(Canvas cible)
-        {
-            using var conn = OuvrirConnexion();
-            using var cmd = new MySqlCommand(
-                "SELECT nomPropriete, totalachat, nbPassage FROM propriete WHERE nbPassage > 0", conn);
-            using var reader = cmd.ExecuteReader();
-            var noms = new List<string>();
-            var vals = new List<double>();
-            while (reader.Read())
-            {
-                noms.Add(reader.GetString(0));
-                double pourcentage = reader.GetDouble(1) / reader.GetDouble(2) * 100;
-                vals.Add(pourcentage);
-            }
-            PlotBarChart(noms, vals, "Pourcentage d'achat (%)", "Achats par propriété", cible);
-        }
-
-        public static void DiagrammeRevenusPropriete(Canvas cible)
-        {
-            var data = GetStringLong("SELECT nomPropriete, revenueGenere FROM propriete");
-            PlotBarChart(data, "Revenus (€)", "Revenus générés par propriété", cible);
-        }
-
         public static void CourbeVictoiresDefaites(Canvas cible, int idJoueur)
         {
             using var conn = OuvrirConnexion();
             using var cmd = new MySqlCommand(@"
-                SELECT DATE(datePartie), gagnant, perdant FROM historiquepartie
-            ", conn);
+        SELECT DATE(datePartie) AS jour, gagnant, perdant
+        FROM historiquepartie
+        ORDER BY jour;
+    ", conn);
             using var rdr = cmd.ExecuteReader();
             var dictV = new SortedDictionary<DateTime, int>();
             var dictD = new SortedDictionary<DateTime, int>();
 
             while (rdr.Read())
             {
-                var d = rdr.GetDateTime(0).Date;
-                if (rdr.GetInt32(1) == idJoueur)
-                    dictV[d] = dictV.GetValueOrDefault(d) + 1;
-                if (rdr.GetInt32(2) == idJoueur)
-                    dictD[d] = dictD.GetValueOrDefault(d) + 1;
+                var jour = rdr.GetDateTime(0).Date;
+                int gagnant = rdr.GetInt32(1);
+                int perdant = rdr.GetInt32(2);
+                dictV[jour] = dictV.GetValueOrDefault(jour) + (gagnant == idJoueur ? 1 : 0);
+                dictD[jour] = dictD.GetValueOrDefault(jour) + (perdant == idJoueur ? 1 : 0);
             }
 
+            // Cumul
             int cv = 0, cd = 0;
-            var model = new PlotModel { Title = $"Statistiques joueur {idJoueur}" };
+            var model = new PlotModel { Title = $"Évolution des victoires et défaites du joueur {idJoueur}" };
             model.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, StringFormat = "yyyy-MM-dd" });
-            model.Axes.Add(new LinearAxis { Position = AxisPosition.Left });
+            model.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Title = "Nombre cumulatif" });
 
             var sv = new LineSeries { Title = "Victoires", MarkerType = MarkerType.Circle };
             var sd = new LineSeries { Title = "Défaites", MarkerType = MarkerType.Cross };
@@ -258,6 +237,208 @@ namespace Monopoly.IHM
             AfficherPlotDansCanvas(model, cible);
         }
 
+        public static void DiagrammeEncheresGagneesParPartie(Canvas cible, int idJoueur)
+        {
+            using var conn = OuvrirConnexion();
+            using var cmd = new MySqlCommand(@"
+        SELECT idPartie, COUNT(*) AS nb_encheres_gagnees
+        FROM enchere
+        WHERE gagnant = @idJoueur
+        GROUP BY idPartie
+        ORDER BY idPartie;
+    ", conn);
+            cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
+            using var rdr = cmd.ExecuteReader();
+            var parties = new List<int>();
+            var nbEncheres = new List<int>();
+            while (rdr.Read())
+            {
+                parties.Add(rdr.GetInt32(0));
+                nbEncheres.Add(rdr.GetInt32(1));
+            }
+
+            var model = new PlotModel { Title = $"Nombre d'enchères gagnées par partie pour le joueur {idJoueur}" };
+            var catAxis = new CategoryAxis { Position = AxisPosition.Bottom, Title = "ID de la partie" };
+            catAxis.Labels.AddRange(parties.Select(p => p.ToString()));
+            model.Axes.Add(catAxis); model.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Title = "Nombre d'enchères gagnées" });
+
+            var s = new LineSeries { MarkerType = MarkerType.Circle };
+            for (int i = 0; i < parties.Count; i++)
+                s.Points.Add(new DataPoint(i, nbEncheres[i]));
+
+            model.Series.Add(s);
+            AfficherPlotDansCanvas(model, cible);
+        }
+
+        public static void CourbeProprietesAchetees(Canvas cible, int idJoueur)
+        {
+            using var conn = OuvrirConnexion();
+            using var cmd = new MySqlCommand(@"
+        SELECT id, 
+               CASE 
+                   WHEN idJoueur1 = @idJoueur THEN nbProprieteJ1
+                   WHEN idJoueur2 = @idJoueur THEN nbProprieteJ2
+                   ELSE NULL
+               END AS nb_proprietes
+        FROM historiquePartie
+        WHERE idJoueur1 = @idJoueur OR idJoueur2 = @idJoueur
+        ORDER BY id;
+    ", conn);
+            cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
+            using var rdr = cmd.ExecuteReader();
+            var parties = new List<int>();
+            var nbProprietesCumulees = new List<int>();
+            int cumul = 0;
+            while (rdr.Read())
+            {
+                int idPartie = rdr.GetInt32(0);
+                object nbPropObj = rdr.GetValue(1);
+                if (nbPropObj != DBNull.Value)
+                {
+                    int nbProp = Convert.ToInt32(nbPropObj);
+                    parties.Add(idPartie);
+                    cumul += nbProp;
+                    nbProprietesCumulees.Add(cumul);
+                }
+            }
+
+            var model = new PlotModel { Title = $"Cumul des propriétés achetées par partie pour le joueur {idJoueur}" };
+            var catAxis = new CategoryAxis { Position = AxisPosition.Bottom, Title = "ID de la partie" };
+            catAxis.Labels.AddRange(parties.Select(p => p.ToString()));
+            model.Axes.Add(catAxis); model.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Title = "Cumul des propriétés achetées" });
+
+            var s = new LineSeries { MarkerType = MarkerType.Circle };
+            for (int i = 0; i < parties.Count; i++)
+                s.Points.Add(new DataPoint(i, nbProprietesCumulees[i]));
+
+            model.Series.Add(s);
+            AfficherPlotDansCanvas(model, cible);
+        }
+
+        public static void CourbeProprietesHypothequees(Canvas cible, int idJoueur)
+        {
+            using var conn = OuvrirConnexion();
+            using var cmd = new MySqlCommand(@"
+        SELECT id, 
+               CASE 
+                   WHEN idJoueur1 = @idJoueur THEN nbHypothequeJ1
+                   WHEN idJoueur2 = @idJoueur THEN nbHypothequeJ2
+                   ELSE NULL
+               END AS nb_hypotheques
+        FROM historiquePartie
+        WHERE idJoueur1 = @idJoueur OR idJoueur2 = @idJoueur
+        ORDER BY id;
+    ", conn);
+            cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
+            using var rdr = cmd.ExecuteReader();
+            var parties = new List<int>();
+            var nbHypothequesCumulees = new List<int>();
+            int cumul = 0;
+            while (rdr.Read())
+            {
+                int idPartie = rdr.GetInt32(0);
+                object nbHypObj = rdr.GetValue(1);
+                if (nbHypObj != DBNull.Value)
+                {
+                    int nbHyp = Convert.ToInt32(nbHypObj);
+                    parties.Add(idPartie);
+                    cumul += nbHyp;
+                    nbHypothequesCumulees.Add(cumul);
+                }
+            }
+
+            var model = new PlotModel { Title = $"Cumul des propriétés hypothéquées par partie pour le joueur {idJoueur}" };
+            var catAxis = new CategoryAxis { Position = AxisPosition.Bottom, Title = "ID de la partie" };
+            catAxis.Labels.AddRange(parties.Select(p => p.ToString()));
+            model.Axes.Add(catAxis); model.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Title = "Cumul des propriétés hypothéquées" });
+
+            var s = new LineSeries { MarkerType = MarkerType.Circle, Color = OxyColors.Red };
+            for (int i = 0; i < parties.Count; i++)
+                s.Points.Add(new DataPoint(i, nbHypothequesCumulees[i]));
+
+            model.Series.Add(s);
+            AfficherPlotDansCanvas(model, cible);
+        }
+
+        public static void CourbeDepensesEncheres(Canvas cible, int idJoueur)
+        {
+            using var conn = OuvrirConnexion();
+            using var cmd = new MySqlCommand(@"
+        SELECT idPartie, montantFinal
+        FROM enchere
+        WHERE gagnant = @idJoueur
+        ORDER BY idPartie;
+    ", conn);
+            cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
+            using var rdr = cmd.ExecuteReader();
+            var depensesParPartie = new Dictionary<int, double>();
+            while (rdr.Read())
+            {
+                int idPartie = rdr.GetInt32(0);
+                double montant = rdr.GetDouble(1);
+                if (depensesParPartie.ContainsKey(idPartie))
+                    depensesParPartie[idPartie] += montant;
+                else
+                    depensesParPartie[idPartie] = montant;
+            }
+
+            var parties = depensesParPartie.Keys.OrderBy(x => x).ToList();
+            var depensesCumulees = new List<double>();
+            double cumul = 0;
+            foreach (var partie in parties)
+            {
+                cumul += depensesParPartie[partie];
+                depensesCumulees.Add(cumul);
+            }
+
+            var model = new PlotModel { Title = $"Cumul des dépenses aux enchères par partie pour le joueur {idJoueur}" };
+            var catAxis = new CategoryAxis { Position = AxisPosition.Bottom, Title = "ID de la partie" };
+            catAxis.Labels.AddRange(parties.Select(p => p.ToString()));
+            model.Axes.Add(catAxis); 
+            model.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Title = "Cumul des montants dépensés" });
+
+            var s = new LineSeries { MarkerType = MarkerType.Circle, Color = OxyColors.DarkBlue };
+            for (int i = 0; i < parties.Count; i++)
+                s.Points.Add(new DataPoint(i, depensesCumulees[i]));
+
+            model.Series.Add(s);
+            AfficherPlotDansCanvas(model, cible);
+        }
+
+        public static void DiagrammeProprietePlusAcheteeEnchere(Canvas cible, int idJoueur)
+        {
+            using var conn = OuvrirConnexion();
+            using var cmd = new MySqlCommand(@"
+        SELECT p.nomPropriete, COUNT(*) AS nb_achats
+        FROM enchere e
+        JOIN propriete p ON e.idPropriete = p.id
+        WHERE e.gagnant = @idJoueur
+        GROUP BY p.nomPropriete
+        ORDER BY nb_achats DESC;
+    ", conn);
+            cmd.Parameters.AddWithValue("@idJoueur", idJoueur);
+            using var rdr = cmd.ExecuteReader();
+            var nomsProprietes = new List<string>();
+            var nbAchats = new List<double>();
+            while (rdr.Read())
+            {
+                nomsProprietes.Add(rdr.GetString(0));
+                nbAchats.Add(rdr.GetInt32(1));
+            }
+
+            var model = new PlotModel { Title = $"Nombre d'achats par propriété pour le joueur {idJoueur}" };
+            var catAxis = new CategoryAxis { Position = AxisPosition.Bottom, Angle = 45 };
+            catAxis.Labels.AddRange(nomsProprietes);
+            model.Axes.Add(catAxis);
+            model.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Title = "Nombre d'achats" });
+
+            //var cs = new ColumnSeries { FillColor = OxyColors.MediumSeaGreen };
+            //for (int i = 0; i < nomsProprietes.Count; i++)
+            //  cs.Items.Add(new ColumnItem(nbAchats[i], i));
+            //model.Series.Add(cs);
+
+            AfficherPlotDansCanvas(model, cible);
+        }
         #endregion
 
         #region Affichage

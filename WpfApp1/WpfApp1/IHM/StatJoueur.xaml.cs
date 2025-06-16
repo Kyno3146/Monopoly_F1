@@ -195,19 +195,19 @@ namespace Monopoly.IHM
                         Stat.CourbeVictoiresDefaites(statImg, idJoueur);
                         break;
                     case "Enchére gagné par partie":
-                        //Stat.DiagrammeEncheresGagneesParPartie(idJoueur, statImg);
+                        Stat.DiagrammeEncheresGagneesParPartie(statImg, idJoueur);
                         break;
                     case "Propriété le plus acheté au enchére":
-                        //Stat.DiagrammeProprietePlusAcheteeEnchere(idJoueur, statImg);
+                        Stat.DiagrammeProprietePlusAcheteeEnchere(statImg, idJoueur);
                         break;
                     case "Courbe de vos dépense aux enchére":
-                        //Stat.CourbeDepensesEncheres(idJoueur, statImg);
+                        Stat.CourbeDepensesEncheres(statImg, idJoueur);
                         break;
                     case "Courbe de propriété acheté":
-                        //Stat.CourbeProprietesAchetees(idJoueur, statImg);
+                        Stat.CourbeProprietesAchetees(statImg, idJoueur);
                         break;
                     case "Courbe de propriété hypothéquer":
-                        //Stat.CourbeProprietesHypothequees(idJoueur, statImg);
+                        Stat.CourbeProprietesHypothequees(statImg, idJoueur);
                         break;
                     default:
                         MessageBox.Show("Fonctionnalité non implémentée pour cet utilisateur.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
